@@ -77,6 +77,15 @@ Open, free, human-first.
 If you use or reference MCP4H in your work, please cite:
 Dirk Van Echelpoel. (2025). *MCP4H – Multimodal Communication Protocol for Humanity* (v0.1.2-alpha). Zenodo. https://doi.org/10.5281/zenodo.17164549
 
+---
+
+## Preprints & Archives
+
+- [MetaArXiv Preprint (pending approval)](https://osf.io/preprints/metaarxiv/mxhsg_v1)
+- [Zenodo Record (DOI: 10.5281/zenodo.17164550)](https://doi.org/10.5281/zenodo.17164550)
+- [arXiv submission (endorsement pending)](https://arxiv.org/) – link will be updated when live
+- HAL & other repositories: coming soon!
+
 ## 🐳 Run the Echo Server with Docker
 ```bash
 # From repo root
