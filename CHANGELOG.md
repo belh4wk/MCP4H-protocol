@@ -5,6 +5,15 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+# Version History
+
+| Version   | Date       | Type        | Description                                   | DOI / Link                                                                 |
+|-----------|------------|-------------|-----------------------------------------------|-----------------------------------------------------------------------------|
+| v0.1.0-alpha | 2025-09-20 | Preprint / Draft | First public draft (Manifesto + Whitepaper). Repo structure + governance files. | [Zenodo DOI](https://doi.org/10.5281/zenodo.17164550) · [OSF Preprint (MetaArXiv, pending)](https://osf.io/preprints/metaarxiv) |
+| Unreleased | –          | Planned     | Expanded spec, early MVP prototype (text/audio/visual integration), first haptic signal experiments. | –                                                                           |
+
+---
+
 ## [v0.1.0-alpha] – 2025-09-20
 ### Added
 - ✍️ First public draft of the **MCP4H Manifesto**  
