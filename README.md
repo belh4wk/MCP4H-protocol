@@ -6,6 +6,21 @@
 a universal, human-first protocol combining **Text, Audio, Visuals, and Haptics**  
 into a resilient "4-Point Belt" for understanding.  
 
+## Where MCP4H Lives
+
+To make MCP4H accessible, citable, and transparent, we’ve deposited it across multiple open platforms:
+
+| Platform   | Purpose                                | Why it matters for MCP4H |
+|------------|----------------------------------------|---------------------------|
+| **Zenodo (DOI)** | Open-access repository by CERN | Gives MCP4H a permanent, citable DOI in the scientific record |
+| **ORCID** | Global researcher ID system | Ensures MCP4H is tied to my authorship long-term |
+| **GitHub** | Open-source code/documentation hub | Makes MCP4H transparent, forkable, and open for collaboration |
+| **HAL** | French national open archive | Adds archival legitimacy within the European academic ecosystem |
+| **OSF** | Open Science Framework repository | Signals reproducibility and methodological transparency |
+| **ResearchGate** | Academic social network (application pending) | Boosts peer visibility and informal uptake |
+| **Figshare** | Open repository for data/figures (skipped for now) | Redundant with Zenodo DOI, but strong for dataset sharing |
+
+
 This repo serves as a working space for the **manifesto, whitepaper, and technical exploration** of MCP4H.
 
 [![DOI](https://zenodo.org/badge/1060606240.svg)](https://doi.org/10.5281/zenodo.17164550)
