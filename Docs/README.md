@@ -3,6 +3,16 @@
 This folder contains the **latest official documents** for the MCP4H project  
 (*Multimodal Communication Protocol for Humanity*).
 
+Van Echelpoel, D. (2025). MCP4H: The 4-Point Belt of Communication – A Human-First Multimodal Protocol (Initial Draft: Manifesto + Whitepaper). Zenodo. https://doi.org/10.5281/zenodo.17164550
+
+MLA (9th edition):
+Van Echelpoel, Dirk. MCP4H: The 4-Point Belt of Communication – A Human-First Multimodal Protocol (Initial Draft: Manifesto + Whitepaper). Zenodo, 20 Sept. 2025, https://doi.org/10.5281/zenodo.17164550
+.
+
+Chicago (Author-Date, 17th edition):
+Van Echelpoel, Dirk. 2025. MCP4H: The 4-Point Belt of Communication – A Human-First Multimodal Protocol (Initial Draft: Manifesto + Whitepaper). Zenodo. https://doi.org/10.5281/zenodo.17164550
+.
+
 ## 📄 Current Versions
 - **[MCP4H Manifesto](./MCP4H_Manifesto.pdf)**  
   High-level vision for the protocol, its purpose, and design philosophy.  
