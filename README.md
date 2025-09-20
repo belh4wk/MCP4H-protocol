@@ -57,12 +57,6 @@ This project is intended to stay **open, non-commercial, and collaborative**.
 
 ---
 
-## 📢 Citation
-If you’d like to cite MCP4H in research:  
-*(Zenodo DOI will be added once repository is archived)*
-
----
-
 ## 🦅 Identity
 MCP4H is developed under the **H4wk** identity, inspired by:  
 - **Vision** (hawks see far ahead).  
