@@ -5,7 +5,7 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
-## [v0.1.0-alpha] – 2025-09-21
+## [v0.1.0-alpha] – 2025-09-20
 ### Added
 - ✍️ First public draft of the **MCP4H Manifesto**  
 - 📄 First public draft of the **MCP4H Whitepaper**  
