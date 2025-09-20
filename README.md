@@ -72,10 +72,14 @@ Open, free, human-first.
 
 ---
 
-## Citation
+## 📖 How to Cite
 
-If you use or reference MCP4H in your work, please cite:
-Dirk Van Echelpoel. (2025). *MCP4H – Multimodal Communication Protocol for Humanity* (v0.1.2-alpha). Zenodo. https://doi.org/10.5281/zenodo.17164549
+If you use or reference **MCP4H (Multimodal Communication Protocol for Humanity)** in your work, please cite it.
+
+🔖 DOI: [10.5281/zenodo.17164550](https://doi.org/10.5281/zenodo.17164550)  
+📜 License: **CC BY-NC 4.0** (attribution required, non-commercial use only)
+
+Citation formats (APA, MLA, BibTeX, RIS, etc.) are available in [`CITATIONS.md`](CITATIONS.md).
 
 ---
 
