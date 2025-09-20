@@ -90,12 +90,13 @@ Citation formats (APA, MLA, BibTeX, RIS, etc.) are available in [`CITATIONS.md`]
 
 ---
 
-## Preprints & Archives
-
-- [MetaArXiv Preprint (pending approval)](https://osf.io/preprints/metaarxiv/mxhsg_v1)
+### Preprints & Archives
+- [MetaArXiv Preprint (pending approval)](https://osf.io/preprints/metaarxiv/mhsgv_v1)
 - [Zenodo Record (DOI: 10.5281/zenodo.17164550)](https://doi.org/10.5281/zenodo.17164550)
-- [arXiv submission (endorsement pending)](https://arxiv.org/) – link will be updated when live
-- HAL & other repositories: coming soon!
+- [HAL Deposit (ID: hal-05270821v1, pending moderation)](https://hal.science/hal-05270821v1)  
+- [arXiv submission (endorsement pending)](https://arxiv.org) – link will be updated when live.
+
+---
 
 ## 🐳 Run the Echo Server with Docker
 ```bash
