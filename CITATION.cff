@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "MCP4H – Multimodal Communication Protocol for Humanity"
+message: "If you use this project, please cite it as below."
+authors:
+  - family-names: "Van Echelpoel"
+    given-names: "Dirk"
+date-released: 2025-09-20
+version: "0.1.2-alpha"
+doi: 10.5281/zenodo.17164549
+url: "https://github.com/belH4wk/MCP4H-protocol"
