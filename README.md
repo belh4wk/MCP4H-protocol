@@ -8,9 +8,10 @@ into a resilient "4-Point Belt" for understanding.
 
 This repo serves as a working space for the **manifesto, whitepaper, and technical exploration** of MCP4H.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1234567.svg)](https://doi.org/10.5281/zenodo.1234567)
-![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)
-![Status](https://img.shields.io/badge/Status-Preprint-blue)
+[![DOI](https://zenodo.org/badge/1060606240.svg)](https://doi.org/10.5281/zenodo.17164550)
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![Status](https://img.shields.io/badge/Status-Preprint-blue)]()
+[![Roadmap Status](https://img.shields.io/badge/Roadmap-Exploratory%20Draft-orange)](ROADMAP.md)
 
 > ⚠️ **Disclaimer:** MCP4H is an early exploratory draft (v0.x). For authoritative versions and corrections, see the [DISCLAIMER.md](DISCLAIMER.md).
 
