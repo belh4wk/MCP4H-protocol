@@ -20,7 +20,7 @@ Van Echelpoel, Dirk. 2025. *MCP4H: The 4-Point Belt of Communication – A Human
 
 ---
 
-## 🔧 BibTeX
+## BibTeX
 ```bibtex
 @misc{van_echelpoel_mcp4h_2025,
   author       = {Dirk Van Echelpoel},
@@ -30,9 +30,8 @@ Van Echelpoel, Dirk. 2025. *MCP4H: The 4-Point Belt of Communication – A Human
   doi          = {10.5281/zenodo.17164550},
   url          = {https://doi.org/10.5281/zenodo.17164550}
 }
----
-
-## 📄 RIS
+```
+## RIS
 ```ris
 TY  - RPRT
 AU  - Van Echelpoel, Dirk
@@ -42,3 +41,10 @@ PB  - Zenodo
 DO  - 10.5281/zenodo.17164550
 UR  - https://doi.org/10.5281/zenodo.17164550
 ER  -
+```
+
+---
+
+✍️ **Note:**  
+This project is licensed under **CC BY-NC 4.0**.  
+You are free to share and adapt the work with proper attribution, but **not for commercial use**.  
