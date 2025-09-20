@@ -16,6 +16,10 @@ This repo serves as a working space for the **manifesto, whitepaper, and technic
 > ⚠️ **Disclaimer:** MCP4H is an early exploratory draft (v0.x). For authoritative versions and corrections, see the [DISCLAIMER.md](DISCLAIMER.md).
 
 ---
+📌 **Note:** This project has also been deposited on [HAL](https://hal.science/) (awaiting moderation, HAL ID will be added once validated).  
+Linked to ORCID: [0009-0008-4362-3511](https://orcid.org/0009-0008-4362-3511).  
+
+---
 
 ## 🌍 Vision
 Humanity’s greatest challenge is often **miscommunication**.  
