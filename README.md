@@ -8,6 +8,12 @@ into a resilient "4-Point Belt" for understanding.
 
 This repo serves as a working space for the **manifesto, whitepaper, and technical exploration** of MCP4H.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1234567.svg)](https://doi.org/10.5281/zenodo.1234567)
+![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)
+![Status](https://img.shields.io/badge/Status-Preprint-blue)
+
+> ⚠️ **Disclaimer:** MCP4H is an early exploratory draft (v0.x). For authoritative versions and corrections, see the [DISCLAIMER.md](DISCLAIMER.md).
+
 ---
 
 ## 🌍 Vision
