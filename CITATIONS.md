@@ -1,7 +1,10 @@
+> ⚠️ **Disclaimer:** MCP4H is an early exploratory draft (v0.x). For authoritative versions and corrections, see the [DISCLAIMER.md](DISCLAIMER.md).
+
 # 📖 How to Cite MCP4H
 
 If you reference or build upon this work, please cite it using one of the formats below.  
-The official DOI for this version is: **[10.5281/zenodo.17164550](https://doi.org/10.5281/zenodo.17164550)**  
+The official DOI for this version is: **[10.5281/zenodo.17164550](https://doi.org/10.5281/zenodo.17164550)** 
+
 
 ---
 
