@@ -1,5 +1,7 @@
 # MCP4H – Multimodal Communication Protocol for Humanity
 
+[![DOI](https://zenodo.org/badge/1060606240.svg)](https://doi.org/10.5281/zenodo.17164549)
+
 **MCP4H** is an open exploration into the future of communication:  
 a universal, human-first protocol combining **Text, Audio, Visuals, and Haptics**  
 into a resilient "4-Point Belt" for understanding.  
@@ -69,6 +71,11 @@ This work is licensed under [Creative Commons Attribution 4.0 International](htt
 Open, free, human-first.
 
 ---
+
+## Citation
+
+If you use or reference MCP4H in your work, please cite:
+Dirk Van Echelpoel. (2025). *MCP4H – Multimodal Communication Protocol for Humanity* (v0.1.2-alpha). Zenodo. https://doi.org/10.5281/zenodo.17164549
 
 ## 🐳 Run the Echo Server with Docker
 ```bash
