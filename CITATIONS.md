@@ -5,22 +5,22 @@ The official DOI for this version is: **[10.5281/zenodo.17164550](https://doi.or
 
 ---
 
-## APA
+## 📑 APA
 Van Echelpoel, D. (2025). *MCP4H: The 4-Point Belt of Communication – A Human-First Multimodal Protocol (Initial Draft: Manifesto + Whitepaper)*. Zenodo. https://doi.org/10.5281/zenodo.17164550  
 
 ---
 
-## MLA
+## 🖋️ MLA
 Van Echelpoel, Dirk. *MCP4H: The 4-Point Belt of Communication – A Human-First Multimodal Protocol (Initial Draft: Manifesto + Whitepaper).* 2025. Zenodo, https://doi.org/10.5281/zenodo.17164550.  
 
 ---
 
-## Chicago
+## 📚 Chicago
 Van Echelpoel, Dirk. 2025. *MCP4H: The 4-Point Belt of Communication – A Human-First Multimodal Protocol (Initial Draft: Manifesto + Whitepaper).* Zenodo. https://doi.org/10.5281/zenodo.17164550.  
 
 ---
 
-## BibTeX
+## 🔧 BibTeX
 ```bibtex
 @misc{van_echelpoel_mcp4h_2025,
   author       = {Dirk Van Echelpoel},
@@ -30,3 +30,15 @@ Van Echelpoel, Dirk. 2025. *MCP4H: The 4-Point Belt of Communication – A Human
   doi          = {10.5281/zenodo.17164550},
   url          = {https://doi.org/10.5281/zenodo.17164550}
 }
+---
+
+## 📄 RIS
+```ris
+TY  - RPRT
+AU  - Van Echelpoel, Dirk
+TI  - MCP4H: The 4-Point Belt of Communication – A Human-First Multimodal Protocol (Initial Draft: Manifesto + Whitepaper)
+PY  - 2025
+PB  - Zenodo
+DO  - 10.5281/zenodo.17164550
+UR  - https://doi.org/10.5281/zenodo.17164550
+ER  -
