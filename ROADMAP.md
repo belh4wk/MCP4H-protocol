@@ -5,6 +5,19 @@ Our goal is to create an **open, universal, human-first communication protocol**
 
 ---
 
+## Project Status Roadmap
+
+MCP4H progresses through the following stages:
+
+- ![Draft](https://img.shields.io/badge/Status-Draft-lightgrey) → Early idea notes, scratch docs, exploratory drafts.  
+- ![Preprint](https://img.shields.io/badge/Status-Preprint-blue) → First public drafts (e.g., manifesto + whitepaper, shared via OSF/Zenodo/arXiv).  
+- ![Prototype](https://img.shields.io/badge/Status-Prototype-orange) → Early technical experiments (haptic signal tests, SimHub integration, SDK stubs).  
+- ![Pilot](https://img.shields.io/badge/Status-Pilot-yellowgreen) → Applied trials in controlled environments (sim racing sandbox, accessibility use cases).  
+- ![Stable](https://img.shields.io/badge/Status-Stable-brightgreen) → Established specification with reference implementation(s).  
+- ![Release](https://img.shields.io/badge/Status-Release-green) → Widely adopted standard, linked with DOI + long-term archival.  
+
+---
+
 ## 🌱 Phase 1 — Foundations (Now → 6 months)
 - Publish **Manifesto** and **Whitepaper** drafts (✅ done).
 - Establish GitHub repo with governance files (LICENSE, CoC, Contributing).
