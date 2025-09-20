@@ -4,7 +4,7 @@
 
 **MCP4H** is an open exploration into the future of communication:  
 a universal, human-first protocol combining **Text, Audio, Visuals, and Haptics**  
-into a resilient "4-Point Belt" for understanding.  
+into a resilient "4-Point Harness" for understanding.  
 
 ## Where MCP4H Lives
 
@@ -50,7 +50,7 @@ just as the 3-point seatbelt became a universal safety standard.
 ---
 
 ## 📄 Contents
-- `manifesto/` → The 4-Point Belt Manifesto (public article draft).  
+- `manifesto/` → The 4-Point Harness Manifesto (public article draft).  
 - `whitepaper/` → Early draft of the technical whitepaper.  
 - `docs/` → Notes, diagrams, and references.  
 - `proto/` → (future) Experimental protocol design & PoC code.

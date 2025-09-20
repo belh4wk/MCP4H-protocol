@@ -94,7 +94,7 @@ The **seatbelt analogy** drives MCP4H:
 - Simple → usable by humans + machines
 - Open → no paywalls, no walled gardens
 
-If the 3-point seatbelt saved millions of lives, the 4-point communication belt could help save our ability to **understand each other**.
+If the 3-point seatbelt saved millions of lives, the 4-point communication harness could help save our ability to **understand each other**.
 
 ---
 

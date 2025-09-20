@@ -3,7 +3,7 @@ message: "If you use this work, please cite it as below."
 authors:
   - family-names: "Van Echelpoel"
     given-names: "Dirk"
-title: "MCP4H: The 4-Point Belt of Communication – A Human-First Multimodal Protocol (Initial Draft: Manifesto + Whitepaper)"
+title: "MCP4H: The 4-Point Harness of Communication – A Human-First Multimodal Protocol (Initial Draft: Manifesto + Whitepaper)"
 version: "v0.1.0-alpha"
 date-released: 2025-09-20
 doi: "10.5281/zenodo.17164550"
@@ -13,7 +13,7 @@ license: "CC-BY-NC-4.0"
 abstract: >
   MCP4H (Multimodal Communication Protocol for Humanity) is a human-first,
   open protocol that unifies text, audio, visuals, and haptics into a
-  resilient “4-point belt” for clarity, empathy, speed, and trust.
+  resilient “4-point harness” for clarity, empathy, speed, and trust.
   This initial draft includes a Manifesto and Whitepaper, providing the
   high-level vision, technical exploration, and roadmap for development.
 preferred-citation:
@@ -21,7 +21,7 @@ preferred-citation:
   authors:
     - family-names: "Van Echelpoel"
       given-names: "Dirk"
-  title: "MCP4H: The 4-Point Belt of Communication – A Human-First Multimodal Protocol (Initial Draft: Manifesto + Whitepaper)"
+  title: "MCP4H: The 4-Point Harness of Communication – A Human-First Multimodal Protocol (Initial Draft: Manifesto + Whitepaper)"
   year: 2025
   doi: "10.5281/zenodo.17164550"
   url: "https://doi.org/10.5281/zenodo.17164550"
