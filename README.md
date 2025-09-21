@@ -1,5 +1,9 @@
 # MCP4H – Multimodal Communication Protocol for Humanity
 
+
+![MCP4H Flow](docs/diagrams/mcp4h_flow.svg)
+
+
 [![DOI](https://zenodo.org/badge/1060606240.svg)](https://doi.org/10.5281/zenodo.17164549)
 
 **MCP4H** is an open exploration into the future of communication:  
