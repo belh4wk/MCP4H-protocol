@@ -43,14 +43,7 @@ Linked to ORCID: [0009-0008-4362-3511](https://orcid.org/0009-0008-4362-3511).
 
 MCP4H is still an exploratory draft, but you can try it right now with the included examples.
 
-### 1. Validate the Protocol
-Clone the repo and run the validator against the included examples:
-```bash
-git clone https://github.com/belhawk/MCP4H-protocol.git
-cd MCP4H-protocol
-pip install -r requirements.txt
-python tests/validate_messages.py
-```
+👉 New here? Start with the [Getting Started guide](https://github.com/belh4wk/MCP4H-protocol/wiki)
 
 ## 🌍 Vision
 Humanity’s greatest challenge is often **miscommunication**.  
