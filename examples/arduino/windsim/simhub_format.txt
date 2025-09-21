@@ -1,0 +1,1 @@
+MCP4H v=1 ts=$now() spd_mps=[DataCorePlugin.GameData.NewData.SpeedMps] gear=[DataCorePlugin.GameData.NewData.Gear]
