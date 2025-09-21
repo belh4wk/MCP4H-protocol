@@ -1,8 +1,6 @@
 # MCP4H – Multimodal Communication Protocol for Humanity
 
-
 ![MCP4H Flow](docs/diagrams/mcp4h_flow.svg)
-
 
 [![DOI](https://zenodo.org/badge/1060606240.svg)](https://doi.org/10.5281/zenodo.17164549)
 
@@ -25,7 +23,6 @@ To make MCP4H accessible, citable, and transparent, we’ve deposited it across 
 | **ResearchGate** | Academic social network (application pending) | Boosts peer visibility and informal uptake |
 | **Figshare** | Open repository for data/figures (skipped for now) | Redundant with Zenodo DOI, but strong for dataset sharing |
 
-
 This repo serves as a working space for the **manifesto, whitepaper, and technical exploration** of MCP4H.
 
 ![CI](https://github.com/belh4wk/MCP4H-protocol/actions/workflows/ci.yml/badge.svg)
@@ -41,6 +38,19 @@ This repo serves as a working space for the **manifesto, whitepaper, and technic
 Linked to ORCID: [0009-0008-4362-3511](https://orcid.org/0009-0008-4362-3511).  
 
 ---
+
+## 🚀 Getting Started
+
+MCP4H is still an exploratory draft, but you can try it right now with the included examples.
+
+### 1. Validate the Protocol
+Clone the repo and run the validator against the included examples:
+```bash
+git clone https://github.com/YOUR_USER/MCP4H-protocol.git
+cd MCP4H-protocol
+pip install -r requirements.txt
+python tests/validate_messages.py
+```
 
 ## 🌍 Vision
 Humanity’s greatest challenge is often **miscommunication**.  
@@ -116,10 +126,3 @@ Citation formats (APA, MLA, BibTeX, RIS, etc.) are available in [`CITATIONS.md`]
 - [arXiv submission (endorsement pending)](https://arxiv.org) – link will be updated when live.
 
 ---
-
-## 🐳 Run the Echo Server with Docker
-```bash
-# From repo root
-docker compose up --build
-# Server will be available at ws://localhost:8080
-```
