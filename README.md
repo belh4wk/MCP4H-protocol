@@ -4,7 +4,9 @@
 
 **MCP4H** is an open exploration into the future of communication:  
 a universal, human-first protocol combining **Text, Audio, Visuals, and Haptics**  
-into a resilient "4-Point Harness" for understanding.  
+into a resilient "4-Point Harness" for understanding. 
+A neutral protocol for unifying multimodal signals between humans and machines.
+Originating in simracing and Arduino DIY builds, it provides a consistent schema for telemetry, haptics, voice, and beyond.
 
 ## Where MCP4H Lives
 
@@ -23,8 +25,9 @@ To make MCP4H accessible, citable, and transparent, we’ve deposited it across 
 
 This repo serves as a working space for the **manifesto, whitepaper, and technical exploration** of MCP4H.
 
-[![DOI](https://zenodo.org/badge/1060606240.svg)](https://doi.org/10.5281/zenodo.17164550)
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![DOI](https://zenodo.org/badge/DOI/YOUR-DOI-HERE.svg)](https://doi.org/YOUR-DOI-HERE)
+![License: CC BY-NC 4.0](https://img.shields.io/badge/docs-CC_BY--NC_4.0-lightgrey)
+![License: GPL v3+](https://img.shields.io/badge/code-GPLv3+-blue)
 [![Status](https://img.shields.io/badge/Status-Preprint-blue)]()
 [![Roadmap Status](https://img.shields.io/badge/Roadmap-Exploratory%20Draft-orange)](ROADMAP.md)
 
