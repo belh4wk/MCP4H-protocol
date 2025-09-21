@@ -46,7 +46,7 @@ MCP4H is still an exploratory draft, but you can try it right now with the inclu
 ### 1. Validate the Protocol
 Clone the repo and run the validator against the included examples:
 ```bash
-git clone https://github.com/YOUR_USER/MCP4H-protocol.git
+git clone https://github.com/belhawk/MCP4H-protocol.git
 cd MCP4H-protocol
 pip install -r requirements.txt
 python tests/validate_messages.py
