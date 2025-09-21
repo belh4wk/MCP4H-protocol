@@ -55,7 +55,10 @@ Citation formats (APA, MLA, BibTeX, RIS, etc.) are available in [`CITATIONS.md`]
 
 MCP4H is still an exploratory draft, but you can try it right now with the included examples.
 
-👉 New here? Start with the [Getting Started guide](https://github.com/belh4wk/MCP4H-protocol/wiki)
+👉 New here? Start with the [Getting Started guide](https://github.com/belh4wk/MCP4H-protocol/wiki).
+For common questions, see the [FAQ](docs/FAQ.md).
+
+---
 
 ## 🌍 Vision
 Humanity’s greatest challenge is often **miscommunication**.  
