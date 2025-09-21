@@ -28,6 +28,7 @@ To make MCP4H accessible, citable, and transparent, we’ve deposited it across 
 
 This repo serves as a working space for the **manifesto, whitepaper, and technical exploration** of MCP4H.
 
+![CI](https://github.com/belh4wk/MCP4H-protocol/actions/workflows/ci.yml/badge.svg)
 ![License: CC BY-NC 4.0](https://img.shields.io/badge/docs-CC_BY--NC_4.0-lightgrey)
 ![License: GPL v3+](https://img.shields.io/badge/code-GPLv3+-blue)
 [![Status](https://img.shields.io/badge/Status-Preprint-blue)]()
