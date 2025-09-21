@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MCP4H v0.1 Message Schema",
+  "type": "object",
+  "properties": {
+    "header": {
+      "type": "object",
+      "properties": {
+        "ts_monotonic_ns": { "type": "integer" },
+        "source": { "type": "string" },
+        "provenance": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "required": ["ts_monotonic_ns", "source"]
+    },
+    "signal": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string" },
+        "id": { "type": "string" },
+        "value": {}
+      },
+      "required": ["type"]
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "device_target": { "type": "string" }
+      }
+    }
+  },
+  "required": ["header", "signal"]
+}

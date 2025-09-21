@@ -1,0 +1,27 @@
+flowchart LR
+  subgraph Inputs
+    A[Game/Sim Telemetry] -->|speed,rpm,gear| B
+    C[Human Controls] --> B
+    D[Voice/Gaze] --> B
+    E[Biometrics] --> B
+  end
+
+  subgraph MCP4H_Core[Ingest & MCP4H Core]
+    B[Ingest Adapters (SimHub/SDKs)]
+    F[Normalization (units/frames/ts)]
+    G[MCP4H Schema (header/signal/context + confidence)]
+    H[Message Bus / API]
+    B --> F --> G --> H
+  end
+
+  subgraph Outputs
+    I[Arduino/DIY]
+    J[OEM Peripherals]
+    K[Analytics/Recorder]
+    L[AI/Assistant]
+  end
+
+  H --> I
+  H --> J
+  H --> K
+  H --> L

@@ -1,0 +1,14 @@
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+
+Copyright (C) 2007 Free Software Foundation, Inc.
+<https://fsf.org/>
+
+Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+
+[Note: For brevity here, use the official standalone text from the FSF link below.]
+
+Obtain the full, unmodified license text from:
+https://www.gnu.org/licenses/gpl-3.0-standalone.html
+
+When distributing code, include this file verbatim.
