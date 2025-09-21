@@ -34,3 +34,5 @@
 - Position MCP4H as a neutral interoperability protocol for multimodal human↔machine signals.
 - Expand beyond simracing into accessibility and mobility domains.
 - Explore consortium/standardization pathways (SAE, IEEE, Khronos).
+
+**2025-09-21:** Repo housekeeping completed (docs path normalized, schema path consolidated, examples reorganized, duplicate validator removed).

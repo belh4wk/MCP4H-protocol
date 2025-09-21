@@ -42,3 +42,5 @@ This project follows [Semantic Versioning](https://semver.org/).
 - Expanded technical specification of the MCP4H protocol
 - Early MVP prototype (text, audio, visual integration)
 - First haptic signal experiments
+
+- chore(structure): normalize `Docs/` → `docs/`, consolidate `spec/schemas` → `spec/schema`, and organize examples.
