@@ -34,8 +34,20 @@ This repo serves as a working space for the **manifesto, whitepaper, and technic
 > ⚠️ **Disclaimer:** MCP4H is an early exploratory draft (v0.x). For authoritative versions and corrections, see the [DISCLAIMER.md](DISCLAIMER.md).
 
 ---
+
 📌 **Note:** This project has also been deposited on [HAL](https://hal.science/) (awaiting moderation, HAL ID will be added once validated).  
 Linked to ORCID: [0009-0008-4362-3511](https://orcid.org/0009-0008-4362-3511).  
+
+---
+
+## 📖 How to Cite
+
+If you use or reference **MCP4H (Multimodal Communication Protocol for Humanity)** in your work, please cite it.
+
+🔖 DOI: [10.5281/zenodo.17164550](https://doi.org/10.5281/zenodo.17164550)  
+📜 License: **CC BY-NC 4.0** (attribution required, non-commercial use only)
+
+Citation formats (APA, MLA, BibTeX, RIS, etc.) are available in [`CITATIONS.md`](CITATIONS.md).
 
 ---
 
@@ -98,17 +110,6 @@ LinkedIn: [linkedin.com/in/dvanechelpoel](https://www.linkedin.com/in/dvanechelp
 ### License
 This work is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).  
 Open, free, human-first.
-
----
-
-## 📖 How to Cite
-
-If you use or reference **MCP4H (Multimodal Communication Protocol for Humanity)** in your work, please cite it.
-
-🔖 DOI: [10.5281/zenodo.17164550](https://doi.org/10.5281/zenodo.17164550)  
-📜 License: **CC BY-NC 4.0** (attribution required, non-commercial use only)
-
-Citation formats (APA, MLA, BibTeX, RIS, etc.) are available in [`CITATIONS.md`](CITATIONS.md).
 
 ---
 
