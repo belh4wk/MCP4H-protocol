@@ -3,8 +3,7 @@
 [![DOI](https://zenodo.org/badge/1060606240.svg)](https://doi.org/10.5281/zenodo.17164549)
 
 **MCP4H** is an open exploration into the future of communication:  
-a universal, human-first protocol combining **Text, Audio, Visuals, and Haptics**  
-into a resilient "4-Point Harness" for understanding. 
+a universal, human-first protocol combining **Text, Audio, Visuals, and Haptics** into a resilient "4-Point Harness" for understanding. 
 A neutral protocol for unifying multimodal signals between humans and machines.
 Originating in simracing and Arduino DIY builds, it provides a consistent schema for telemetry, haptics, voice, and beyond.
 
