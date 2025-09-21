@@ -1,15 +1,23 @@
-# Pull Request Template
+# Pull Request
 
-## Description
-(Explain what this PR does and why it's needed.)
+**Description**
+Please include a summary of the change and which issue is fixed. Also include relevant motivation and context.
 
-## Related Issues
-(If this PR relates to open issues, link them here.)
+Fixes #(issue)
 
-## Changes Made
-- 
+**Type of change**
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Breaking change
+- [ ] Documentation update
 
-## Checklist
-- [ ] Code follows project guidelines
-- [ ] Tests added or updated
-- [ ] Documentation updated
+**Checklist**
+- [ ] My code follows the style guidelines of this project
+- [ ] I have performed a self-review of my code
+- [ ] I have commented my code, particularly in hard-to-understand areas
+- [ ] I have updated the documentation where applicable
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally with my changes
+
+**Additional context**
+Add any other context or screenshots about the pull request here.
