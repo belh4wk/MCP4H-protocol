@@ -22,6 +22,6 @@ Harmonizer is a **human‑first helper** that can also emit **MCP4H packets** on
 See [`examples_harmonizer/`](../examples_harmonizer) for ready‑to‑validate JSON packets.
 
 ## Learn more
-- [MCP4H_Harmonizer_Handbook_v1.5.md](../MCP4H_Harmonizer_Handbook_v1.5.md)
+- [MCP4H_Harmonizer_Handbook_v1.6.md](../MCP4H_Harmonizer_Handbook_v1.6.md)
 - [DEVELOPERS.md](../DEVELOPERS.md)
 - [docs/FAQ.md](./FAQ.md)

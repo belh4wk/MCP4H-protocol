@@ -44,3 +44,22 @@ This project follows [Semantic Versioning](https://semver.org/).
 - First haptic signal experiments
 
 - chore(structure): normalize `Docs/` → `docs/`, consolidate `spec/schemas` → `spec/schema`, and organize examples.
+
+# Changelog
+
+## 2025-09-22 — Harmonizer Handbook v1.6 Migration
+
+### Added
+- **MCP4H_Harmonizer_Handbook_v1.6.md**:  
+  - New configuration section for GPT setup (conversation starters, knowledge file, capabilities).  
+  - Expanded **Appendix F — MCP4H Packet Emission (v1.6)**.  
+  - New **Appendix G — GPT Configuration Mapping** to align repo docs with GPT Configure UI.  
+
+### Changed
+- Updated references in `DEVELOPERS.md`, `docs/FAQ.md`, `docs/Harmonizer.md`, and `README.md` to point to v1.6.  
+- CI continues validating `examples_harmonizer/` using schema v0.1.1.
+
+### Removed
+- **MCP4H_Harmonizer_Handbook_v1.5.md** deprecated and removed to avoid confusion.  
+
+---

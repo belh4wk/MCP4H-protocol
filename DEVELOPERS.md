@@ -40,4 +40,4 @@ This enables natural-language inputs to produce interoperable JSON artifacts con
 - Include `assumptions` (array), `confidence` (0..1), and `tags` (array)
 - No comments, no trailing commas
 
-See [MCP4H_Harmonizer_Handbook_v1.5.md](./MCP4H_Harmonizer_Handbook_v1.5.md) for canonical templates and triggers.
+See [MCP4H_Harmonizer_Handbook_v1.6.md](./MCP4H_Harmonizer_Handbook_v1.6.md) for canonical templates and triggers.
