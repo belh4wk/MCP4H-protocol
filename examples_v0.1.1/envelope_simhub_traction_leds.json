@@ -1,0 +1,52 @@
+{
+  "version": "mcp4h/0.1",
+  "id": "de29adab-5726-494f-bac9-0a54f3d5f886",
+  "timestamp": "2025-09-22T02:02:10Z",
+  "origin": {
+    "platform": "simhub",
+    "relation": "telemetry"
+  },
+  "actor": {
+    "role": "system",
+    "handle": "local_sim"
+  },
+  "text": "",
+  "metadata": {
+    "heat": 1,
+    "valence": "neutral",
+    "tone": "telemetry",
+    "constraints_detected": [
+      "traction",
+      "grip"
+    ]
+  },
+  "extensions": {
+    "traction_leds": {
+      "unit": "slip_ratio",
+      "values": {
+        "LF": 0.04,
+        "RF": 0.03,
+        "LR": 0.18,
+        "RR": 0.22
+      },
+      "severity": {
+        "LF": "ok",
+        "RF": "ok",
+        "LR": "warning",
+        "RR": "critical"
+      },
+      "colors": {
+        "LF": "#1FDB51",
+        "RF": "#1FDB51",
+        "LR": "#FFCC00",
+        "RR": "#FF3B30"
+      },
+      "blink": {
+        "LF": false,
+        "RF": false,
+        "LR": true,
+        "RR": true
+      }
+    }
+  }
+}

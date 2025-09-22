@@ -58,6 +58,8 @@ MCP4H is still an exploratory draft, but you can try it right now with the inclu
 👉 New here? Start with the [Getting Started guide](https://github.com/belh4wk/MCP4H-protocol/wiki).
 For common questions, see the [FAQ](docs/FAQ.md).
 
+See **[DEVELOPERS.md](DEVELOPERS.md)** for schemas, examples, CI, and bridge/plugin notes.
+
 ---
 
 ## 🌍 Vision

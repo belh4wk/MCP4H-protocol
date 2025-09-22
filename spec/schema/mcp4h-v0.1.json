@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/spec/schema/mcp4h-v0.1.json",
+  "title": "MCP4H v0.1 Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "id",
+    "timestamp",
+    "origin",
+    "actor",
+    "metadata"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "mcp4h/0.1"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "platform"
+      ],
+      "properties": {
+        "platform": {
+          "type": "string"
+        },
+        "relation": {
+          "type": "string",
+          "enum": [
+            "dm",
+            "mention",
+            "tag",
+            "comment",
+            "reply",
+            "post",
+            "system",
+            "telemetry",
+            "other"
+          ]
+        }
+      }
+    },
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role"
+      ],
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": [
+            "sender",
+            "recipient",
+            "system"
+          ]
+        },
+        "handle": {
+          "type": "string"
+        }
+      }
+    },
+    "text": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "heat",
+        "valence"
+      ],
+      "properties": {
+        "heat": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "valence": {
+          "type": "string",
+          "enum": [
+            "positive",
+            "neutral",
+            "negative",
+            "mixed"
+          ]
+        },
+        "tone": {
+          "type": "string"
+        },
+        "civility_flags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "labeling",
+              "motive_attribution",
+              "ad_hominem",
+              "tone_attack",
+              "guilt_by_association",
+              "purity_test",
+              "name_calling"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "reasoning_moves": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "steelman",
+              "claim",
+              "tradeoffs",
+              "receipts",
+              "curious_close"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "constraints_detected": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "cost",
+              "time",
+              "weight",
+              "battery",
+              "complexity",
+              "risk",
+              "privacy",
+              "safety",
+              "latency",
+              "bandwidth"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "urgency": {
+          "type": "string",
+          "enum": [
+            "low",
+            "normal",
+            "high"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "visual_cues": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "emoji": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "meme_labels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "alt_text": {
+              "type": "string"
+            }
+          }
+        },
+        "platform_hints": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "schedule": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "link_handling": {
+              "type": "string"
+            },
+            "threading": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }
+}

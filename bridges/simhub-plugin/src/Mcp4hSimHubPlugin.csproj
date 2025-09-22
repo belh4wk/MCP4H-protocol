@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <RootNamespace>Mcp4hSimHubPlugin</RootNamespace>
+    <AssemblyName>Mcp4hSimHubPlugin</AssemblyName>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Update HintPath to your local SimHub install -->
+    <Reference Include="SimHub.Plugins">
+      <HintPath>$(ProgramFiles)\SimHub\SimHub.Plugins.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

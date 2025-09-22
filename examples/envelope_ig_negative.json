@@ -1,0 +1,24 @@
+{
+  "version": "mcp4h/0.1",
+  "id": "7b9c15d2-008a-45f9-9405-8fa9e20a4fdd",
+  "timestamp": "2025-09-22T02:02:10Z",
+  "origin": {
+    "platform": "instagram",
+    "relation": "mention"
+  },
+  "actor": {
+    "role": "sender",
+    "handle": "hash_b7e21"
+  },
+  "text": "lol this is clueless \u2014 overlay is the only future.",
+  "metadata": {
+    "heat": 2,
+    "valence": "negative",
+    "civility_flags": [
+      "labeling"
+    ],
+    "reasoning_moves": [
+      "claim"
+    ]
+  }
+}

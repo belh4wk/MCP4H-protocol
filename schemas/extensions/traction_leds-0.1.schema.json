@@ -1,0 +1,120 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "unit",
+    "values"
+  ],
+  "properties": {
+    "unit": {
+      "type": "string",
+      "enum": [
+        "slip_ratio",
+        "slip_angle",
+        "traction_percent"
+      ]
+    },
+    "values": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "LF": {
+          "type": "number"
+        },
+        "RF": {
+          "type": "number"
+        },
+        "LR": {
+          "type": "number"
+        },
+        "RR": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "LF",
+        "RF",
+        "LR",
+        "RR"
+      ]
+    },
+    "severity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "LF": {
+          "type": "string",
+          "enum": [
+            "ok",
+            "warning",
+            "critical"
+          ]
+        },
+        "RF": {
+          "type": "string",
+          "enum": [
+            "ok",
+            "warning",
+            "critical"
+          ]
+        },
+        "LR": {
+          "type": "string",
+          "enum": [
+            "ok",
+            "warning",
+            "critical"
+          ]
+        },
+        "RR": {
+          "type": "string",
+          "enum": [
+            "ok",
+            "warning",
+            "critical"
+          ]
+        }
+      }
+    },
+    "colors": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "LF": {
+          "type": "string",
+          "pattern": "^#([A-Fa-f0-9]{6})$"
+        },
+        "RF": {
+          "type": "string",
+          "pattern": "^#([A-Fa-f0-9]{6})$"
+        },
+        "LR": {
+          "type": "string",
+          "pattern": "^#([A-Fa-f0-9]{6})$"
+        },
+        "RR": {
+          "type": "string",
+          "pattern": "^#([A-Fa-f0-9]{6})$"
+        }
+      }
+    },
+    "blink": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "LF": {
+          "type": "boolean"
+        },
+        "RF": {
+          "type": "boolean"
+        },
+        "LR": {
+          "type": "boolean"
+        },
+        "RR": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
