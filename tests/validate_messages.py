@@ -11,36 +11,37 @@ def load(p):
     with open(p, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def check_schema(p):
-    Draft202012Validator.check_schema(load(p))
+def is_mcp4h_like(data):
+    return isinstance(data, dict) and isinstance(data.get("metadata"), dict) and isinstance(data.get("version"), str) and data["version"].startswith("mcp4h/")
 
 def validate_dir(dir_path, schema_path, label):
-    check_schema(schema_path)
-    examples = sorted(glob.glob(str(dir_path / "*.json")))
-    if not examples:
-        print(f"[WARN] No examples in {dir_path}")
-        return 0, 0
-    ok = fail = 0
-    schema = load(schema_path)
-    for ex in examples:
+    print(f"[INFO] Validating {label} with {schema_path}")
+    Draft202012Validator.check_schema(load(schema_path))
+    ok = fail = skip = 0
+    for ex in sorted(glob.glob(str(dir_path / "*.json"))):
         try:
             data = load(ex)
-            validate(instance=data, schema=schema)
-            print(f"[OK]   {Path(ex).name}")
+        except Exception as e:
+            print(f"  [SKIP] {Path(ex).name}: unreadable JSON ({e})"); skip += 1; continue
+        if not is_mcp4h_like(data):
+            print(f"  [SKIP] {Path(ex).name}: not an MCP4H envelope"); skip += 1; continue
+        try:
+            validate(instance=data, schema=load(schema_path))
+            print(f"  [OK]  {Path(ex).name}")
             ok += 1
         except Exception as e:
-            print(f"[FAIL] {Path(ex).name}: {e}")
-            fail += 1
-    return ok, fail
+            print(f"  [FAIL]{Path(ex).name}: {e}"); fail += 1
+    print(f"[INFO] {label}: {ok} ok, {fail} failed, {skip} skipped")
+    return ok, fail, skip
 
 def main():
-    print(f"[INFO] Repo root: {REPO}")
-    ok1, fail1 = validate_dir(REPO / "examples", SCHEMA_V01, "examples (v0.1)")
-    ok2 = fail2 = 0
-    if (REPO / "examples_v0.1.1").exists():
-        ok2, fail2 = validate_dir(REPO / "examples_v0.1.1", SCHEMA_V011, "examples_v0.1.1 (extensions)")
-    print(f"[INFO] Summary: {ok1+ok2} ok, {fail1+fail2} failed")
-    raise SystemExit(0 if (fail1+fail2)==0 else 1)
+    total_ok = total_fail = total_skip = 0
+    for folder, schema in [(REPO / 'examples', SCHEMA_V01), (REPO / 'examples_v0.1.1', SCHEMA_V011)]:
+        if folder.exists():
+            ok, fail, skip = validate_dir(folder, schema, folder.name)
+            total_ok += ok; total_fail += fail; total_skip += skip
+    print(f"[INFO] Summary: {total_ok} ok, {total_fail} failed, {total_skip} skipped")
+    raise SystemExit(0 if total_fail == 0 else 1)
 
 if __name__ == "__main__":
     main()

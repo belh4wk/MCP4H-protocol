@@ -143,7 +143,9 @@
               "privacy",
               "safety",
               "latency",
-              "bandwidth"
+              "bandwidth",
+              "traction",
+              "grip"
             ]
           },
           "uniqueItems": true
