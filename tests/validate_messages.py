@@ -36,7 +36,8 @@ def validate_dir(dir_path, schema_path, label):
 
 def main():
     total_ok = total_fail = total_skip = 0
-    for folder, schema in [(REPO / 'examples', SCHEMA_V01), (REPO / 'examples_v0.1.1', SCHEMA_V011)]:
+    for folder, schema in [(REPO / 'examples', SCHEMA_V01), (REPO / 'examples_v0.1.1', SCHEMA_V011), (REPO / 'examples_harmonizer', SCHEMA_V011)]:
+
         if folder.exists():
             ok, fail, skip = validate_dir(folder, schema, folder.name)
             total_ok += ok; total_fail += fail; total_skip += skip
