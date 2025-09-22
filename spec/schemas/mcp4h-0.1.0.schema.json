@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/mcp4h-0.1.schema.json",
+  "title": "MCP4H v0.1 Envelope",
+  "description": "A transport-agnostic envelope with a metadata sidecar for routing human messages into multimodal signals (text, audio, visual, haptic).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "id",
+    "timestamp",
+    "origin",
+    "actor",
+    "metadata"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "mcp4h/0.1"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique message id (UUID)."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp (UTC preferred)."
+    },
+    "origin": {
+      "$ref": "#/$defs/Origin"
+    },
+    "actor": {
+      "$ref": "#/$defs/Actor"
+    },
+    "text": {
+      "type": "string",
+      "description": "Visible human text (optional if voice-only)."
+    },
+    "metadata": {
+      "$ref": "#/$defs/Metadata"
+    }
+  },
+  "$defs": {
+    "Origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "platform"
+      ],
+      "properties": {
+        "platform": {
+          "type": "string",
+          "description": "Source platform/application.",
+          "examples": [
+            "instagram",
+            "facebook",
+            "sms",
+            "email",
+            "slack",
+            "discord",
+            "github",
+            "x",
+            "threads",
+            "reddit",
+            "whatsapp"
+          ]
+        },
+        "relation": {
+          "type": "string",
+          "description": "Relationship of the message to the user.",
+          "enum": [
+            "dm",
+            "mention",
+            "tag",
+            "comment",
+            "reply",
+            "post",
+            "system",
+            "other"
+          ]
+        }
+      }
+    },
+    "Actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role"
+      ],
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": [
+            "sender",
+            "recipient",
+            "system"
+          ]
+        },
+        "handle": {
+          "type": "string",
+          "description": "Opaque or hashed identifier; avoid PII.",
+          "examples": [
+            "hash_abc123",
+            "opaque_456"
+          ]
+        }
+      }
+    },
+    "Metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Sidecar fields are hints; clients may ignore or override.",
+      "properties": {
+        "heat": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3,
+          "description": "0=cool, 1=warm, 2=spiky, 3=very spiky."
+        },
+        "valence": {
+          "type": "string",
+          "enum": [
+            "positive",
+            "neutral",
+            "negative",
+            "mixed"
+          ]
+        },
+        "tone": {
+          "type": "string",
+          "description": "Free-text tone hints (e.g., 'formal, sarcastic, playful')."
+        },
+        "civility_flags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "labeling",
+              "motive_attribution",
+              "ad_hominem",
+              "tone_attack",
+              "guilt_by_association",
+              "purity_test",
+              "name_calling"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "reasoning_moves": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "steelman",
+              "claim",
+              "tradeoffs",
+              "receipts",
+              "curious_close"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "constraints_detected": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "cost",
+              "time",
+              "weight",
+              "battery",
+              "complexity",
+              "risk",
+              "privacy",
+              "safety",
+              "latency",
+              "bandwidth"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "urgency": {
+          "type": "string",
+          "enum": [
+            "low",
+            "normal",
+            "high"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "visual_cues": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "emoji": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Unicode emoji to suggest (as text)."
+            },
+            "meme_labels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Meme/GIF labels only; no images."
+            },
+            "alt_text": {
+              "type": "string",
+              "description": "Alt text describing the intent of any suggested visual cue."
+            }
+          }
+        },
+        "platform_hints": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "schedule": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}[–-]\\d{2}:\\d{2}$"
+              },
+              "description": "Local posting windows (e.g., '09:00–10:00')."
+            },
+            "link_handling": {
+              "type": "string",
+              "enum": [
+                "linkedin_first_comment",
+                "instagram_link_in_bio",
+                "facebook_link_in_body",
+                "youtube_desc",
+                "other"
+              ]
+            },
+            "threading": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "required": [
+        "heat",
+        "valence"
+      ]
+    }
+  },
+  "examples": [
+    {
+      "version": "mcp4h/0.1",
+      "id": "9d3c0000-0000-4000-8000-000000000001",
+      "timestamp": "2025-09-22T10:12:55Z",
+      "origin": {
+        "platform": "instagram",
+        "relation": "mention"
+      },
+      "actor": {
+        "role": "sender",
+        "handle": "hash_abc123"
+      },
+      "text": "This take is wild — you ignore battery reality.",
+      "metadata": {
+        "heat": 2,
+        "valence": "negative",
+        "tone": "blunt",
+        "civility_flags": [
+          "labeling"
+        ],
+        "reasoning_moves": [
+          "claim"
+        ],
+        "constraints_detected": [
+          "battery"
+        ],
+        "urgency": "normal",
+        "visual_cues": {
+          "emoji": [
+            "👀"
+          ],
+          "meme_labels": [],
+          "alt_text": "eyes emoji meaning 'looking closely'"
+        }
+      }
+    }
+  ]
+}
