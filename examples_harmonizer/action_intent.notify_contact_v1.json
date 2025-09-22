@@ -1,0 +1,41 @@
+{
+  "mcp4h_envelope": {
+    "$schema": "spec/schema/mcp4h-v0.1.json",
+    "schema_version": "v0.1.1",
+    "packet_type": "action_intent",
+    "source": "orchestrator",
+    "timestamp_utc": "2025-09-22T20:15:01Z",
+    "profile": "notify.contact.v1"
+  },
+  "payload": {
+    "correlation_id": "evt_abc123_17",
+    "target": {
+      "contact_role": "spouse"
+    },
+    "channels": [
+      "sms",
+      "ar_overlay"
+    ],
+    "message": "Race ended after spin \u2014 heading to dinner.",
+    "media": [
+      {
+        "kind": "gif",
+        "uri": "mcp4h://media/session/abc123/spin.gif"
+      }
+    ],
+    "ui_hints": {
+      "severity": "info",
+      "blink": true,
+      "color_hex": "#FF0000"
+    },
+    "assumptions": [
+      "Contact resolution handled by downstream adapter"
+    ],
+    "confidence": 0.8,
+    "tags": [
+      "notification",
+      "household",
+      "motorsport"
+    ]
+  }
+}

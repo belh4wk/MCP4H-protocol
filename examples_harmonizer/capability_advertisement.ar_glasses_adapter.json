@@ -1,0 +1,32 @@
+{
+  "mcp4h_envelope": {
+    "$schema": "spec/schema/mcp4h-v0.1.json",
+    "schema_version": "v0.1.1",
+    "packet_type": "capability_advertisement",
+    "source": "ar_glasses_adapter",
+    "timestamp_utc": "2025-09-22T20:15:00Z",
+    "profile": "capability.v1"
+  },
+  "payload": {
+    "can_consume": [
+      "ux_signal",
+      "action_intent"
+    ],
+    "profiles": [
+      "ux_alert_minimal",
+      "notify.contact.v1"
+    ],
+    "channels": [
+      "ar_overlay",
+      "haptics"
+    ],
+    "limits": {
+      "media_max_mb": 10
+    },
+    "assumptions": [],
+    "confidence": 1.0,
+    "tags": [
+      "wearable"
+    ]
+  }
+}

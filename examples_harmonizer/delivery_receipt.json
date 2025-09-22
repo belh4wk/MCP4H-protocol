@@ -1,0 +1,23 @@
+{
+  "mcp4h_envelope": {
+    "$schema": "spec/schema/mcp4h-v0.1.json",
+    "schema_version": "v0.1.1",
+    "source": "harmonizer",
+    "timestamp_utc": "2025-09-22T20:30:00Z",
+    "packet_type": "delivery_receipt",
+    "profile": "notify.contact.v1"
+  },
+  "payload": {
+    "correlation_id": "evt_demo_001",
+    "status": "delivered",
+    "delivered_channels": [
+      "sms"
+    ],
+    "failed_channels": [],
+    "assumptions": [],
+    "confidence": 1.0,
+    "tags": [
+      "receipt"
+    ]
+  }
+}

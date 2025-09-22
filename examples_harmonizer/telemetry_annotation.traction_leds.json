@@ -1,0 +1,41 @@
+{
+  "mcp4h_envelope": {
+    "$schema": "spec/schema/mcp4h-v0.1.json",
+    "schema_version": "v0.1.1",
+    "packet_type": "telemetry_annotation",
+    "source": "harmonizer",
+    "timestamp_utc": "2025-09-22T20:15:00Z",
+    "profile": "traction_leds"
+  },
+  "payload": {
+    "tyres": {
+      "FL": {
+        "traction": 0.8,
+        "blink": false
+      },
+      "FR": {
+        "traction": 0.82,
+        "blink": false
+      },
+      "RL": {
+        "traction": 0.25,
+        "blink": true
+      },
+      "RR": {
+        "traction": 0.22,
+        "blink": true
+      }
+    },
+    "constraints_detected": [
+      "traction",
+      "grip"
+    ],
+    "assumptions": [
+      "Values inferred from described behavior, not live telemetry"
+    ],
+    "confidence": 0.6,
+    "tags": [
+      "drivetrain"
+    ]
+  }
+}

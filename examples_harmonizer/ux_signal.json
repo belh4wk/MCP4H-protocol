@@ -1,0 +1,26 @@
+{
+  "mcp4h_envelope": {
+    "$schema": "spec/schema/mcp4h-v0.1.json",
+    "schema_version": "v0.1.1",
+    "packet_type": "ux_signal",
+    "source": "harmonizer",
+    "timestamp_utc": "2025-09-22T20:30:00Z",
+    "profile": "ux_alert_minimal"
+  },
+  "payload": {
+    "message": "Pause requested",
+    "severity": "critical",
+    "priority": 90,
+    "ttl_seconds": 10,
+    "blink": true,
+    "color_hex": "#FF0000",
+    "assumptions": [
+      "Inferred from user chat"
+    ],
+    "confidence": 0.8,
+    "tags": [
+      "attention",
+      "interruption"
+    ]
+  }
+}

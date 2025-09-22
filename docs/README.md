@@ -38,3 +38,5 @@ They are kept for **traceability and DOI consistency** (e.g., Zenodo releases).
 
 ---
 **Note:** Always cite the DOI listed in the root project `README.md` or Zenodo release page when referencing MCP4H.
+
+- See **Harmonizer**: [docs/Harmonizer.md](./Harmonizer.md) and the root [MCP4H_Harmonizer_Handbook_v1.5.md](../MCP4H_Harmonizer_Handbook_v1.5.md)

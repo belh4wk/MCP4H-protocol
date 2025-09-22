@@ -1,0 +1,40 @@
+{
+  "mcp4h_envelope": {
+    "$schema": "spec/schema/mcp4h-v0.1.json",
+    "schema_version": "v0.1.1",
+    "source": "harmonizer",
+    "timestamp_utc": "2025-09-22T20:30:00Z",
+    "packet_type": "action_intent",
+    "profile": "notify.contact.v1"
+  },
+  "payload": {
+    "correlation_id": "evt_demo_001",
+    "target": {
+      "contact_role": "spouse"
+    },
+    "channels": [
+      "sms",
+      "ar_overlay"
+    ],
+    "message": "Race ended after spin \u2014 grabbing food now.",
+    "media": [
+      {
+        "kind": "gif",
+        "uri": "mcp4h://media/session/demo/spin.gif"
+      }
+    ],
+    "ui_hints": {
+      "severity": "info",
+      "blink": true,
+      "color_hex": "#FF0000"
+    },
+    "assumptions": [
+      "Contact resolution handled by downstream adapter"
+    ],
+    "confidence": 0.8,
+    "tags": [
+      "notification",
+      "household"
+    ]
+  }
+}

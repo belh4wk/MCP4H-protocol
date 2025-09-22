@@ -1,0 +1,30 @@
+{
+  "mcp4h_envelope": {
+    "$schema": "spec/schema/mcp4h-v0.1.json",
+    "schema_version": "v0.1.1",
+    "packet_type": "telemetry_annotation",
+    "source": "harmonizer",
+    "timestamp_utc": "2025-09-22T20:15:00Z",
+    "profile": "focus_state"
+  },
+  "payload": {
+    "focus": 0.35,
+    "ui_hints": {
+      "thresholds": {
+        "low": 0.3,
+        "medium": 0.6
+      }
+    },
+    "constraints_detected": [
+      "attention",
+      "cognition"
+    ],
+    "assumptions": [
+      "Inferred from chat tone and self-report"
+    ],
+    "confidence": 0.5,
+    "tags": [
+      "human_state"
+    ]
+  }
+}

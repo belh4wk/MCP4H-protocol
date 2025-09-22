@@ -1,0 +1,27 @@
+{
+  "mcp4h_envelope": {
+    "$schema": "spec/schema/mcp4h-v0.1.json",
+    "schema_version": "v0.1.1",
+    "source": "harmonizer",
+    "timestamp_utc": "2025-09-22T20:30:00Z",
+    "packet_type": "ux_signal",
+    "profile": "ux_alert_minimal"
+  },
+  "payload": {
+    "message": "Dinner time \u2014 please pause.",
+    "severity": "critical",
+    "priority": 95,
+    "ttl_seconds": 15,
+    "blink": true,
+    "color_hex": "#FF0000",
+    "assumptions": [
+      "Household message implies urgent interruption"
+    ],
+    "confidence": 0.8,
+    "tags": [
+      "notification",
+      "household",
+      "interruption"
+    ]
+  }
+}

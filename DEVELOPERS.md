@@ -25,3 +25,19 @@ CI workflow: `.github/workflows/validate.yml`
 - `bridges/simhub/` — per-wheel **Traction LEDs** mapping (colors + blink) for Dash Studio.
 - `bridges/simhub-plugin/` — C# plugin skeleton reading `SimHubVars.json` and publishing properties.
 - `bridges/notify-led/` — Notif-LED mapping for wearables (heat/valence → color/pattern).
+
+## Harmonizer Integration
+
+Harmonizer is an optional, app-agnostic translator that can emit **MCP4H** packets on request during conversations.
+This enables natural-language inputs to produce interoperable JSON artifacts consumable by any adapter (apps/devices/humans).
+
+**Packet types Harmonizer may emit:** `ux_signal`, `semantic_event`, `telemetry_annotation`, `action_intent`, `delivery_receipt`, `capability_advertisement`.
+
+**Repo rules for all Harmonizer-emitted packets:**
+- `$schema: spec/schema/mcp4h-v0.1.json`
+- `schema_version: v0.1.1`
+- ISO-8601 UTC timestamps (ending in `Z`)
+- Include `assumptions` (array), `confidence` (0..1), and `tags` (array)
+- No comments, no trailing commas
+
+See [MCP4H_Harmonizer_Handbook_v1.5.md](./MCP4H_Harmonizer_Handbook_v1.5.md) for canonical templates and triggers.

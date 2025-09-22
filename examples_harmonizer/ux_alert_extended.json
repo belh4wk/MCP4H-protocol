@@ -1,0 +1,45 @@
+{
+  "mcp4h_envelope": {
+    "$schema": "spec/schema/mcp4h-v0.1.json",
+    "schema_version": "v0.1.1",
+    "source": "harmonizer",
+    "timestamp_utc": "2025-09-22T20:30:00Z",
+    "packet_type": "ux_signal",
+    "profile": "ux_alert_extended"
+  },
+  "payload": {
+    "message": "Post-race debrief in 10 minutes.",
+    "severity": "info",
+    "priority": 55,
+    "ui_hints": {
+      "blink": false,
+      "color_hex": "#00AEEF"
+    },
+    "routing": {
+      "channels": [
+        "visual",
+        "haptics",
+        "audio"
+      ],
+      "topics": [
+        "team",
+        "session/driver"
+      ],
+      "audience": [
+        "driver",
+        "pit"
+      ]
+    },
+    "privacy": {
+      "contains_personal_data": false,
+      "redact_for_public": false
+    },
+    "ttl_seconds": 600,
+    "assumptions": [],
+    "confidence": 0.9,
+    "tags": [
+      "notification",
+      "team"
+    ]
+  }
+}

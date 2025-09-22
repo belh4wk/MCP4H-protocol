@@ -125,3 +125,9 @@ Open, free, human-first.
 - [arXiv submission (endorsement pending)](https://arxiv.org) – link will be updated when live.
 
 ---
+
+## Documentation
+
+- [DEVELOPERS.md](DEVELOPERS.md)
+- [MCP4H_Harmonizer_Handbook_v1.5.md](MCP4H_Harmonizer_Handbook_v1.5.md)
+- [docs/FAQ.md](docs/FAQ.md)

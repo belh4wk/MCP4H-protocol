@@ -67,3 +67,10 @@ No. Simracing is the **testbed** because it already mixes signals (telemetry, ha
 - 📊 [Flow diagram](diagrams/mcp4h_flow.svg)  
 - 🐙 [GitHub Wiki → Getting Started](https://github.com/YOUR_USER/MCP4H-protocol/wiki/Getting-Started)
 
+### What is Harmonizer and why does it matter?
+
+**Harmonizer** is an optional, human-first assistant that keeps tone civil and, when asked, emits **MCP4H** JSON packets. This makes it easy to turn natural-language requests into app‑agnostic artifacts that any adapter can consume (dashboards, wearables, SMS gateways, smart lights, etc.).
+
+- Harmonizer is **not required** for MCP4H. Producers/routers/adapters can talk MCP4H directly.
+- When used, Harmonizer follows strict schema/version rules (see the handbook) and includes `assumptions`, `confidence`, and `tags` so downstream systems can judge reliability.
+- Typical outputs include: `ux_signal`, `semantic_event`, `telemetry_annotation`, `action_intent`, and `delivery_receipt`.
