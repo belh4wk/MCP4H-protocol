@@ -1,0 +1,7 @@
+prompt:
+  prefix: ""
+  suffix: ""
+roles:
+  - user
+  - system
+  - assistant
