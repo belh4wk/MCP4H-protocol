@@ -1,27 +1,46 @@
-# Harmonizer (Optional) — App‑Agnostic MCP4H Companion
 
-**Last updated:** 2025-09-22T09:42:03Z
+# MCP4H: Harmonizer
 
-Harmonizer is a **human‑first helper** that can also emit **MCP4H packets** on request, letting conversations drive interoperable software/hardware outcomes. It is optional; MCP4H works fine without it.
+Harmonizer is a universal tone coach and copy generator. It preserves your authentic voice while applying guardrails that prevent clarity breakdowns, credibility risks, and unnecessary hostility.
 
-## Why it exists
-- Bridge human language ↔ machine‑readable MCP4H JSON
-- Keep tone/civility while preserving the sender’s voice
-- Speed up prototyping of rules and adapters
+---
 
-## Packet types it can emit
-- `ux_signal`, `semantic_event`, `telemetry_annotation`, `action_intent`, `delivery_receipt`, `capability_advertisement`
+## Core Principles
+- Attack ideas, not people
+- Preserve voice (cadence, idioms, edge)
+- Trim only when sharpness undermines clarity or credibility
+- Offer structured reasoning (steelman, claim, trade-offs, receipts, curious close)
+- Platform-agnostic invocation with flexible profiles
+- Optional machine-readable MCP4H packets for automation
 
-## Formatting contract
-- `$schema: spec/schema/mcp4h-v0.1.json`, `schema_version: v0.1.1`
-- UTC timestamps (`YYYY-MM-DDThh:mm:ssZ`), strict JSON (no comments/trailing commas)
-- Include `assumptions`, `confidence`, `tags`
-- Mark `inferred_from_text: true` when not sourced from live telemetry
+---
 
-## Examples
-See [`examples_harmonizer/`](../examples_harmonizer) for ready‑to‑validate JSON packets.
+## Visual Guardrails
 
-## Learn more
-- [MCP4H_Harmonizer_Handbook_v1.6.md](../MCP4H_Harmonizer_Handbook_v1.6.md)
-- [DEVELOPERS.md](../DEVELOPERS.md)
-- [docs/FAQ.md](./FAQ.md)
+Harmonizer outputs can include **emoji shorthand**, **heat bars**, and a **normalized risk score** to make feedback instantly visible.
+
+### Levels
+- ⛔ **Block** → ▮▮▮▮ (Critical stop – must fix before sending)
+- ⚠️ **Warn** → ▮▮▮▯ (Warning – consider rewording)
+- 💡 **Suggest** → ▮▮▯▯ (Suggestion – optional improvement)
+- ✅ **Clear** → ▮▯▯▯ (No major risks)
+
+### Risk Score
+- Method: sum weighted risks, normalized to 0–100
+- Display: `Risk score: {score}/100`
+- Example: `⚠️ 2 warnings, 💡 1 suggestion — Risk score: 42/100`
+
+This system turns Harmonizer into a **pre-flight check for communication**: sharp style, clear guardrails, no splinters.
+
+---
+
+## Whisper Mode
+Whisper mode provides **5s/15s/30s speakable variants** with delivery cues like `[pause]`, `[soften]`, `[anchor with example]`.  
+This makes Harmonizer useful not only for written posts but also for **live meetings, panels, and speeches**.
+
+---
+
+## License & Scope
+- Not medical, legal, or financial advice
+- Avoid sensitive PII (IDs, account numbers, full DOB, health records)
+- Open spec; contributions welcome via PR with examples + doc blurbs
