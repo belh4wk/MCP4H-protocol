@@ -1,0 +1,42 @@
+MCP4H Repo – Document Purposes
+
+README.md
+  - Top-level overview
+  - What MCP4H is, why it matters, repo structure, links
+
+VISION.md
+  - Plain-language explainer of the “why”
+  - Folded Manifesto + Whitepaper insights
+  - Metaphors + proving grounds + future directions
+
+overview.md
+  - Technical overview of grammar and examples
+  - Folded technical framing from Whitepaper
+
+FAQ.md
+  - Practical Q&A
+  - Differentiates MCP4H from existing tools
+  - Clarifies folded docs approach
+
+Harmonizer.md
+  - Quick reference for Harmonizer GPT
+  - Ops-focused, not full spec
+
+MCP4H_Harmonizer_Handbook_v1.7.md
+  - Current detailed handbook
+  - Includes configuration, Appendix F (packet emission), Appendix G (GPT mapping)
+
+DEVELOPERS.md
+  - Engineering and contribution rules
+
+SECURITY.md
+  - Security and privacy guidance
+
+CHANGELOG.md
+  - Version history
+
+ROADMAP.md
+  - Future milestones
+
+Other folders (spec/, examples/, bridges/, tests/, .github/workflows/)
+  - Schemas, examples, adapters, CI validation
