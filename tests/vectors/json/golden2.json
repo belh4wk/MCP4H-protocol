@@ -1,0 +1,16 @@
+{
+  "version": "0.1.1",
+  "profile": "mqtt-dist",
+  "msg_type": "state",
+  "content_type": "application/vnd.mcp4h.v0.1+json",
+  "source_id": "rig01",
+  "seq": 124,
+  "ts_monotonic_us": 42430000,
+  "payload": {
+    "config": {
+      "leds": {
+        "blink_hz": 6
+      }
+    }
+  }
+}

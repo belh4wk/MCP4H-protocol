@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MCP4H Envelope v0.1.1",
+  "description": "Additive envelope schema for MCP4H v0.1.x. New optional fields: profile, msg_type, seq, ts_monotonic_us, content_type.",
+  "type": "object",
+  "required": [
+    "version",
+    "source_id",
+    "payload"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^0\\.1(\\.\\d+)?$",
+      "description": "Semantic version for the logical MCP4H message (e.g., 0.1 or 0.1.1)."
+    },
+    "profile": {
+      "type": "string",
+      "enum": [
+        "udp-realtime",
+        "mqtt-dist",
+        "ws-dashboard"
+      ],
+      "description": "Wire behavior profile. Used to hint handling expectations (rate, QoS, framing). Optional but RECOMMENDED."
+    },
+    "msg_type": {
+      "type": "string",
+      "enum": [
+        "telemetry",
+        "cue",
+        "state",
+        "config",
+        "ack"
+      ],
+      "description": "High-level message category."
+    },
+    "content_type": {
+      "type": "string",
+      "enum": [
+        "application/vnd.mcp4h.v0.1+json",
+        "application/vnd.mcp4h.v0.1+cbor"
+      ],
+      "description": "Explicit payload encoding when the transport cannot convey MIME."
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Stable ID for the emitter (rig/device/process)."
+    },
+    "seq": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "description": "Monotonic sequence number (wraps at uint32 max). Useful for UDP."
+    },
+    "ts_monotonic_us": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monotonic timestamp in microseconds since device boot."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Wall-clock UTC (ISO 8601). Optional but RECOMMENDED for logging."
+    },
+    "payload": {
+      "type": "object",
+      "description": "Message-specific data. MCP4H schemas for particular signals may further constrain this object."
+    }
+  },
+  "additionalProperties": true
+}

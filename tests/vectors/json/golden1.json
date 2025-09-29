@@ -1,0 +1,20 @@
+{
+  "version": "0.1.1",
+  "profile": "udp-realtime",
+  "msg_type": "cue",
+  "content_type": "application/vnd.mcp4h.v0.1+json",
+  "source_id": "rig01",
+  "seq": 123,
+  "ts_monotonic_us": 42420000,
+  "timestamp": "2025-09-29T12:00:00Z",
+  "payload": {
+    "traction": {
+      "tyres": {
+        "fl": {
+          "slip_ratio": 0.11,
+          "state": "warn"
+        }
+      }
+    }
+  }
+}
