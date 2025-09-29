@@ -1,0 +1,7 @@
+# CODEOWNERS
+# Format: path  @github-handle
+*       @dirkvanechelpoel
+docs/*  @dirkvanechelpoel
+spec/*  @dirkvanechelpoel
+schemas/* @dirkvanechelpoel
+examples* @dirkvanechelpoel
