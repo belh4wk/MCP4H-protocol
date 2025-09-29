@@ -1,65 +1,29 @@
 # Changelog
 
-All notable changes to **MCP4H – Multimodal Communication Protocol for Humanity** will be documented in this file.  
-This project follows [Semantic Versioning](https://semver.org/).
+All notable changes will be documented in this file.
 
----
-
-# Version History
-
-| Version   | Date       | Type        | Description                                   | DOI / Link                                                                 |
-|-----------|------------|-------------|-----------------------------------------------|-----------------------------------------------------------------------------|
-| v0.1.0-alpha | 2025-09-20 | Preprint / Draft | First public draft (Manifesto + Whitepaper). Repo structure + governance files. | [Zenodo DOI](https://doi.org/10.5281/zenodo.17164550) · [OSF Preprint (MetaArXiv, pending)](https://osf.io/preprints/metaarxiv) |
-| Unreleased | –          | Planned     | Expanded spec, early MVP prototype (text/audio/visual integration), first haptic signal experiments. | –                                                                           |
-
----
-
-## [v0.1.0-alpha] – 2025-09-20
-### Added
-- ✍️ First public draft of the **MCP4H Manifesto**  
-- 📄 First public draft of the **MCP4H Whitepaper**  
-- 📂 Initial repository structure:
-  - `/examples` – placeholder for practical implementations
-  - `/scripts` – utilities and automation stubs
-  - `/sdk-js` – placeholder for JavaScript SDK
-  - `/spec` – early technical specification
-- 📜 Governance files:
-  - `LICENSE`
-  - `CODE_OF_CONDUCT.md`
-  - `CONTRIBUTING.md`
-- 🐳 Containerization scaffolding:
-  - `Dockerfile`
-  - `docker-compose.yml`
-
-### Notes
-- This is an **exploratory release** intended for community feedback and discussion.  
-- Not yet suitable for production use.  
-- Feedback and contributions are welcome via Issues and Pull Requests.
-
----
-
-## [Unreleased]
-- Expanded technical specification of the MCP4H protocol
-- Early MVP prototype (text, audio, visual integration)
-- First haptic signal experiments
-
-- chore(structure): normalize `Docs/` → `docs/`, consolidate `spec/schemas` → `spec/schema`, and organize examples.
-
-# Changelog
-
-## 2025-09-22 — Harmonizer Handbook v1.6 Migration
+## [0.1.1] - 2025-09-29
 
 ### Added
-- **MCP4H_Harmonizer_Handbook_v1.6.md**:  
-  - New configuration section for GPT setup (conversation starters, knowledge file, capabilities).  
-  - Expanded **Appendix F — MCP4H Packet Emission (v1.6)**.  
-  - New **Appendix G — GPT Configuration Mapping** to align repo docs with GPT Configure UI.  
+- Envelope optional fields: `profile`, `msg_type`, `seq`, `ts_monotonic_us`, `content_type`
+- New schema: `spec/schema/mcp4h-v0.1.1.json`
+- Normative example: `examples_v0.1.1/tyre_slip/`
+- Tools: `tools/udp_emitter.py`, `tools/udp_reader_led_demo.py`
+- Tests: JSON golden vectors, CBOR generator, roundtrip validator
+- Docs: profiles, transports, content-types, versioning, style guide, security stub
+- `mqtt/topic_conventions.md` with topic/QoS guidance
+- Citation metadata: `CITATION.cff`, `CITATIONS.bib`, `zenodo.json`
+- README.md now includes DOI badges, APA + BibTeX citation
 
 ### Changed
-- Updated references in `DEVELOPERS.md`, `docs/FAQ.md`, `docs/Harmonizer.md`, and `README.md` to point to v1.6.  
-- CI continues validating `examples_harmonizer/` using schema v0.1.1.
+- CI merged into single `.github/workflows/ci.yml` (schema checks, pytest, lint, type checks)
+- `requirements.txt` expanded to include `cbor2`, `pytest`, `flake8`, `mypy`
 
 ### Removed
-- **MCP4H_Harmonizer_Handbook_v1.5.md** deprecated and removed to avoid confusion.  
+- Old duplicate workflow `.github/workflows/validate.yml`
+- Extra licenses (`LICENSE-CC-BY-NC-4.0.txt`, `LICENSE-GPL-3.0-or-later.txt`) — MIT is now sole license
 
 ---
+
+## [0.1.0-alpha] - Initial
+- Initial draft of MCP4H spec, schema, and docs
