@@ -1,8 +1,6 @@
-# Core dependencies for MCP4H validation + encoding
+# Core + dev tools for MCP4H
 jsonschema>=4.23.0
 cbor2>=5.6.3
-
-# Dev/test utilities
 pytest>=8.3.0
 flake8>=7.1.0
 mypy>=1.10.0

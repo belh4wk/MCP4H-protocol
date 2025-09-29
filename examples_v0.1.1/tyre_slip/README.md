@@ -1,21 +1,9 @@
 # Tyre Slip Cue Example (udp-realtime)
 
-This folder contains a **normative example** of MCP4H messages for tyre slip cues.
 - Transport: UDP (NDJSON), profile `udp-realtime`
-- Message types: `cue` (stateful), occasionally `telemetry` for reference
-- Monotonic timestamps: `ts_monotonic_us`
-- Sequence: `seq`
+- Message type: `cue`
+- Fields used: `seq`, `ts_monotonic_us`, `content_type`
 
-## States
-- `ok` → no slip
-- `warn` → approaching slip threshold
-- `crit` → slip detected (blink LED)
-
-**Hysteresis:** enter/exit have different thresholds to avoid flicker.
-- Enter warn: slip_ratio >= 0.07
-- Exit warn: slip_ratio < 0.05
-- Enter crit: slip_ratio >= 0.12
-- Exit crit: slip_ratio < 0.09
-
-Units:
-- `slip_ratio` is fraction (0.0–1.0)
+Hysteresis thresholds:
+- warn: enter >= 0.07, exit < 0.05
+- crit: enter >= 0.12, exit < 0.09

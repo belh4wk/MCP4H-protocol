@@ -1,13 +1,9 @@
 cff-version: 1.2.0
-message: >-
-  If you use MCP4H, please cite this release. You can also use the concept DOI to always
-  reference the latest version.
+message: Please cite this release.
 title: MCP4H — Multimodal Communication Protocol for Humanity
 version: v0.1.1
 doi: 10.5281/zenodo.17225488
 date-released: 2025-09-29
-abstract: >-
-  MCP4H v0.1.1 — Additive update (envelope + profiles + examples + CI)
 type: software
 license: MIT
 repository-code: https://github.com/belh4wk/MCP4H-protocol

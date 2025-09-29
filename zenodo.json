@@ -1,6 +1,5 @@
 {
   "title": "MCP4H v0.1.1 \u2014 Additive update (envelope + profiles + examples + CI)",
-  "description": "MCP4H v0.1.1 is an additive update to the protocol specification and tooling.\n\nHighlights:\n- Envelope fields: profile, msg_type, seq, ts_monotonic_us, content_type\n- Wire profiles: udp-realtime, mqtt-dist, ws-dashboard\n- Content types: application/vnd.mcp4h.v0.1+json / +cbor\n- Example: tyre-slip LED cues with UDP demo tools (examples_v0.1.1/tyre_slip/)\n- Tests: JSON golden vectors, optional CBOR generator\n- CI: merged workflow (schema checks, pytest, lint/type checks)\n\nVersioning: emit version \"0.1.1\" (bare semver); accept legacy mcp4h/0.1 during v0.1.x.\nLicensed under MIT.",
   "upload_type": "software",
   "publication_date": "2025-09-29",
   "creators": [

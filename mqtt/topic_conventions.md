@@ -1,17 +1,10 @@
-# MQTT Topic Conventions for MCP4H
+# MQTT Topic Conventions
 
-**Topic shape:**
+Topic shape:
+`mcp4h/{version}/{profile}/{source_id}/{signal}`
 
-```
-mcp4h/{version}/{profile}/{source_id}/{signal}
-```
+Examples:
+- `mcp4h/0.1/mqtt-dist/rig01/tyre_fl.slip_ratio`
+- `mcp4h/0.1/mqtt-dist/rig01/traction.cue`
 
-- `version` → e.g., `0.1` or `0.1.1`
-- `profile` → usually `mqtt-dist`
-- `source_id` → stable emitter ID (rig/device/process)
-- `signal` → dotted path like `tyre_fl.slip_ratio` or `traction.cue`
-
-**QoS guidance**
-- QoS 0 → hot telemetry (low-latency, occasional loss OK)
-- QoS 1 → state/config (must arrive)
-- Retain only for slow-changing state (e.g., `config.*`)
+QoS guidance: 0 for hot telemetry; 1 for state/config. Retain only slow-changing state.
