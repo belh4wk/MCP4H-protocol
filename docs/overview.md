@@ -8,6 +8,8 @@ It defines a grammar for expressing cues consistently:
 - **Channel** (light, haptic, text, audio, all)  
 - **Rules** (expiry + acknowledgement)
 
+CI now validates lint/type checks in addition to schema/tests.
+
 ---
 
 ## Example outputs

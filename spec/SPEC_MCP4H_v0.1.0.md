@@ -1,5 +1,7 @@
 # MCP4H v0.1 — Minimum Viable Spec (One‑Pager)
 
+As of v0.1.1, emit version: "0.1.1" (bare semver). Receivers MAY accept legacy mcp4h/0.1 during v0.1.x.
+
 **Purpose**  
 A tiny, open envelope + metadata sidecar so any client can route a message into human‑friendly signals (text, audio, visual, haptic). Keep UX unchanged; add machine‑readable hints.
 
