@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "MCP4H Message v0.1",
+  "title": "MCP4H™ Message v0.1",
   "type": "object",
   "properties": {
     "header": {

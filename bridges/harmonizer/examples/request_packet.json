@@ -15,7 +15,7 @@
   "signal": {
     "role": "user",
     "type": "text",
-    "content": "Summarize why MCP4H + Harmonizer creates strong prior art."
+    "content": "Summarize why MCP4H™ + Harmonizer creates strong prior art."
   },
   "constraints_detected": [
     "clarity",

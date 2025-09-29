@@ -1,4 +1,4 @@
-# MCP4H Vision
+# MCP4H™ Vision
 
 Humans miss signals. A lot.  
 Sometimes we misinterpret them too.
@@ -10,7 +10,7 @@ We don’t need more. We need clearer.
 
 ## The Grammar of Attention
 
-Every MCP4H cue has four parts:
+Every MCP4H™ cue has four parts:
 
 1. **Type** (Coach, Risk, Plan, State, Confirm)  
 2. **Priority** (now, soon, later)  
@@ -18,16 +18,16 @@ Every MCP4H cue has four parts:
 4. **Rules** (expiry + acknowledgement)
 
 That’s it — a simple grammar.  
-MCP4H acts as the **referee, not another player**: choosing what matters, how to say it, and making sure it lands.
+MCP4H™ acts as the **referee, not another player**: choosing what matters, how to say it, and making sure it lands.
 
 ---
 
 ## Why these proving grounds?
 
-- **Conversations**: everyone knows messy comms. The Harmonizer GPT applies MCP4H live, distilling tangents into cues and nudging better habits.  
-- **(Sim)Racing**: if a cue is missed, the cost is immediate. MCP4H translates telemetry into intuitive states anyone can act on — *tyre hot, tyre cold, brake fade risk*.
+- **Conversations**: everyone knows messy comms. The Harmonizer GPT applies MCP4H™ live, distilling tangents into cues and nudging better habits.  
+- **(Sim)Racing**: if a cue is missed, the cost is immediate. MCP4H™ translates telemetry into intuitive states anyone can act on — *tyre hot, tyre cold, brake fade risk*.
 
-If MCP4H works here, it can work anywhere.
+If MCP4H™ works here, it can work anywhere.
 
 ---
 
@@ -43,8 +43,8 @@ The common thread: **fewer missed signals**.
 
 ## Folded insights (Manifesto + Whitepaper)
 
-- **Manifesto theme**: signals are shared responsibilities; MCP4H offers common ground across teams, tools, and machines.  
-- **Whitepaper theme**: technical framing of MCP4H as a publish/subscribe schema with normative rules, but always human-facing at the edge.  
+- **Manifesto theme**: signals are shared responsibilities; MCP4H™ offers common ground across teams, tools, and machines.  
+- **Whitepaper theme**: technical framing of MCP4H™ as a publish/subscribe schema with normative rules, but always human-facing at the edge.  
 - Both condensed here: clarity over volume, grammar over noise, shared language over fragmented silos.
 
 ---

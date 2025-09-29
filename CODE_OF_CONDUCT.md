@@ -5,7 +5,7 @@
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge
-We as members, contributors, and leaders pledge to make participation in MCP4H a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity, level of experience, education, socioeconomic status, nationality, personal appearance, race, religion, or sexual identity.
+We as members, contributors, and leaders pledge to make participation in MCP4H™ a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity, level of experience, education, socioeconomic status, nationality, personal appearance, race, religion, or sexual identity.
 
 We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
 

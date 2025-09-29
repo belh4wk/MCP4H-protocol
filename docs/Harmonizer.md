@@ -1,5 +1,5 @@
 
-# MCP4H: Harmonizer
+# MCP4H™: Harmonizer
 
 Harmonizer is a universal tone coach and copy generator. It preserves your authentic voice while applying guardrails that prevent clarity breakdowns, credibility risks, and unnecessary hostility.
 
@@ -11,7 +11,7 @@ Harmonizer is a universal tone coach and copy generator. It preserves your authe
 - Trim only when sharpness undermines clarity or credibility
 - Offer structured reasoning (steelman, claim, trade-offs, receipts, curious close)
 - Platform-agnostic invocation with flexible profiles
-- Optional machine-readable MCP4H packets for automation
+- Optional machine-readable MCP4H™ packets for automation
 
 ---
 

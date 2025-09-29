@@ -1,6 +1,6 @@
-# MCP4H → Notif-LED Bridge (Smartglasses demo)
+# MCP4H™ → Notif-LED Bridge (Smartglasses demo)
 
-Maps MCP4H `metadata` to a notification LED color/pattern.
+Maps MCP4H™ `metadata` to a notification LED color/pattern.
 
 Try:
 ```bash

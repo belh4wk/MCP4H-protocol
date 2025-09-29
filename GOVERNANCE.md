@@ -1,4 +1,4 @@
-# MCP4H Project Governance (Lightweight)
+# MCP4H™ Project Governance (Lightweight)
 
 - **Decision log:** Use GitHub Issues/PRs. Major decisions carry the label `governance` and summarize tradeoffs.
 - **Maintainers:** Listed in `.github/CODEOWNERS`. Maintainers review PRs and can merge when CI is green.

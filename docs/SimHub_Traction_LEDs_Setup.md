@@ -1,4 +1,4 @@
-# SimHub Dash Studio — MCP4H Traction LEDs (4-block) setup
+# SimHub Dash Studio — MCP4H™ Traction LEDs (4-block) setup
 
 This shows how to drive 4 LED blocks (LF, RF, LR, RR) from wheel slip using MCP4H.
 
@@ -34,7 +34,7 @@ alpha = 0.3          # smoothing
 ```
 Hysteresis is built-in to avoid flicker.
 
-## 5) Optional: share MCP4H envelopes
+## 5) Optional: share MCP4H™ envelopes
 With `--mode udp` the bridge emits a full envelope including:
 ```json
 "extensions": { "traction_leds": { "values": {...}, "colors": {...}, "blink": {...} } }

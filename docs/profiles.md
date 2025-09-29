@@ -1,4 +1,4 @@
-# MCP4H Wire Profiles (v0.1.1 addendum)
+# MCP4H™ Wire Profiles (v0.1.1 addendum)
 
 | Profile        | Typical transport | Framing                 | Rate guidance       | Reliability/QoS                       | Intended use                           |
 |----------------|-------------------|-------------------------|---------------------|---------------------------------------|-----------------------------------------|

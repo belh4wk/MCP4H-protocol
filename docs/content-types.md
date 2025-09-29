@@ -1,4 +1,4 @@
-# MCP4H Content Types (MIME)
+# MCP4H™ Content Types (MIME)
 
 - JSON: `application/vnd.mcp4h.v0.1+json`
 - CBOR: `application/vnd.mcp4h.v0.1+cbor`

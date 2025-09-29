@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for MCP4H
+about: Suggest an idea for MCP4H™
 title: "[FEATURE] "
 labels: enhancement
 assignees: ''

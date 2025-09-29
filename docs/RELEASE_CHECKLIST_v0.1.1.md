@@ -1,4 +1,4 @@
-# MCP4H v0.1.1 Release Checklist
+# MCP4H™ v0.1.1 Release Checklist
 
 Date: 2025-09-29
 
@@ -15,7 +15,7 @@ Date: 2025-09-29
 ## 2) Tag and push
 ```bash
 git pull --rebase
-git tag -a v0.1.1 -m "MCP4H v0.1.1 (additive): envelope fields + profiles + examples + CI"
+git tag -a v0.1.1 -m "MCP4H™ v0.1.1 (additive): envelope fields + profiles + examples + CI"
 git push origin v0.1.1
 ```
 

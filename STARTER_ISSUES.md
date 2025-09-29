@@ -1,4 +1,4 @@
-# Starter Issues for MCP4H
+# Starter Issues for MCP4H™
 
 Use these as copy/paste text when creating issues on GitHub. Labels in **bold** are suggested.
 
@@ -8,7 +8,7 @@ Use these as copy/paste text when creating issues on GitHub. Labels in **bold** 
 **Labels:** examples, good first issue
 
 **Why**
-Provide a hands-on proof that MCP4H can act as a neutral line protocol between SimHub telemetry and Arduino devices.
+Provide a hands-on proof that MCP4H™ can act as a neutral line protocol between SimHub telemetry and Arduino devices.
 
 **Tasks**
 - [ ] Add `/examples/arduino/windsim/` with:
@@ -42,7 +42,7 @@ Developers need clarity and validation. A stronger schema enables higher-quality
 
 ---
 
-## 3) tests: add more MCP4H example messages
+## 3) tests: add more MCP4H™ example messages
 **Labels:** tests, examples
 
 **Why**
@@ -62,7 +62,7 @@ Broaden coverage so CI guards the contract as the spec evolves.
 **Labels:** docs
 
 **Why**
-First-time visitors should be able to try MCP4H within minutes.
+First-time visitors should be able to try MCP4H™ within minutes.
 
 **Tasks**
 - [ ] Add a “Getting Started” section to `README.md`

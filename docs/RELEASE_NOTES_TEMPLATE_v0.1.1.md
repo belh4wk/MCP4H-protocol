@@ -1,4 +1,4 @@
-# MCP4H v0.1.1
+# MCP4H™ v0.1.1
 
 **Type:** Additive (non-breaking) update to v0.1.x line.
 
@@ -15,4 +15,4 @@
 - No breaking schema changes; existing messages remain valid
 
 ## Thanks
-Thanks to MCP4H contributors and early testers for feedback and reviews.
+Thanks to MCP4H™ contributors and early testers for feedback and reviews.

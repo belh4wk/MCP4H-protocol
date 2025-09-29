@@ -23,7 +23,7 @@ namespace Mcp4hSimHubPlugin
         {
             _cache[name] = value;
             // Example (SDK-dependent):
-            // this.AddProperty("MCP4H", name, value);
+            // this.AddProperty("MCP4H™", name, value);
         }
 
         public void Init(/*PluginManager pluginManager*/)

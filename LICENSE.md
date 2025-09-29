@@ -1,4 +1,4 @@
-MCP4H — Dual License Notice
+MCP4H™ — Dual License Notice
 ===========================
 
 Copyright (c) 2025 Dirk Van Echelpoel
@@ -22,9 +22,9 @@ Code: GNU General Public License v3.0 or later (GPL-3.0-or-later)
 
 Attribution and Citation
 ------------------------
-Please cite MCP4H using the Zenodo DOI and include author credit:
+Please cite MCP4H™ using the Zenodo DOI and include author credit:
 - Author: Dirk Van Echelpoel
-- Project: MCP4H
+- Project: MCP4H™
 - DOI: <insert Zenodo DOI here>
 
 Files and Scope

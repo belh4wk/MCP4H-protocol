@@ -1,4 +1,4 @@
-# MCP4H Versioning Rules
+# MCP4H™ Versioning Rules
 
 - **Envelope `version` field:** Use semantic versions `0.1`, `0.1.1`, etc. (no `mcp4h/` prefix).  
   - For compatibility, implementations MAY accept legacy `mcp4h/0.1` during v0.1.x but SHOULD emit bare semver.

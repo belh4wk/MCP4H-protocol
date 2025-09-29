@@ -1,4 +1,4 @@
-# Project Status – MCP4H Protocol
+# Project Status – MCP4H™ Protocol
 
 **Last updated:** 2025-09-21
 
@@ -31,7 +31,7 @@
 - Draft outreach plan for coalition (SimHub dev, peripheral OEM, simracing community, accessibility researcher).
 
 ## Long-Term Vision
-- Position MCP4H as a neutral interoperability protocol for multimodal human↔machine signals.
+- Position MCP4H™ as a neutral interoperability protocol for multimodal human↔machine signals.
 - Expand beyond simracing into accessibility and mobility domains.
 - Explore consortium/standardization pathways (SAE, IEEE, Khronos).
 

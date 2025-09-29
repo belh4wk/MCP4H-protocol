@@ -1,8 +1,8 @@
-MCP4H Repo – Document Purposes
+MCP4H™ Repo – Document Purposes
 
 README.md
   - Top-level overview
-  - What MCP4H is, why it matters, repo structure, links
+  - What MCP4H™ is, why it matters, repo structure, links
 
 VISION.md
   - Plain-language explainer of the “why”
@@ -15,7 +15,7 @@ overview.md
 
 FAQ.md
   - Practical Q&A
-  - Differentiates MCP4H from existing tools
+  - Differentiates MCP4H™ from existing tools
   - Clarifies folded docs approach
 
 Harmonizer.md

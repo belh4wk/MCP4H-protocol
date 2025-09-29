@@ -15,6 +15,6 @@
 (What actually happened.)
 
 ## Environment
-- MCP4H version:
+- MCP4H™ version:
 - OS / platform:
 - Additional context:

@@ -1,13 +1,13 @@
-# MCP4H Roadmap
+# MCP4H™ Roadmap
 
-This document outlines the development roadmap for the **Multimodal Communication Protocol for Humanity (MCP4H)**.  
+This document outlines the development roadmap for the **Multimodal Communication Protocol for Humanity (MCP4H™)**.  
 Our goal is to create an **open, universal, human-first communication protocol** that unifies **Text, Audio, Visuals, and Haptics** into a shared layer of understanding — across people, devices, and eventually, humans + machines.  
 
 ---
 
 ## Project Status Roadmap
 
-MCP4H progresses through the following stages:
+MCP4H™ progresses through the following stages:
 
 - ![Draft](https://img.shields.io/badge/Status-Draft-lightgrey) → Early idea notes, scratch docs, exploratory drafts.  
 - ![Preprint](https://img.shields.io/badge/Status-Preprint-blue) → First public drafts (e.g., manifesto + whitepaper, shared via OSF/Zenodo/arXiv).  
@@ -68,7 +68,7 @@ MCP4H progresses through the following stages:
   - Open-source communities
 
 **Deliverables:**
-- MCP4H v1.0 spec (stable draft)
+- MCP4H™ v1.0 spec (stable draft)
 - Multi-language SDKs
 - Real-world pilot integrations
 
@@ -89,7 +89,7 @@ MCP4H progresses through the following stages:
 ---
 
 ## 🏁 Long-Term Vision
-The **seatbelt analogy** drives MCP4H:
+The **seatbelt analogy** drives MCP4H™:
 - Universal → anyone, anywhere
 - Simple → usable by humans + machines
 - Open → no paywalls, no walled gardens

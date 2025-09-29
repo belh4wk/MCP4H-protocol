@@ -1,6 +1,6 @@
-# Harmonizer Reference Bridge (MCP4H ↔ GPT)
+# Harmonizer Reference Bridge (MCP4H™ ↔ GPT)
 
-Minimal reference adapter showing how to map MCP4H packets to GPT-style prompts and back.
+Minimal reference adapter showing how to map MCP4H™ packets to GPT-style prompts and back.
 Designed to live at `bridges/harmonizer/`.
 
 Related docs in this repo:
@@ -9,7 +9,7 @@ Related docs in this repo:
 
 ## Files
 - `adapter.py` — CLI entrypoint.
-- `mapper.py` — MCP4H ↔ prompt mapping.
+- `mapper.py` — MCP4H™ ↔ prompt mapping.
 - `bridge_config.yaml` — tiny config (prefix/suffix, roles).
 - `examples/request_packet.json` — demo input.
 - `tests/test_mapper.py` — smoke tests (no external deps).

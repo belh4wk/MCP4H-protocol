@@ -1,14 +1,14 @@
 # FAQ
 
 ### Is this just another assistant or dashboard?
-No. MCP4H is not an app. It’s a **protocol**: a way of structuring cues so they’re clearer and more consistent across contexts.
+No. MCP4H™ is not an app. It’s a **protocol**: a way of structuring cues so they’re clearer and more consistent across contexts.
 
 ---
 
 ### How is this different from Otter, Rewind, or CrewChief?
 - **Otter / Rewind**: capture everything, let you dig later.  
 - **CrewChief / AI racing coaches**: provide analysis for experts.  
-- **MCP4H**: applies a grammar in real time, translating into *human-friendly cues* anyone can immediately act on.
+- **MCP4H™**: applies a grammar in real time, translating into *human-friendly cues* anyone can immediately act on.
 
 ---
 
@@ -33,5 +33,5 @@ No — still early days. Schemas and examples are live, a SimHub bridge is in pr
 ---
 
 ### Is this trying to solve world peace?
-No. MCP4H isn’t utopian. It’s pragmatic:  
+No. MCP4H™ isn’t utopian. It’s pragmatic:  
 **fewer missed signals → clearer decisions → better outcomes.**

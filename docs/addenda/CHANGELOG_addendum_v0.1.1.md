@@ -1,4 +1,4 @@
-# MCP4H v0.1.1 Addendum
+# MCP4H™ v0.1.1 Addendum
 
 Date: 2025-09-29
 

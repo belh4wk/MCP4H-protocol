@@ -1,4 +1,4 @@
-# DEVELOPERS.md — MCP4H repo notes
+# DEVELOPERS.md — MCP4H™ repo notes
 
 ## Schemas & Examples
 - Baseline schema (v0.1): `spec/schema/mcp4h-v0.1.json`
@@ -28,7 +28,7 @@ CI workflow: `.github/workflows/validate.yml`
 
 ## Harmonizer Integration
 
-Harmonizer is an optional, app-agnostic translator that can emit **MCP4H** packets on request during conversations.
+Harmonizer is an optional, app-agnostic translator that can emit **MCP4H™** packets on request during conversations.
 This enables natural-language inputs to produce interoperable JSON artifacts consumable by any adapter (apps/devices/humans).
 
 **Packet types Harmonizer may emit:** `ux_signal`, `semantic_event`, `telemetry_annotation`, `action_intent`, `delivery_receipt`, `capability_advertisement`.

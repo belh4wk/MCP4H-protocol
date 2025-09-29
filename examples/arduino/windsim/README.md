@@ -25,7 +25,7 @@ Adjust pins in the sketch if needed.
 3. Set the **baud** to `115200`
 4. Use this one-line **send format**:
 ```
-MCP4H v=1 ts=$now() spd_mps=[DataCorePlugin.GameData.NewData.SpeedMps] gear=[DataCorePlugin.GameData.NewData.Gear]
+MCP4H™ v=1 ts=$now() spd_mps=[DataCorePlugin.GameData.NewData.SpeedMps] gear=[DataCorePlugin.GameData.NewData.Gear]
 ```
 (You can substitute game-specific variables if needed.)
 

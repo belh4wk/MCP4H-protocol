@@ -1,6 +1,6 @@
-# MCP4H Archived Documents
+# MCP4H™ Archived Documents
 
-This folder contains **previous versions** of MCP4H documents.  
+This folder contains **previous versions** of MCP4H™ documents.  
 They are preserved for **historical traceability** and to match Zenodo/DOI-linked releases.
 
 ## 📌 Notes
@@ -9,4 +9,4 @@ They are preserved for **historical traceability** and to match Zenodo/DOI-linke
 - For the latest versions, see the parent [`docs/`](../) folder.
 
 ---
-**Reminder:** When referencing MCP4H in publications, use the DOI linked in the main repository `README.md`.
+**Reminder:** When referencing MCP4H™ in publications, use the DOI linked in the main repository `README.md`.

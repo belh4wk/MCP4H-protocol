@@ -1,4 +1,4 @@
-# SimHub Plugin Skeleton — MCP4H Traction LEDs
+# SimHub Plugin Skeleton — MCP4H™ Traction LEDs
 
 This is a minimal C# plugin skeleton to **read `bridges/simhub/out/SimHubVars.json`**
 and expose dashboard properties:

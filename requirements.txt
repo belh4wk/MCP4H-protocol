@@ -1,4 +1,4 @@
-# Core + dev tools for MCP4H
+# Core + dev tools for MCP4H™
 jsonschema>=4.23.0
 cbor2>=5.6.3
 pytest>=8.3.0

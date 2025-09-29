@@ -1,5 +1,5 @@
 {
-  "title": "MCP4H v0.1.1 \u2014 Additive update (envelope + profiles + examples + CI)",
+  "title": "MCP4H™ v0.1.1 \u2014 Additive update (envelope + profiles + examples + CI)",
   "upload_type": "software",
   "publication_date": "2025-09-29",
   "creators": [
@@ -17,7 +17,7 @@
     "telemetry",
     "human-computer interaction",
     "sim racing",
-    "MCP4H",
+    "MCP4H™",
     "CBOR",
     "JSON"
   ],

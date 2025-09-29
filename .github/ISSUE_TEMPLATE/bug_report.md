@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help us improve MCP4H
+about: Create a report to help us improve MCP4H™
 title: "[BUG] "
 labels: bug
 assignees: ''
@@ -23,7 +23,7 @@ If applicable, add screenshots or log output to help explain your problem.
 
 **Environment (please complete the following information):**
  - OS: [e.g. Windows 11, Ubuntu 22.04]
- - MCP4H version/commit: [e.g. v0.1.0, hash]
+ - MCP4H™ version/commit: [e.g. v0.1.0, hash]
 
 **Additional context**
 Add any other context about the problem here.

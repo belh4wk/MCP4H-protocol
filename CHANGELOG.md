@@ -26,4 +26,4 @@ All notable changes will be documented in this file.
 ---
 
 ## [0.1.0-alpha] - Initial
-- Initial draft of MCP4H spec, schema, and docs
+- Initial draft of MCP4H™ spec, schema, and docs

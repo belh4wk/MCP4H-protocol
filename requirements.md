@@ -1,10 +1,10 @@
-# MCP4H Requirements
+# MCP4H™ Requirements
 
 This project uses Python tooling for schema validation, CBOR encoding, and developer quality checks.
 
 ## Core
-- **jsonschema** – validate MCP4H JSON messages against schemas
-- **cbor2** – generate/parse CBOR equivalents of MCP4H messages
+- **jsonschema** – validate MCP4H™ JSON messages against schemas
+- **cbor2** – generate/parse CBOR equivalents of MCP4H™ messages
 
 ## Development / QA
 - **pytest** – run unit tests and regression checks

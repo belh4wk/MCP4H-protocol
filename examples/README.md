@@ -1,4 +1,4 @@
-# MCP4H Examples
+# MCP4H™ Examples
 
 - `arduino/` Hardware demos
 - `messages/` Schema-valid message examples

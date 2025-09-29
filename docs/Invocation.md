@@ -1,5 +1,5 @@
 
-# MCP4H: Harmonizer — Universal Invocation
+# MCP4H™: Harmonizer — Universal Invocation
 
 Use this template for *any* situation (online post, email, DM, live speaking, etc.).
 All fields are optional—leave them blank if not relevant.

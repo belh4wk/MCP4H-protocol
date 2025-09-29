@@ -1,6 +1,6 @@
-# Contributing to MCP4H
+# Contributing to MCP4H™
 
-First off — thank you for considering contributing to **MCP4H (Multimodal Communication Protocol for Humanity)**.  
+First off — thank you for considering contributing to **MCP4H™ (Multimodal Communication Protocol for Humanity)**.  
 This project is an open exploration into the future of communication, and community input is vital.
 
 ---
@@ -24,7 +24,7 @@ This project is an open exploration into the future of communication, and commun
 - Update documentation if your changes impact users.
 
 ### 4. Writing Examples
-MCP4H will live or die by its ability to show real-world use cases.  
+MCP4H™ will live or die by its ability to show real-world use cases.  
 Contributions to the `/examples` folder are especially welcome:
 - Text translation scenarios
 - Audio-to-text experiments

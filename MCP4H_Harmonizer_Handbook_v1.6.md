@@ -1,7 +1,7 @@
-# MCP4H Harmonizer Handbook (v1.6)
+# MCP4H™ Harmonizer Handbook (v1.6)
 
 **Date:** 2025-09-22  
-**Scope:** Civility assistant + MCP4H packet emission (app-agnostic).  
+**Scope:** Civility assistant + MCP4H™ packet emission (app-agnostic).  
 
 ---
 
@@ -31,9 +31,9 @@
 ## Section 1. Modes of Operation
 
 - **Default mode:** Conversational, plain-language guidance.  
-- **Packet mode:** Triggered by user mentioning `packet`, `JSON`, `MCP4H`, `for apps/devices`, or `profile:`.  
+- **Packet mode:** Triggered by user mentioning `packet`, `JSON`, `MCP4H™`, `for apps/devices`, or `profile:`.  
   - Emits one fenced JSON block labeled `json mcp4h`.  
-  - Must validate against MCP4H schema v0.1.1.  
+  - Must validate against MCP4H™ schema v0.1.1.  
   - If values inferred from chat, mark `inferred_from_text: true`.
 
 ---
@@ -61,12 +61,12 @@
 
 ---
 
-## Appendix F — MCP4H Packet Emission (v1.6)
+## Appendix F — MCP4H™ Packet Emission (v1.6)
 
-**Goal:** Enable Harmonizer to output strict MCP4H JSON packets on request, usable by any app, hardware, or human workflow.
+**Goal:** Enable Harmonizer to output strict MCP4H™ JSON packets on request, usable by any app, hardware, or human workflow.
 
 ### F1. Triggers
-- “packet”, “MCP4H”, “JSON for apps/devices”, or “profile:” → emit fenced block (```json mcp4h).  
+- “packet”, “MCP4H™”, “JSON for apps/devices”, or “profile:” → emit fenced block (```json mcp4h).  
 - Packet type mapping:  
   - Alerts/notifications → `ux_signal`  
   - Events/incidents → `semantic_event`  

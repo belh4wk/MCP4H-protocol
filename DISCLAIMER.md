@@ -1,11 +1,11 @@
 # Disclaimer
 
-This document provides important context regarding the MCP4H (Multimodal Communication Protocol for Humanity) project and its preprints, publications, and repository materials.  
+This document provides important context regarding the MCP4H™ (Multimodal Communication Protocol for Humanity) project and its preprints, publications, and repository materials.  
 
 ---
 
 ## 📌 Context
-MCP4H is currently at the **early research and exploratory stage**.  
+MCP4H™ is currently at the **early research and exploratory stage**.  
 The repository, preprints, and supporting documents (Manifesto + Whitepaper) are intended for **community review, discussion, and collaborative development**.  
 
 As such:
@@ -34,7 +34,7 @@ As such:
 ---
 
 ## ✅ Reminder
-MCP4H is released under the license:  
+MCP4H™ is released under the license:  
 **CC BY-NC 4.0** (Attribution required, non-commercial use only).  
 
 You are free to share and adapt this work with proper attribution, but **not for commercial use**.  

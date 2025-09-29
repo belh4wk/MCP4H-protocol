@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "MCP4H Envelope v0.1.1",
-  "description": "Additive envelope schema for MCP4H v0.1.x. Optional fields include: profile, msg_type, seq, ts_monotonic_us, content_type.",
+  "title": "MCP4H™ Envelope v0.1.1",
+  "description": "Additive envelope schema for MCP4H™ v0.1.x. Optional fields include: profile, msg_type, seq, ts_monotonic_us, content_type.",
   "type": "object",
   "required": [
     "version",
