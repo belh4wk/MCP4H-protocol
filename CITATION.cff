@@ -1,28 +1,34 @@
 cff-version: 1.2.0
-message: "If you use this work, please cite it as below."
+message: >-
+  If you use MCP4H, please cite this release. You can also use the concept DOI to always
+  reference the latest version.
+title: MCP4H — Multimodal Communication Protocol for Humanity
+version: v0.1.1
+doi: 10.5281/zenodo.17225488
+date-released: 2025-09-29
+abstract: >-
+  MCP4H v0.1.1 — Additive update (envelope + profiles + examples + CI)
+type: software
+license: MIT
+repository-code: https://github.com/belh4wk/MCP4H-protocol
+url: https://github.com/belh4wk/MCP4H-protocol/tree/v0.1.1
 authors:
   - family-names: "Van Echelpoel"
     given-names: "Dirk"
-title: "MCP4H: The 4-Point Harness of Communication – A Human-First Multimodal Protocol (Initial Draft: Manifesto + Whitepaper)"
-version: "v0.1.0-alpha"
-date-released: 2025-09-20
-doi: "10.5281/zenodo.17164550"
-url: "https://doi.org/10.5281/zenodo.17164550"
-repository-code: "https://github.com/belH4wk/MCP4H-protocol"
-license: "CC-BY-NC-4.0"
-abstract: >
-  MCP4H (Multimodal Communication Protocol for Humanity) is a human-first,
-  open protocol that unifies text, audio, visuals, and haptics into a
-  resilient “4-point harness” for clarity, empathy, speed, and trust.
-  This initial draft includes a Manifesto and Whitepaper, providing the
-  high-level vision, technical exploration, and roadmap for development.
+    orcid: "https://orcid.org/0009-0008-4362-3511"
 preferred-citation:
-  type: report
+  type: software
+  title: "MCP4H v0.1.1 — Additive update (envelope + profiles + examples + CI)"
   authors:
     - family-names: "Van Echelpoel"
       given-names: "Dirk"
-  title: "MCP4H: The 4-Point Harness of Communication – A Human-First Multimodal Protocol (Initial Draft: Manifesto + Whitepaper)"
+      orcid: "https://orcid.org/0009-0008-4362-3511"
   year: 2025
-  doi: "10.5281/zenodo.17164550"
-  url: "https://doi.org/10.5281/zenodo.17164550"
-  publisher: "Zenodo"
+  version: "v0.1.1"
+  doi: "10.5281/zenodo.17225488"
+  url: "https://github.com/belh4wk/MCP4H-protocol/tree/v0.1.1"
+references:
+  - type: software
+    title: "MCP4H (concept DOI) — always resolves to latest"
+    doi: "10.5281/zenodo.17164550"
+    url: "https://doi.org/10.5281/zenodo.17164550"
