@@ -1,5 +1,4 @@
-fastapi
-uvicorn[standard]
-paho-mqtt
-pydantic
-jsonschema
+fastapi>=0.110
+uvicorn[standard]>=0.30
+pydantic>=2.7
+paho-mqtt>=1.6.1

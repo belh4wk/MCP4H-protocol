@@ -1,74 +1,69 @@
 services:
   mqtt:
-    image: eclipse-mosquitto:2
     container_name: mcp4h-mqtt
-    restart: unless-stopped
+    image: eclipse-mosquitto:2
     ports:
       - "1883:1883"
-      - "9001:9001"
+    volumes:
+      - ./services/mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
 
   cue-gateway:
+    container_name: mcp4h-cue-gateway
     build:
       context: .
       dockerfile: services/cue-gateway/Dockerfile
-    container_name: mcp4h-cue-gateway
-    restart: unless-stopped
-    environment:
-      - MQTT_HOST=mqtt
-      - MQTT_PORT=1883
     depends_on:
       - mqtt
+    environment:
+      - MQTT_HOST=mcp4h-mqtt
+      - MQTT_PORT=1883
     ports:
       - "8080:8080"
 
-  voice-coach:
+  udp-proxy:
+    container_name: mcp4h-udp-proxy
     build:
       context: .
-      dockerfile: services/voice-coach/Dockerfile
-    container_name: mcp4h-voice-coach
-    restart: unless-stopped
-    environment:
-      - MQTT_HOST=mqtt
-      - MQTT_PORT=1883
+      dockerfile: services/udp-proxy/Dockerfile
     depends_on:
       - mqtt
+    environment:
+      - MQTT_HOST=mcp4h-mqtt
+      - MQTT_PORT=1883
+    ports:
+      - "20777:20777/udp"
 
   osc-bridge:
+    container_name: mcp4h-osc-bridge
     build:
       context: .
       dockerfile: services/osc-bridge/Dockerfile
-    container_name: mcp4h-osc-bridge
-    restart: unless-stopped
-    environment:
-      - MQTT_HOST=mqtt
-      - MQTT_PORT=1883
     depends_on:
       - mqtt
+    environment:
+      - MQTT_HOST=mcp4h-mqtt
+      - MQTT_PORT=1883
     ports:
       - "9000:9000/udp"
 
   simhub-adapter:
+    container_name: mcp4h-simhub-adapter
     build:
       context: .
       dockerfile: services/simhub-adapter/Dockerfile
-    container_name: mcp4h-simhub-adapter
-    restart: unless-stopped
-    environment:
-      - MQTT_HOST=mqtt
-      - MQTT_PORT=1883
     depends_on:
       - mqtt
+    environment:
+      - MQTT_HOST=mcp4h-mqtt
+      - MQTT_PORT=1883
 
-  udp-proxy:
+  voice-coach:
+    container_name: mcp4h-voice-coach
     build:
       context: .
-      dockerfile: services/udp-proxy/Dockerfile
-    container_name: mcp4h-udp-proxy
-    restart: unless-stopped
-    environment:
-      - MQTT_HOST=mqtt
-      - MQTT_PORT=1883
+      dockerfile: services/voice-coach/Dockerfile
     depends_on:
       - mqtt
-    ports:
-      - "20777:20777/udp"
+    environment:
+      - MQTT_HOST=mcp4h-mqtt
+      - MQTT_PORT=1883
