@@ -1,0 +1,16 @@
+{
+  "cue_id": "smoketest-001",
+  "timestamp": "2025-10-02T00:00:00Z",
+  "source": "smoketest",
+  "context": {
+    "session": "dev",
+    "vehicle": "sim"
+  },
+  "channel": "brake_assist",
+  "urgency": "info",
+  "action": "coach",
+  "payload": {
+    "message": "Test cue from patch",
+    "strength": 0.2
+  }
+}
