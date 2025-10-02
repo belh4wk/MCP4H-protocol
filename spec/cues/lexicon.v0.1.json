@@ -1,0 +1,53 @@
+{
+  "states": [
+    "OK",
+    "RISK",
+    "ALERT"
+  ],
+  "metrics": [
+    "GRIP",
+    "HEAT",
+    "WEAR",
+    "FUEL",
+    "BRAKE",
+    "EMOTION",
+    "ALIGNMENT",
+    "PRESSURE",
+    "OXY",
+    "NEEDS_ASSIST",
+    "BOUNDARY"
+  ],
+  "trend": [
+    "up",
+    "down",
+    "unstable",
+    "steady"
+  ],
+  "actions": [
+    "LIFT",
+    "HOLD",
+    "BOX",
+    "GO",
+    "RESET",
+    "LISTEN",
+    "SEEK_CLARITY",
+    "STAND_GROUND",
+    "SEEK_HELP"
+  ],
+  "position": [
+    "FL",
+    "FR",
+    "RL",
+    "RR",
+    "ALL",
+    "FRONT",
+    "REAR",
+    "LEFT",
+    "RIGHT"
+  ],
+  "urgency": [
+    "notice",
+    "caution",
+    "act"
+  ]
+}

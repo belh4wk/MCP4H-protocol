@@ -1,0 +1,25 @@
+{
+  "icons": {
+    "ALERT": "triangle",
+    "RISK": "diamond",
+    "OK": "circle",
+    "GRIP": "grip",
+    "BRAKE": "stop"
+  },
+  "motion": {
+    "act": "pulse-rapid",
+    "caution": "pulse",
+    "notice": "breathe"
+  },
+  "shapes": {
+    "default": "bold-outline"
+  },
+  "palette": {
+    "ok": "#2EBD85",
+    "risk": "#F2C744",
+    "alert": "#F95E5A"
+  },
+  "rules": {
+    "color_never_alone": true
+  }
+}

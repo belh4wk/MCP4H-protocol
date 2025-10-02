@@ -1,0 +1,19 @@
+{
+  "subject": "brake.front",
+  "signal": "BRAKE",
+  "state": "RISK",
+  "trend": "unstable",
+  "urgency": "caution",
+  "action_hint": "LIFT",
+  "channels": {
+    "text": [
+      "FRONT",
+      "BRAKE",
+      "\u21af",
+      "RISK",
+      "LIFT"
+    ]
+  },
+  "ts": 1759436776,
+  "version": "cues.v0.1"
+}

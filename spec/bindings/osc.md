@@ -1,0 +1,1 @@
+/mcp4h/<subject>/<signal> args: state trend urgency action_hint?

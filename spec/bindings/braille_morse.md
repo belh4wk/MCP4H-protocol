@@ -1,0 +1,1 @@
+Tokens → Braille Grade1 or Morse; urgency by cadence.

@@ -1,0 +1,53 @@
+{
+  "syllables": [
+    "ba",
+    "ka",
+    "to",
+    "ru",
+    "mi",
+    "sa",
+    "lo",
+    "du",
+    "fe",
+    "gi",
+    "no",
+    "ha"
+  ],
+  "rules": {
+    "ALERT_act": "ba! ba!",
+    "ALERT_caution": "ba\u2014",
+    "RISK_act": "ka!",
+    "RISK_caution": "ka\u2014",
+    "OK_notice": "lo",
+    "HOLD": "ho",
+    "LIFT": "li",
+    "BOX": "bo"
+  },
+  "tts_hints": {
+    "ba!": {
+      "pitch": "high",
+      "tempo": "fast"
+    },
+    "ba\u2014": {
+      "pitch": "mid",
+      "duration_ms": 400
+    },
+    "ka!": {
+      "pitch": "mid",
+      "tempo": "fast"
+    },
+    "ka\u2014": {
+      "pitch": "low",
+      "duration_ms": 300
+    },
+    "ho": {
+      "pitch": "low"
+    },
+    "li": {
+      "pitch": "mid"
+    },
+    "bo": {
+      "pitch": "low"
+    }
+  }
+}

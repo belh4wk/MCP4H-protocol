@@ -1,0 +1,1 @@
+# RFC 0002 — Lingua Maps v0.1

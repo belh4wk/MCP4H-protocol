@@ -1,0 +1,1 @@
+Lingua v0.1 maps (audio/haptic/visual). Deterministic; no new tokens at runtime.

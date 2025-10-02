@@ -1,0 +1,19 @@
+{
+  "subject": "tyre.RR",
+  "signal": "GRIP",
+  "state": "ALERT",
+  "trend": "down",
+  "urgency": "act",
+  "action_hint": "HOLD",
+  "channels": {
+    "text": [
+      "RR",
+      "GRIP",
+      "\u2193",
+      "ALERT",
+      "HOLD"
+    ]
+  },
+  "ts": 1759436776,
+  "version": "cues.v0.1"
+}

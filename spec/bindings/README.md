@@ -1,0 +1,1 @@
+Bindings map cue semantics to carriers: MQTT, HTTP/WS, OSC, MIDI, CAN, CAP, W3C Vibration, Braille, Morse.

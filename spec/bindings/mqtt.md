@@ -1,0 +1,1 @@
+Topic: mcp4h/<subject>/<signal> Payload: application/mcp4h+json

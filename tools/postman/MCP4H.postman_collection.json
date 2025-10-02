@@ -1,0 +1,25 @@
+{
+  "info": {
+    "name": "MCP4H Gateway",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POST /cue",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/mcp4h+json"
+          }
+        ],
+        "url": "http://localhost:8080/cue",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"subject\": \"brake.front\",\n  \"signal\": \"BRAKE\",\n  \"state\": \"RISK\",\n  \"trend\": \"unstable\",\n  \"urgency\": \"caution\",\n  \"action_hint\": \"LIFT\",\n  \"channels\": {\n    \"text\": [\n      \"FRONT\",\n      \"BRAKE\",\n      \"\\u21af\",\n      \"RISK\",\n      \"LIFT\"\n    ]\n  },\n  \"ts\": 1759436776,\n  \"version\": \"cues.v0.1\"\n}"
+        }
+      }
+    }
+  ]
+}

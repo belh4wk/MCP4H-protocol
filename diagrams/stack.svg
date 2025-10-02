@@ -1,0 +1,13 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='840' height='420'>
+<rect x='0' y='0' width='840' height='420' fill='#ffffff' stroke='#ddd'/>
+<text x='420' y='36' text-anchor='middle' font-family='Inter,Arial' font-size='20'>MCP4H Stack</text>
+<rect x='100' y='70' width='640' height='60' fill='#eef7ff' stroke='#88a' rx='10'/>
+<text x='420' y='105' text-anchor='middle' font-family='Inter,Arial' font-size='14'>Human/Machine Actions</text>
+<rect x='100' y='150' width='640' height='90' fill='#f5fff2' stroke='#7a7' rx='10'/>
+<text x='420' y='185' text-anchor='middle' font-family='Inter,Arial' font-size='14'>MCP4H Meaning Layer (state • trend • urgency • action_hint)</text>
+<text x='420' y='205' text-anchor='middle' font-family='Inter,Arial' font-size='12'>channels: text • visual • audio • haptic</text>
+<rect x='100' y='260' width='640' height='90' fill='#fff7f0' stroke='#a87' rx='10'/>
+<text x='420' y='295' text-anchor='middle' font-family='Inter,Arial' font-size='14'>Transports/Carriers: MQTT • HTTP/WS • OSC • CAN • MIDI • BLE • Vibration • CAP • Braille • Morse</text>
+<polygon points='420,240 430,250 410,250' fill='#555'/>
+<polygon points='420,140 430,150 410,150' fill='#555'/>
+</svg>

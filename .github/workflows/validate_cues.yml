@@ -1,0 +1,18 @@
+name: Validate MCP4H
+on:
+  push:
+    paths: ['spec/**','examples_cues/**','.github/workflows/**']
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 - <<'PY'
+import json,glob,sys
+req={'subject','signal','state','trend','urgency','channels','version','ts'}
+ok=True
+for f in glob.glob('examples_cues/*.json'):
+ d=json.load(open(f)); miss=req-set(d.keys());
+ if miss: print('Missing',miss,'in',f); ok=False
+print('OK' if ok else 'FAIL'); sys.exit(0 if ok else 1)
+PY

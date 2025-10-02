@@ -1,0 +1,5 @@
+- v0.1 freeze (schema+lingua)
+- Simracing demo
+- Wearables profile renderer
+- More adapters (Logitech iCue/OpenRGB/OpenXR)
+- Whitepaper DOI (Zenodo)

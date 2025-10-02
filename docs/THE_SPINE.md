@@ -1,0 +1,1 @@
+Tiny, universal cue grammar across text/visual/audio/haptic so meaning survives platform, context, ability.
