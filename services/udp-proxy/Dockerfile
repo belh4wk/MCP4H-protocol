@@ -3,4 +3,5 @@ WORKDIR /app
 COPY services/udp-proxy/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY services/udp-proxy/ .
-CMD ["python","main.py"]
+# Startup banner + run
+CMD ["/bin/sh", "-lc", "echo '[mcp4h] 🚀 udp-proxy ready'; python main.py"]
