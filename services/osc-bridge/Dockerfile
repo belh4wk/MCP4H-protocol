@@ -1,5 +1,7 @@
 FROM python:3.11-slim
 WORKDIR /app
-RUN pip install paho-mqtt python-osc
-COPY . .
+COPY services/osc-bridge/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY services/osc-bridge/ .
+EXPOSE 9000/udp
 CMD ["python","main.py"]

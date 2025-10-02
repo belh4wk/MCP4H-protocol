@@ -2,33 +2,76 @@ version: "3.9"
 services:
   mqtt:
     image: eclipse-mosquitto:2
-    ports: ["1883:1883"]
-    volumes:
-      - ./services/mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    container_name: mcp4h-mqtt
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+
   cue-gateway:
-    build: ./services/cue-gateway
-    depends_on: [mqtt]
-    environment: ["MQTT_HOST=mqtt","MQTT_PORT=1883"]
-    ports: ["8080:8080"]
+    build:
+      context: .
+      dockerfile: services/cue-gateway/Dockerfile
+    container_name: mcp4h-cue-gateway
+    restart: unless-stopped
+    environment:
+      - MQTT_HOST=mqtt
+      - MQTT_PORT=1883
+    depends_on:
+      - mqtt
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/workspace:ro
+
   voice-coach:
-    build: ./services/voice-coach
-    depends_on: [mqtt]
-    environment: ["MQTT_HOST=mqtt","MQTT_PORT=1883"]
+    build:
+      context: .
+      dockerfile: services/voice-coach/Dockerfile
+    container_name: mcp4h-voice-coach
+    restart: unless-stopped
+    environment:
+      - MQTT_HOST=mqtt
+      - MQTT_PORT=1883
+    depends_on:
+      - mqtt
+
   osc-bridge:
-    build: ./services/osc-bridge
-    depends_on: [mqtt]
-    environment: ["MQTT_HOST=mqtt","MQTT_PORT=1883","OSC_HOST=host.docker.internal","OSC_PORT=9000"]
+    build:
+      context: .
+      dockerfile: services/osc-bridge/Dockerfile
+    container_name: mcp4h-osc-bridge
+    restart: unless-stopped
+    environment:
+      - MQTT_HOST=mqtt
+      - MQTT_PORT=1883
+    depends_on:
+      - mqtt
+    ports:
+      - "9000:9000/udp"
+
   simhub-adapter:
-    build: ./services/simhub-adapter
-    depends_on: [mqtt]
-    environment: ["MQTT_HOST=mqtt","MQTT_PORT=1883","SIMHUB_UDP_HOST=0.0.0.0","SIMHUB_UDP_PORT=9999"]
-    ports: ["9999:9999/udp"]
+    build:
+      context: .
+      dockerfile: services/simhub-adapter/Dockerfile
+    container_name: mcp4h-simhub-adapter
+    restart: unless-stopped
+    environment:
+      - MQTT_HOST=mqtt
+      - MQTT_PORT=1883
+    depends_on:
+      - mqtt
+
   udp-proxy:
-    build: ./services/udp-proxy
-    depends_on: [simhub-adapter]
-    environment: ["GAME_UDP_HOST=0.0.0.0","GAME_UDP_PORT=20777","FORWARD_UDP_HOST=simhub-adapter","FORWARD_UDP_PORT=9999"]
-    ports: ["20777:20777/udp"]
-  fanatec-adapter:
-    build: ./services/fanatec-adapter
-    depends_on: [mqtt]
-    environment: ["MQTT_HOST=mqtt","MQTT_PORT=1883","BACKEND=mock"]
+    build:
+      context: .
+      dockerfile: services/udp-proxy/Dockerfile
+    container_name: mcp4h-udp-proxy
+    restart: unless-stopped
+    environment:
+      - MQTT_HOST=mqtt
+      - MQTT_PORT=1883
+    depends_on:
+      - mqtt
+    ports:
+      - "20777:20777/udp"
