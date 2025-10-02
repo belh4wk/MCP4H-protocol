@@ -1,16 +1,19 @@
 {
-  "cue_id": "smoketest-001",
-  "timestamp": "2025-10-02T00:00:00Z",
-  "source": "smoketest",
-  "context": {
-    "session": "dev",
-    "vehicle": "sim"
-  },
-  "channel": "brake_assist",
-  "urgency": "info",
-  "action": "coach",
+  "id": "smoke-001",
+  "ts": "2025-01-01T00:00:00Z",
+  "channel": "multi",
+  "intent": "hello_world",
+  "urgency": "low",
   "payload": {
-    "message": "Test cue from patch",
-    "strength": 0.2
+    "text": "Hello world",
+    "audio": {
+      "pattern": "ding"
+    },
+    "haptic": {
+      "pattern": "pulse"
+    },
+    "visual": {
+      "icon": "check"
+    }
   }
 }

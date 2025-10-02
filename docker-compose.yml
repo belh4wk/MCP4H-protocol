@@ -5,12 +5,7 @@ services:
     ports:
       - "1883:1883"
     volumes:
-      - ./services/mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
-    healthcheck:
-      test: ["CMD-SHELL", "mosquitto_sub -h 127.0.0.1 -p 1883 -t '$SYS/#' -C 1 -W 2 > /dev/null || exit 1"]
-      interval: 3s
-      timeout: 2s
-      retries: 20
+      - ./infra/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
 
   cue-gateway:
     build:
@@ -22,8 +17,7 @@ services:
       - MQTT_HOST=mqtt
       - MQTT_PORT=1883
     depends_on:
-      mqtt:
-        condition: service_healthy
+      - mqtt
     ports:
       - "8080:8080"
 
@@ -37,10 +31,7 @@ services:
       - MQTT_HOST=mqtt
       - MQTT_PORT=1883
     depends_on:
-      mqtt:
-        condition: service_healthy
-      cue-gateway:
-        condition: service_started
+      - mqtt
 
   osc-bridge:
     build:
@@ -52,8 +43,7 @@ services:
       - MQTT_HOST=mqtt
       - MQTT_PORT=1883
     depends_on:
-      mqtt:
-        condition: service_healthy
+      - mqtt
 
   simhub-adapter:
     build:
@@ -65,8 +55,7 @@ services:
       - MQTT_HOST=mqtt
       - MQTT_PORT=1883
     depends_on:
-      mqtt:
-        condition: service_healthy
+      - mqtt
 
   voice-coach:
     build:
@@ -78,5 +67,4 @@ services:
       - MQTT_HOST=mqtt
       - MQTT_PORT=1883
     depends_on:
-      mqtt:
-        condition: service_healthy
+      - mqtt

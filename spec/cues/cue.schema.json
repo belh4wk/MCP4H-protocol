@@ -1,71 +1,44 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "MCP4H Cue Packet Schema v0.1",
+  "title": "MCP4H Cue",
   "type": "object",
   "required": [
-    "subject",
-    "signal",
-    "state",
-    "trend",
-    "urgency",
-    "channels",
-    "version",
-    "ts"
+    "id",
+    "ts",
+    "channel",
+    "intent"
   ],
   "properties": {
-    "subject": {
+    "id": {
       "type": "string"
     },
-    "signal": {
+    "ts": {
       "type": "string"
     },
-    "state": {
+    "channel": {
       "type": "string",
       "enum": [
-        "OK",
-        "RISK",
-        "ALERT"
+        "audio",
+        "haptic",
+        "visual",
+        "multi"
       ]
     },
-    "trend": {
-      "type": "string",
-      "enum": [
-        "up",
-        "down",
-        "unstable",
-        "steady"
-      ]
+    "intent": {
+      "type": "string"
     },
     "urgency": {
       "type": "string",
       "enum": [
-        "notice",
-        "caution",
-        "act"
-      ]
+        "low",
+        "med",
+        "high"
+      ],
+      "default": "low"
     },
-    "action_hint": {
-      "type": "string"
-    },
-    "confidence": {
-      "type": "number",
-      "minimum": 0,
-      "maximum": 1
-    },
-    "channels": {
+    "payload": {
       "type": "object"
-    },
-    "scope": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "ts": {
-      "type": "integer"
-    },
-    "version": {
-      "type": "string"
     }
-  }
+  },
+  "additionalProperties": true
 }

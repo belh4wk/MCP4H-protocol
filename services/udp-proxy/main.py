@@ -1,33 +1,20 @@
 import os, socket, json
+import paho.mqtt.client as mqtt
 
-GAME_PORT = int(os.getenv("GAME_UDP_PORT","20777"))
-FWD_HOST = os.getenv("FORWARD_UDP_HOST","127.0.0.1")
-FWD_PORT = int(os.getenv("FORWARD_UDP_PORT","9999"))
+UDP_PORT = int(os.getenv("UDP_PORT","20777"))  # F1 default
+MQTT_HOST = os.getenv("MQTT_HOST","mqtt")
+MQTT_PORT = int(os.getenv("MQTT_PORT","1883"))
+TOPIC = os.getenv("MQTT_TOPIC","mcp4h/udp")
 
-sock_in = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock_in.bind(("0.0.0.0", GAME_PORT)); sock_in.settimeout(0.5)
-sock_out = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-print(f"[UDP-PROXY] Listening 0.0.0.0:{GAME_PORT} -> {FWD_HOST}:{FWD_PORT}")
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock.bind(("0.0.0.0", UDP_PORT))
 
+m = mqtt.Client()
+m.connect(MQTT_HOST, MQTT_PORT, 60)
+m.loop_start()
+
+print(f"[udp-proxy] listening on UDP {UDP_PORT}")
 while True:
-    try: data, addr = sock_in.recvfrom(8192)
-    except socket.timeout: continue
-    except Exception as e: print("[UDP-PROXY] error", e); continue
-    try:
-        s = data.decode("utf-8","ignore")
-        if '=' in s:  # Assetto Corsa style
-            kv = {}
-            for part in s.split(';'):
-                if '=' in part:
-                    k,v = part.split('=',1); k=k.strip(); v=v.strip()
-                    if not k: continue
-                    try: kv[k]=float(v)
-                    except: kv[k]=v
-            frame={"speed":float(kv.get("speedKmh",kv.get("speed",0.0))),
-                   "brake":float(kv.get("brakeInput",kv.get("brake",0.0))),
-                   "rrSlip":float(kv.get("slipRR",kv.get("rrSlip",0.0)))}
-        else:  # passthrough JSON
-            frame = json.loads(s)
-    except Exception:
-        continue
-    sock_out.sendto(json.dumps(frame).encode("utf-8"), (FWD_HOST, FWD_PORT))
+    data, addr = sock.recvfrom(4096)
+    payload = {"src": addr[0], "len": len(data)}
+    m.publish(TOPIC, json.dumps(payload))

@@ -1,29 +1,19 @@
-import os, json
+import json, os
 import paho.mqtt.client as mqtt
 
-MQTT_HOST = os.getenv("MQTT_HOST","localhost")
+MQTT_HOST = os.getenv("MQTT_HOST","mqtt")
 MQTT_PORT = int(os.getenv("MQTT_PORT","1883"))
-
-def say(cue):
-    sig = cue.get("signal","").upper()
-    state = cue.get("state","")
-    urg = cue.get("urgency","")
-    ah = (cue.get("action_hint") or "").upper()
-    out = []
-    if sig == "BRAKE":
-        if urg == "act": out.append("Brake")
-        if urg == "caution": out.append("Hold")
-        if ah in ("LIFT","HOLD","BOX"): out.append(ah.capitalize())
-    elif sig == "GRIP":
-        if state == "ALERT": out.append("Hold")
-        if ah in ("HOLD","LIFT"): out.append(ah.capitalize())
-    if out: print("[VOICE-COACH]", " ".join(out))
+SUB = os.getenv("MQTT_SUB","mcp4h/cues")
 
 def on_message(client, userdata, msg):
-    try: cue = json.loads(msg.payload.decode("utf-8"))
-    except Exception: return
-    say(cue)
+    try:
+        cue = json.loads(msg.payload.decode("utf-8"))
+    except Exception:
+        return
+    print("[voice-coach] cue:", cue.get("intent"), cue.get("payload",{}))
 
-m = mqtt.Client(); m.on_message = on_message
+m = mqtt.Client()
+m.on_message = on_message
 m.connect(MQTT_HOST, MQTT_PORT, 60)
-m.subscribe("mcp4h/#"); m.loop_forever()
+m.subscribe(SUB)
+m.loop_forever()

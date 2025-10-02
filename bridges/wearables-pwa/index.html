@@ -1,1 +1,9 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MCP4H Wearables</title><style>body{font-family:system-ui;margin:2rem}pre{white-space:pre-wrap;border:1px solid #ddd;padding:1rem;border-radius:8px}</style></head><body><h1>MCP4H Wearables Demo</h1><button id=b>Connect</button><pre id=l></pre><script>const L=m=>document.getElementById('l').textContent+=m+'\n';document.getElementById('b').onclick=()=>{const w=new WebSocket('ws://localhost:8080/cues');w.onopen=()=>L('WS connected');w.onmessage=e=>{try{const c=JSON.parse(e.data);const u=c.urgency;if(u==='act')navigator.vibrate([100,70,100]);else if(u==='caution')navigator.vibrate([140,60]);else if(u==='notice')navigator.vibrate([80]);L('Cue '+(c.subject||'')+' '+(c.signal||'')+' '+u)}catch(_){}}};</script></body></html>
+<!doctype html>
+<meta charset="utf-8">
+<title>MCP4H Wearables Demo</title>
+<h1>MCP4H Wearables Demo</h1>
+<p>Open console and watch simulated visual/haptic logs.</p>
+<button id="connect">Connect</button>
+<script>
+document.getElementById('connect').onclick = () => console.log('Connected (mock)');
+</script>
