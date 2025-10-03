@@ -1,0 +1,35 @@
+# This file is automatically picked up by `docker compose` in addition to docker-compose.yml
+# It adds a healthcheck for MQTT and makes other services wait until the broker is healthy.
+services:
+  mqtt:
+    healthcheck:
+      test: ["CMD-SHELL", "mosquitto_sub -h 127.0.0.1 -t '$SYS/broker/version' -C 1 -W 3 >/dev/null 2>&1 || exit 1"]
+      interval: 5s
+      timeout: 4s
+      retries: 8
+      start_period: 5s
+
+  cue-gateway:
+    depends_on:
+      mqtt:
+        condition: service_healthy
+
+  udp-proxy:
+    depends_on:
+      mqtt:
+        condition: service_healthy
+
+  osc-bridge:
+    depends_on:
+      mqtt:
+        condition: service_healthy
+
+  simhub-adapter:
+    depends_on:
+      mqtt:
+        condition: service_healthy
+
+  voice-coach:
+    depends_on:
+      mqtt:
+        condition: service_healthy
