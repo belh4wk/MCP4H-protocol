@@ -1,8 +1,9 @@
 # MCP4H — The 4-Point Harness Protocol
 
-MCP4H is a common language for communication, built to help people and machines share situational awareness.
+MCP4H™ (Multimodal Communications Protocol for Humanity) is a **common language for communication**, built to help people and machines share situational awareness.
 
-Works across text • visual • audio • haptic. Small cue grammar, big reach.
+Works across **text • visual • audio • haptic.**  
+Small cue grammar — big reach.
 
 ---
 
@@ -47,13 +48,49 @@ POST /cue HTTP/1.1" 200 OK
 - **Tools**: CLI sender/validator, Postman collection  
 - **Docs**: Spine, Roadmap, RFCs, Deployment, Compliance, Governance, Patent covenant  
 - **CI + Tests**: schema + MQTT loopback  
-- **Diagram**: /diagrams/stack.svg  
+- **Diagram**: `/diagrams/stack.svg`  
+- **Assumptions**: design rationale and conceptual foundations (`/docs/ASSUMPTIONS.md`)
+
+---
+
+## Design Rationale
+
+📘 **Assumptions & Rationale**  
+See [`/docs/ASSUMPTIONS.md`](docs/ASSUMPTIONS.md) for the conceptual and ethical backbone of MCP4H —  
+why each design decision exists, the principles guiding signal translation, and how future versions validate or deprecate those assumptions.
+
+Each assumption is treated as a **commit of understanding** — dated, versioned, and never deleted.  
+Together, they form the *Principles of Human-Readable Signal Translation* — the living documentation of the protocol’s evolution.
+
+Example categories of assumptions include:
+
+- **Conceptual:** how humans interpret multimodal cues under cognitive load.  
+- **Design:** why every signal resolves to a text semantic layer before voice or haptics.  
+- **Ethical:** ensuring MCP4H augments awareness rather than automating judgment.  
+- **Validation:** measurable tests for clarity, latency, and adoption.
+
+---
+
+## Architectural Flow
+
+```
+[Game Telemetry] → [MCP4H Core Translator] → [Output Adapter]
+```
+
+For the trail-braking alpha demo:  
+- **Input:** Game telemetry (speed, brake pressure, slip ratio)  
+- **Core:** MCP4H translator applies rule logic → "LIFT" / "PUSH" cue  
+- **Output:** SimHub dashboard text label  
+
+Future adapters (voice, haptic, AI coach) will follow this same interface pattern.  
+This minimal chain is the first real-world test of MCP4H’s founding claim:  
+> “Clarity is a deliverable.”
 
 ---
 
 ## Tagline
 
-“MCP4H is a common language for communication, built to help people and machines share situational awareness.”
+> “MCP4H is a common language for communication, built to help people and machines share situational awareness.”
 
 ---
 
@@ -65,3 +102,5 @@ POST /cue HTTP/1.1" 200 OK
 - 📄 [ORCID Profile](https://orcid.org/)  
 
 ---
+
+© 2025 Dirk Van Echelpoel — MCP4H™ (Multimodal Communications Protocol for Humanity)
