@@ -1,51 +1,53 @@
-MCP4H™ — Dual License Notice
-===========================
+MCP4H™ — License Overview
+=========================
 
 Copyright (c) 2025 Dirk Van Echelpoel
 
-This repository contains two types of material:
-1) Conceptual framework, narrative, specifications, diagrams, and documentation (“Docs”)
-2) Source code, scripts, and example implementations (“Code”)
+This repository contains two broad types of material:
+1. Conceptual framework, narrative, specifications, diagrams, and documentation (“Docs”)
+2. Source code, scripts, schemas, and examples (“Code”)
 
 Licensing
 ---------
 
-Docs: Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)
-- SPDX-Identifier: CC-BY-NC-4.0
-- You may share and adapt the Docs with attribution, for non-commercial purposes only.
-- For the full legal code, see: https://creativecommons.org/licenses/by-nc/4.0/legalcode
+**Docs:** Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)  
+- SPDX-Identifier: CC-BY-NC-4.0  
+- You may share and adapt the Docs for non-commercial use with attribution.  
+- For the full legal code, see: https://creativecommons.org/licenses/by-nc/4.0/legalcode  
 
-Code: GNU General Public License v3.0 or later (GPL-3.0-or-later)
-- SPDX-License-Identifier: GPL-3.0-or-later
-- You may use, modify, and distribute the Code under the GPL; any derivative works that you distribute must also be licensed under the GPL.
-- For the full license text, see: https://www.gnu.org/licenses/gpl-3.0-standalone.html
+**Code:** MIT License  
+- SPDX-Identifier: MIT  
+- You may use, modify, and distribute the Code (including commercially) under the MIT License.  
+- See the top-level LICENSE file for the full text.
 
 Attribution and Citation
 ------------------------
-Please cite MCP4H™ using the Zenodo DOI and include author credit:
-- Author: Dirk Van Echelpoel
-- Project: MCP4H™
-- DOI: <insert Zenodo DOI here>
+
+Please cite MCP4H™ using the Zenodo DOIs:
+
+- Concept / protocol DOI: 10.5281/zenodo.17164550
+- Latest tagged protocol release (e.g. v0.1.1): 10.5281/zenodo.17225488
+
+See `CITATION.cff` for formal citation metadata.
 
 Files and Scope
 ---------------
+
 Unless otherwise noted in a file’s header:
-- Any file in /docs, /spec, /design, README content, and prose is “Docs” (CC BY-NC 4.0).
-- Any file in /src, /code, /scripts, and example implementations is “Code” (GPL-3.0-or-later).
+
+- `.md`, `.pdf`, `.svg`, and other prose/diagram files in `docs/`, `design/`, and top-level narrative files are treated as “Docs” (CC BY-NC 4.0).
+- JSON schemas, examples, CLI tools, tests, CI workflows, and scripts under `spec/`, `schemas/`, `examples*/`, `sdk-*`, and `tools/` are treated as “Code” (MIT).
 
 Commercial Use
 --------------
-Commercial use of the Docs is not permitted without permission (CC BY-NC 4.0).
-For commercial licensing or partnerships, please contact: dirkvanechelpoel@gmail.com
 
-No Warranty
------------
-The materials are provided “AS IS”, without warranty of any kind. See the respective licenses for details.
+- Non-commercial reuse of Docs is allowed under CC BY-NC 4.0 with attribution.  
+- Commercial use of Docs requires prior written permission.  
+- Code can be used commercially under the MIT License, subject to the terms in LICENSE.
 
-SPDX-License-Identifier summary
--------------------------------
-For Docs files, include (as applicable):
-  SPDX-License-Identifier: CC-BY-NC-4.0
+Trademarks
+----------
 
-For Code files, include (as applicable):
-  SPDX-License-Identifier: GPL-3.0-or-later
+MCP4H™ and MCP4SH™ are trademarks of Dirk Van Echelpoel.  
+Use of the open source materials in this repository does *not* grant any rights to use these names or marks in your own branding.  
+See `TRADEMARKS.md` for more details.

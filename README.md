@@ -1,5 +1,22 @@
 # MCP4H — The 4-Point Harness Protocol
 
+
+## What this repo is (and is not)
+
+This repository contains the **MCP4H™ protocol**:
+
+- Schemas, examples, docs, and tooling for the **Multimodal Communications Protocol For Humanity**.
+- A neutral backbone for machine-to-machine and machine-to-human cue exchange.
+- Reference material for anyone building adapters, bridges, or UIs on top of MCP4H.
+
+This repo **does not** contain:
+
+- SimHub plugins
+- Game-specific haptics code
+- Commercial implementations
+
+Those live in **separate implementation repos** (for example MCP4SH™ for SimHub).
+
 MCP4H™ (Multimodal Communications Protocol for Humanity) is a **common language for communication**, built to help people and machines share situational awareness.
 
 Works across **text • visual • audio • haptic.**  
@@ -104,3 +121,10 @@ This minimal chain is the first real-world test of MCP4H’s founding claim:
 ---
 
 © 2025 Dirk Van Echelpoel — MCP4H™ (Multimodal Communications Protocol for Humanity)
+
+## Related projects
+
+- **MCP4SH™** – SimHub implementation of MCP4H for sim racing haptics  
+  *(separate repository, distributed under a more restrictive license)*
+
+- **MCP4H: Harmonizer** – conversational stack built on MCP4H principles (guardrails, voice profiles, and cue mappings).

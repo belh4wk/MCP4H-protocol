@@ -36,3 +36,6 @@
 - Explore consortium/standardization pathways (SAE, IEEE, Khronos).
 
 **2025-09-21:** Repo housekeeping completed (docs path normalized, schema path consolidated, examples reorganized, duplicate validator removed).
+
+
+Note: SimHub integration and haptic experiments referenced here are bridges and examples only. The full SimHub plugin (MCP4SH™) is maintained in a separate repository under a different license.
