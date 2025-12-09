@@ -1,7 +1,7 @@
 {
-  "title": "MCP4H™ v0.1.1 \u2014 Additive update (envelope + profiles + examples + CI)",
+  "title": "MCP4H™ v0.1.2 — Protocol & Documentation Alignment Release",
   "upload_type": "software",
-  "publication_date": "2025-09-29",
+  "publication_date": "2025-11-28",
   "creators": [
     {
       "name": "Van Echelpoel, Dirk",
@@ -11,7 +11,7 @@
   ],
   "license": "MIT",
   "language": "eng",
-  "version": "v0.1.1",
+  "version": "v0.1.2",
   "keywords": [
     "protocol",
     "telemetry",
@@ -29,13 +29,13 @@
       "resource_type": "software"
     },
     {
-      "identifier": "https://github.com/belh4wk/MCP4H-protocol/tree/v0.1.1",
+      "identifier": "https://github.com/belh4wk/MCP4H-protocol/tree/v0.1.2-protocol",
       "relation": "isSupplementTo",
       "scheme": "url",
       "resource_type": "software"
     },
     {
-      "identifier": "https://doi.org/10.5281/zenodo.17164550",
+      "identifier": "https://doi.org/10.5281/zenodo.17727584",
       "relation": "isAlternateIdentifier",
       "scheme": "doi",
       "resource_type": "software"

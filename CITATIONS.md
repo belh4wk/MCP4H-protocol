@@ -3,12 +3,14 @@
 ---
 
 ## Identifiers
-- DOI: [10.5281/zenodo.17164550](https://doi.org/10.5281/zenodo.17164550)
+- Concept DOI (all versions): [10.5281/zenodo.17164550](https://doi.org/10.5281/zenodo.17164550)
+- Latest protocol release (v0.1.2): [10.5281/zenodo.17727584](https://doi.org/10.5281/zenodo.17727584)
 - HAL: [hal-05270821v1 (pending moderation)](https://hal.science/hal-05270821v1)
 - OSF Preprint: [MetaArXiv, v1 (pending approval)](https://osf.io/preprints/metaarxiv/mhsgv_v1)
 - arXiv: (submission pending)
 
 ---
+
 
 # 📖 How to Cite MCP4H™
 
@@ -59,5 +61,6 @@ ER  -
 ---
 
 ✍️ **Note:**  
-This project is licensed under **CC BY-NC 4.0**.  
-You are free to share and adapt the work with proper attribution, but **not for commercial use**.  
+Docs (manifesto, whitepaper, and narrative material) are licensed under **CC BY-NC 4.0**.  
+Code, schemas, and examples in this repository are licensed under the **MIT License**.  
+See `LICENSE.md` for a full overview.  

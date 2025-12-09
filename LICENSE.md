@@ -45,6 +45,20 @@ Commercial Use
 - Commercial use of Docs requires prior written permission.  
 - Code can be used commercially under the MIT License, subject to the terms in LICENSE.
 
+
+Legacy Licensing
+----------------
+
+Earlier exploratory drafts of MCP4H™ referenced the GNU GPL-3.0-or-later license.  
+That license is **no longer applicable** to this repository.
+
+The canonical licenses for MCP4H™ are now:
+
+- **Docs:** Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)  
+- **Code:** MIT License (see `LICENSE`)
+
+Any remaining GPL references in the git history or external archives are kept only for historical context and do not grant additional rights.
+
 Trademarks
 ----------
 

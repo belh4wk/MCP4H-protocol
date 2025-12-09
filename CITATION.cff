@@ -1,28 +1,28 @@
 cff-version: 1.2.0
 message: Please cite this release.
 title: MCP4H — Multimodal Communication Protocol for Humanity
-version: v0.1.1
-doi: 10.5281/zenodo.17225488
-date-released: 2025-09-29
+version: v0.1.2
+doi: 10.5281/zenodo.17727584
+date-released: 2025-11-28
 type: software
 license: MIT
 repository-code: https://github.com/belh4wk/MCP4H-protocol
-url: https://github.com/belh4wk/MCP4H-protocol/tree/v0.1.1
+url: https://github.com/belh4wk/MCP4H-protocol/tree/v0.1.2-protocol
 authors:
   - family-names: "Van Echelpoel"
     given-names: "Dirk"
     orcid: "https://orcid.org/0009-0008-4362-3511"
 preferred-citation:
   type: software
-  title: "MCP4H v0.1.1 — Additive update (envelope + profiles + examples + CI)"
+  title: "MCP4H v0.1.2 — Protocol & Documentation Alignment Release"
   authors:
     - family-names: "Van Echelpoel"
       given-names: "Dirk"
       orcid: "https://orcid.org/0009-0008-4362-3511"
   year: 2025
-  version: "v0.1.1"
-  doi: "10.5281/zenodo.17225488"
-  url: "https://github.com/belh4wk/MCP4H-protocol/tree/v0.1.1"
+  version: "v0.1.2"
+  doi: "10.5281/zenodo.17727584"
+  url: "https://github.com/belh4wk/MCP4H-protocol/tree/v0.1.2-protocol"
 references:
   - type: software
     title: "MCP4H (concept DOI) — always resolves to latest"

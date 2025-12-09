@@ -1,5 +1,6 @@
 # MCP4H — The 4-Point Harness Protocol
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17727584.svg)](https://doi.org/10.5281/zenodo.17727584)
 
 ## What this repo is (and is not)
 
@@ -113,7 +114,7 @@ This minimal chain is the first real-world test of MCP4H’s founding claim:
 
 ## References
 
-- 📄 [Zenodo DOI](https://doi.org/10.5281/zenodo.YOUR_DOI)  
+- 📄 [Zenodo DOI](https://doi.org/10.5281/zenodo.17727584)  
 - 📄 [HAL Preprint](https://hal.science/)  
 - 📄 [OSF Preprint](https://osf.io/)  
 - 📄 [ORCID Profile](https://orcid.org/)  
