@@ -1,0 +1,33 @@
+{
+  "version": "mcp4h/0.1",
+  "id": "00000000-0000-0000-0000-000000000001",
+  "timestamp": "2025-01-01T12:34:56Z",
+  "origin": {
+    "platform": "fdlb",
+    "relation": "telemetry"
+  },
+  "actor": {
+    "role": "system",
+    "handle": "FinalDriveLapBoard"
+  },
+  "text": "Lap result committed: driver Dirk, car Renault Sport Megane R.S. Trophy 2012, track Top Gear Test Track, time 0:22.48, Dry.",
+  "metadata": {
+    "heat": 0,
+    "valence": "neutral"
+  },
+  "extensions": {
+    "fdlb_lap_result": {
+      "driver": "Dirk",
+      "car": "Renault Sport Megane R.S. Trophy 2012",
+      "track": "Top Gear Test Track",
+      "conditions": "Dry",
+      "lap_time_hundredths": 2248,
+      "lap_time_seconds": 22.48,
+      "rules": [
+        "best_of_n_valid_laps",
+        "n_equals_laps_per_set",
+        "laps_per_set_configurable"
+      ]
+    }
+  }
+}
