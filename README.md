@@ -25,6 +25,15 @@ Small cue grammar — big reach.
 
 ---
 
+## Prior-Art Disclosure
+
+The architectural concepts and design principles underlying MCP4H are intentionally published as prior art.
+A public prior-art disclosure describing the system architecture, telemetry normalization approach, and multimodal design principles is available via Zenodo:
+
+**DOI:** https://doi.org/10.5281/zenodo.18223144
+
+This disclosure is intended to prevent exclusive patent claims on the core MCP4H architecture while enabling open and interoperable implementations.
+
 ## Quickstart
 
 ### 1. Build and start the services
