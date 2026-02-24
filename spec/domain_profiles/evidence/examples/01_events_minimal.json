@@ -1,0 +1,52 @@
+{
+  "profile": "evidence/dev",
+  "events": [
+    {
+      "id": "obs:temp",
+      "kind": "observation",
+      "type": "observability.metric.observed",
+      "ts": "2026-02-24T16:41:10.195135Z",
+      "data": {
+        "modality": "telemetry",
+        "value": 25.0,
+        "unit": "C",
+        "value_original": 77.0,
+        "unit_original": "F"
+      }
+    },
+    {
+      "id": "der:temp_si",
+      "kind": "derivation",
+      "type": "observability.metric.derived",
+      "ts": "2026-02-24T16:41:10.195135Z",
+      "refs": [
+        "obs:temp"
+      ],
+      "method": "system",
+      "data": {
+        "name": "temp_c",
+        "value": 25.0,
+        "unit": "C"
+      }
+    },
+    {
+      "id": "clm:hot",
+      "kind": "claim",
+      "type": "observability.anomaly.detected",
+      "ts": "2026-02-24T16:41:10.195135Z",
+      "refs": [
+        "der:temp_si"
+      ],
+      "method": "heuristic",
+      "confidence": 0.7,
+      "data": {
+        "statement": "Temperature exceeds threshold"
+      }
+    }
+  ],
+  "extensions": {
+    "_x": {
+      "note": "demo"
+    }
+  }
+}

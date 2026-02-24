@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://belh4wk.github.io/MCP4H/spec/domain_profiles/observability/observability.schema.json",
+  "title": "MCP4H observability profile (event stream) - dev",
+  "allOf": [
+    {
+      "$ref": "../evidence/evidence.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "type": "string",
+          "pattern": "^observability/"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "pattern": "^observability\\."
+              }
+            }
+          }
+        },
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "observability": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

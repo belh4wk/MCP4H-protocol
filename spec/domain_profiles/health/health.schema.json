@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://belh4wk.github.io/MCP4H/spec/domain_profiles/health/health.schema.json",
+  "title": "MCP4H health profile (event stream) - dev",
+  "allOf": [
+    {
+      "$ref": "../evidence/evidence.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "type": "string",
+          "pattern": "^health/"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "pattern": "^health\\."
+              }
+            }
+          }
+        },
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "health": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

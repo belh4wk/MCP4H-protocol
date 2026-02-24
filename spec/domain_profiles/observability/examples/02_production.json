@@ -1,0 +1,106 @@
+{
+  "profile": "observability/dev",
+  "events": [
+    {
+      "id": "obs:artifact",
+      "kind": "observation",
+      "type": "observability.log.observed",
+      "ts": "2026-02-24T16:40:46.112477Z",
+      "data": {
+        "modality": "document",
+        "artifact": {
+          "uri": "https://example.org/artifact.bin",
+          "hash": "sha256:58ee00072efbff7143506d2837139233da731c2786b2a6808da3003daba7c42c",
+          "content_type": "application/octet-stream",
+          "bytes": 1234
+        }
+      }
+    },
+    {
+      "id": "der:calc",
+      "kind": "derivation",
+      "type": "observability.metric.observed",
+      "ts": "2026-02-24T16:40:46.112477Z",
+      "refs": [
+        "obs:artifact"
+      ],
+      "method": "system",
+      "confidence": 0.9,
+      "uncertainty": {
+        "kind": "stddev",
+        "value": 0.05,
+        "unit": "1"
+      },
+      "data": {
+        "name": "score",
+        "value": 0.73,
+        "unit": "1"
+      }
+    },
+    {
+      "id": "clm:rca",
+      "kind": "claim",
+      "type": "observability.rootcause.claim",
+      "ts": "2026-02-24T16:40:46.112477Z",
+      "refs": [
+        "der:calc"
+      ],
+      "method": "model",
+      "confidence": 0.58,
+      "data": {
+        "statement": "Model suggests condition X likely"
+      }
+    },
+    {
+      "id": "cue:act",
+      "kind": "cue",
+      "type": "observability.cue.page",
+      "ts": "2026-02-24T16:40:46.112477Z",
+      "refs": [
+        "clm:rca"
+      ],
+      "data": {
+        "channel": "system",
+        "intent": "recommend",
+        "urgency": "high",
+        "payload": {
+          "action": "do_the_thing",
+          "why_ref": "clm:rca"
+        }
+      }
+    }
+  ],
+  "provenance": {
+    "artifacts": [
+      {
+        "uri": "https://example.org/artifact.bin",
+        "hash": "sha256:58ee00072efbff7143506d2837139233da731c2786b2a6808da3003daba7c42c",
+        "content_type": "application/octet-stream",
+        "bytes": 1234
+      }
+    ],
+    "transform_chain": [
+      {
+        "tool": {
+          "name": "bridge.reference",
+          "version": "0.1"
+        },
+        "inputs": [
+          "obs:artifact"
+        ],
+        "outputs": [
+          "der:calc"
+        ],
+        "params_hash": "sha256:1c958e6525c1f26d25013d8b5e0ee5d82c73b7eb0797cc8da2635cac56667c32",
+        "ts": "2026-02-24T16:40:46.112477Z"
+      }
+    ]
+  },
+  "extensions": {
+    "observability": {
+      "_x": {
+        "producer": "reference_bridge"
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "severityText": "ERROR",
+  "body": "timeout",
+  "attributes": {
+    "service.name": "payments",
+    "http.status_code": 504
+  }
+}

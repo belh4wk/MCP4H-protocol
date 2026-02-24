@@ -1,0 +1,33 @@
+{
+  "profile": "evidence/dev",
+  "events": [
+    {
+      "id": "obs:ext",
+      "kind": "observation",
+      "type": "social.post.created",
+      "ts": "2026-02-24T16:41:10.195135Z",
+      "data": {
+        "modality": "text",
+        "value": "hello"
+      }
+    },
+    {
+      "id": "cue:ext",
+      "kind": "cue",
+      "type": "social.cue.request_sources",
+      "ts": "2026-02-24T16:41:10.195135Z",
+      "refs": [
+        "mcp4h://remote.source/obs:123",
+        "obs:ext"
+      ],
+      "data": {
+        "channel": "text",
+        "intent": "ask",
+        "urgency": "low",
+        "payload": {
+          "text": "Need source for remote claim"
+        }
+      }
+    }
+  ]
+}

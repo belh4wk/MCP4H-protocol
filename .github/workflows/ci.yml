@@ -41,6 +41,13 @@ jobs:
             echo "tests/validate_messages.py not found; skipping."
           fi
 
+      - name: Validate domain profile examples
+        run: |
+          python tests/validate_domain_profiles.py
+
+      - name: Validate reference bridges
+        run: |
+          python tests/validate_bridges.py
       - name: Generate CBOR vectors (optional)
         run: |
           if [ -f tests/generate_cbor_vectors.py ]; then

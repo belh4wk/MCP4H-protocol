@@ -1,0 +1,523 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://belh4wk.github.io/MCP4H/spec/domain_profiles/evidence/evidence.schema.json",
+  "title": "MCP4H Evidence Payload (event stream) - dev",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "events"
+  ],
+  "properties": {
+    "profile": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/event"
+      }
+    },
+    "provenance": {
+      "$ref": "#/definitions/provenance"
+    },
+    "extensions": {
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9:_\\-\\.]+$"
+    },
+    "time_instant": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "event_ref": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^(mcp4h://[A-Za-z0-9:_\\-\\.]+/[A-Za-z0-9:_\\-\\.]+|[A-Za-z0-9:_\\-\\.]+)$"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "interval",
+            "stddev",
+            "stderr",
+            "iqr",
+            "unknown"
+          ]
+        },
+        "low": {
+          "type": "number"
+        },
+        "high": {
+          "type": "number"
+        },
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "type",
+        "data"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/id"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "observation",
+            "derivation",
+            "claim",
+            "cue"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 96,
+          "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+        },
+        "ts": {
+          "$ref": "#/definitions/time_instant"
+        },
+        "t_start": {
+          "$ref": "#/definitions/time_instant"
+        },
+        "t_end": {
+          "$ref": "#/definitions/time_instant"
+        },
+        "refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/event_ref"
+          },
+          "uniqueItems": true,
+          "minItems": 1
+        },
+        "method": {
+          "type": "string",
+          "maxLength": 32,
+          "enum": [
+            "human",
+            "heuristic",
+            "model",
+            "measurement",
+            "system",
+            "other"
+          ]
+        },
+        "confidence": {
+          "$ref": "#/definitions/confidence"
+        },
+        "uncertainty": {
+          "$ref": "#/definitions/uncertainty"
+        },
+        "alternates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "statement",
+              "refs"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/id"
+              },
+              "statement": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
+              "refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/definitions/event_ref"
+                },
+                "uniqueItems": true
+              },
+              "confidence": {
+                "$ref": "#/definitions/confidence"
+              },
+              "method": {
+                "type": "string",
+                "maxLength": 32,
+                "enum": [
+                  "human",
+                  "heuristic",
+                  "model",
+                  "measurement",
+                  "system",
+                  "other"
+                ]
+              }
+            }
+          }
+        },
+        "data": {
+          "type": "object"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "observation"
+              }
+            }
+          },
+          "then": {
+            "anyOf": [
+              {
+                "required": [
+                  "ts"
+                ]
+              },
+              {
+                "required": [
+                  "t_start",
+                  "t_end"
+                ]
+              }
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "ts",
+                    "t_start"
+                  ]
+                },
+                {
+                  "required": [
+                    "ts",
+                    "t_end"
+                  ]
+                }
+              ]
+            },
+            "properties": {
+              "data": {
+                "$ref": "#/definitions/observation_data"
+              },
+              "refs": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "derivation"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "refs"
+            ],
+            "properties": {
+              "data": {
+                "$ref": "#/definitions/derivation_data"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "claim"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "refs"
+            ],
+            "properties": {
+              "data": {
+                "$ref": "#/definitions/claim_data"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "cue"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "refs"
+            ],
+            "properties": {
+              "data": {
+                "$ref": "#/definitions/cue_data"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "observation_data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "modality"
+      ],
+      "properties": {
+        "modality": {
+          "type": "string",
+          "enum": [
+            "telemetry",
+            "text",
+            "audio",
+            "visual",
+            "haptic",
+            "document",
+            "code",
+            "event",
+            "other"
+          ]
+        },
+        "value": {},
+        "unit": {
+          "type": "string",
+          "maxLength": 32
+        },
+        "value_original": {},
+        "unit_original": {
+          "type": "string",
+          "maxLength": 32
+        },
+        "artifact": {
+          "$ref": "#/definitions/artifact_ref"
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 512
+        }
+      }
+    },
+    "derivation_data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "value": {},
+        "unit": {
+          "type": "string",
+          "maxLength": 32
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 512
+        }
+      }
+    },
+    "claim_data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "statement"
+      ],
+      "properties": {
+        "statement": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 512
+        }
+      }
+    },
+    "cue_data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "channel",
+        "intent",
+        "urgency"
+      ],
+      "properties": {
+        "channel": {
+          "type": "string",
+          "enum": [
+            "text",
+            "audio",
+            "visual",
+            "haptic",
+            "mixed",
+            "system"
+          ]
+        },
+        "intent": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 48
+        },
+        "urgency": {
+          "type": "string",
+          "enum": [
+            "low",
+            "normal",
+            "high",
+            "critical"
+          ]
+        },
+        "payload": {
+          "type": "object"
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 512
+        }
+      }
+    },
+    "artifact_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hash"
+      ],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "maxLength": 512
+        },
+        "hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "content_type": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/artifact_ref"
+          }
+        },
+        "transform_chain": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/provenance_step"
+          }
+        }
+      }
+    },
+    "provenance_step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tool",
+        "inputs",
+        "outputs"
+      ],
+      "properties": {
+        "tool": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "version": {
+              "type": "string",
+              "maxLength": 32
+            }
+          }
+        },
+        "params_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "inputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/event_ref"
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/event_ref"
+          }
+        },
+        "ts": {
+          "$ref": "#/definitions/time_instant"
+        }
+      }
+    }
+  }
+}

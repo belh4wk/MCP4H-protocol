@@ -1,0 +1,8 @@
+{
+  "type": "Create",
+  "actor": "https://example.social/users/alice",
+  "object": {
+    "type": "Note",
+    "content": "Hello world"
+  }
+}

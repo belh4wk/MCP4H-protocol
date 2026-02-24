@@ -1,0 +1,82 @@
+{
+  "profile": "industrial/dev",
+  "events": [
+    {
+      "id": "obs:1",
+      "kind": "observation",
+      "type": "industrial.sensor.observed",
+      "ts": "2026-02-24T16:40:46.110272Z",
+      "data": {
+        "modality": "event",
+        "value": {
+          "note": "example observation"
+        },
+        "note": "starter"
+      }
+    },
+    {
+      "id": "der:1",
+      "kind": "derivation",
+      "type": "industrial.state.derived",
+      "ts": "2026-02-24T16:40:46.110272Z",
+      "refs": [
+        "obs:1"
+      ],
+      "method": "system",
+      "data": {
+        "name": "example_feature",
+        "value": 0.42,
+        "unit": "1"
+      }
+    },
+    {
+      "id": "clm:1",
+      "kind": "claim",
+      "type": "industrial.fault.hypothesis",
+      "ts": "2026-02-24T16:40:46.110272Z",
+      "refs": [
+        "der:1"
+      ],
+      "method": "heuristic",
+      "confidence": 0.66,
+      "alternates": [
+        {
+          "id": "alt:1",
+          "statement": "alternate interpretation",
+          "refs": [
+            "der:1"
+          ],
+          "confidence": 0.22,
+          "method": "heuristic"
+        }
+      ],
+      "data": {
+        "statement": "primary interpretation"
+      }
+    },
+    {
+      "id": "cue:1",
+      "kind": "cue",
+      "type": "industrial.maintenance.cue",
+      "ts": "2026-02-24T16:40:46.110272Z",
+      "refs": [
+        "clm:1"
+      ],
+      "data": {
+        "channel": "text",
+        "intent": "inform",
+        "urgency": "normal",
+        "payload": {
+          "text": "Example cue grounded in claim clm:1"
+        }
+      }
+    }
+  ],
+  "extensions": {
+    "industrial": {
+      "_x": {
+        "stub": true
+      }
+    }
+  }
+}

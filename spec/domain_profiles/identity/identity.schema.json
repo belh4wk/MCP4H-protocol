@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://belh4wk.github.io/MCP4H/spec/domain_profiles/identity/identity.schema.json",
+  "title": "MCP4H identity profile (event stream) - dev",
+  "allOf": [
+    {
+      "$ref": "../evidence/evidence.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "type": "string",
+          "pattern": "^identity/"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "pattern": "^identity\\."
+              }
+            }
+          }
+        },
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "identity": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
