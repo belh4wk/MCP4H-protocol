@@ -39,6 +39,10 @@ def main():
         if not profile_dir.is_dir():
             continue
         profile = profile_dir.name
+        # Skip shared helper folders or unknown profiles
+        schema_path = SPEC / profile / f"{profile}.schema.json"
+        if profile == "common" or not schema_path.exists():
+            continue
         v = validator_for(profile, store)
         for bridge_dir in sorted(profile_dir.iterdir()):
             py = bridge_dir / "convert.py"
