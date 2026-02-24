@@ -1,4 +1,7 @@
 import json, sys
+import os
+# Ensure shared bridge helpers are importable (bridges/common)
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
 from common.mcp4h_build import base_payload, add_event
 
 def main(path: str):
