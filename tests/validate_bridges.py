@@ -1,4 +1,6 @@
-import json, subprocess, sys
+import json
+import subprocess
+import sys
 from pathlib import Path
 from jsonschema import Draft7Validator, RefResolver
 
@@ -9,10 +11,21 @@ BRIDGES = ROOT / "bridges" / "domain_profiles"
 def load_schema(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
-def validator_for(profile: str):
+def build_store():
+    schema_files = sorted(SPEC.rglob('*.schema.json'))
+    store = {}
+    for p in schema_files:
+        s = load_schema(p)
+        sid = s.get('$id')
+        if isinstance(sid, str) and sid:
+            store[sid] = s
+        store[str(p.as_uri())] = s
+    return store
+
+def validator_for(profile: str, store: dict):
     schema_path = SPEC / profile / f"{profile}.schema.json"
     schema = load_schema(schema_path)
-    resolver = RefResolver(base_uri=str(schema_path.as_uri()), referrer=schema)
+    resolver = RefResolver(base_uri=str(schema_path.as_uri()), referrer=schema, store=store)
     return Draft7Validator(schema, resolver=resolver)
 
 def run_converter(py: Path, sample: Path):
@@ -21,11 +34,12 @@ def run_converter(py: Path, sample: Path):
 
 def main():
     failures = []
+    store = build_store()
     for profile_dir in sorted(BRIDGES.iterdir()):
         if not profile_dir.is_dir():
             continue
         profile = profile_dir.name
-        v = validator_for(profile)
+        v = validator_for(profile, store)
         for bridge_dir in sorted(profile_dir.iterdir()):
             py = bridge_dir / "convert.py"
             samples = bridge_dir / "samples"

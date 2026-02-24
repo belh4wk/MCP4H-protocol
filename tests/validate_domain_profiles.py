@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+
 from jsonschema import Draft7Validator, RefResolver
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -8,22 +9,36 @@ SPEC = ROOT / "spec" / "domain_profiles"
 def load_schema(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
-def make_resolver(base: Path):
-    def handler(uri):
-        # allow relative refs in domain_profiles
-        if uri.startswith("https://belh4wk.github.io/MCP4H/"):
-            rel = uri.split("spec/domain_profiles/")[-1]
-            local = SPEC / rel
-            return load_schema(local)
-        return None
-    return RefResolver(base_uri=str(base.as_uri()), referrer=None, handlers={"https": handler})
+
+def build_store(schema_files):
+    """Build a resolver store so $id-based resolution never hits the network.
+
+    jsonschema resolves relative $ref against the active base URI, which often
+    becomes the schema's $id (https://...) rather than the local file:// URI.
+    If we don't preload a store mapping those $id URIs to local schema objects,
+    the validator will attempt an HTTP fetch and fail in CI.
+    """
+
+    store = {}
+    for p in schema_files:
+        s = load_schema(p)
+        sid = s.get("$id")
+        if isinstance(sid, str) and sid:
+            store[sid] = s
+        store[str(p.as_uri())] = s
+    return store
 
 def validate_examples():
     schema_files = sorted(SPEC.rglob("*.schema.json"))
+    store = build_store(schema_files)
     failures = []
     for schema_path in schema_files:
         schema = load_schema(schema_path)
-        resolver = RefResolver(base_uri=str(schema_path.as_uri()), referrer=schema)
+        resolver = RefResolver(
+            base_uri=str(schema_path.as_uri()),
+            referrer=schema,
+            store=store,
+        )
         v = Draft7Validator(schema, resolver=resolver)
         ex_dir = schema_path.parent / "examples"
         if not ex_dir.exists():
