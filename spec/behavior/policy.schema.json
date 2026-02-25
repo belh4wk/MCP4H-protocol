@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/spec/behavior/policy.schema.json",
+  "title": "MCP4H Behavior Policy",
+  "description": "Portable defaults and bounded override knobs for cue rendering. This keeps behavior consistent while still allowing manual control.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "scope", "defaults"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "scope": {
+      "description": "Where this policy applies.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level"],
+      "properties": {
+        "level": { "type": "string", "enum": ["global", "profile", "source", "cue_type"] },
+        "profile": { "type": "string" },
+        "source_id": { "type": "string" },
+        "cue_type": { "type": "string" }
+      }
+    },
+    "defaults": {
+      "description": "Defaults used when cues omit fields or when a renderer needs fallback behavior.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cooldown_ms": { "type": "integer", "minimum": 0, "default": 800 },
+        "dedupe_window_ms": { "type": "integer", "minimum": 0, "default": 300 },
+        "max_per_minute": { "type": "integer", "minimum": 0 },
+        "modality_enabled": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "audio": { "type": "boolean", "default": true },
+            "haptic": { "type": "boolean", "default": true },
+            "visual": { "type": "boolean", "default": true },
+            "led": { "type": "boolean", "default": true },
+            "text": { "type": "boolean", "default": true }
+          }
+        },
+        "intensity_scale": {
+          "description": "Global user scaling (e.g., haptics strength).",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2,
+          "default": 1
+        },
+        "verbosity": {
+          "description": "Renderer verbosity for text/tts.",
+          "type": "string",
+          "enum": ["minimal", "normal", "detailed"],
+          "default": "normal"
+        },
+        "quiet_hours": {
+          "description": "Global quiet hours policy.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["start", "end"],
+            "properties": {
+              "start": { "type": "string", "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$" },
+              "end": { "type": "string", "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$" },
+              "mute": {
+                "type": "array",
+                "items": { "type": "string", "enum": ["audio", "haptic", "visual", "led", "text"] },
+                "uniqueItems": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "overrides": {
+      "description": "Bounded manual control knobs. Renderers should expose these without changing cue semantics.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allow_disable_modalities": { "type": "boolean", "default": true },
+        "allow_intensity_scale": { "type": "boolean", "default": true },
+        "allow_verbosity": { "type": "boolean", "default": true },
+        "thresholds": {
+          "description": "Optional tuning ranges for domain thresholds (profile-specific).",
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "notes": { "type": "string" }
+  }
+}

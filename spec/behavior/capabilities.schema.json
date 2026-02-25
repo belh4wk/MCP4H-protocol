@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/spec/behavior/capabilities.schema.json",
+  "title": "MCP4H Renderer Capabilities",
+  "description": "Capability declaration for renderers/bridges. Enables deterministic fallback behavior across platforms.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["renderer_id", "modalities", "limits"],
+  "properties": {
+    "renderer_id": { "type": "string", "minLength": 1, "maxLength": 64 },
+    "modalities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["supported"],
+      "properties": {
+        "supported": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["audio", "haptic", "visual", "led", "text"] },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "audio": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tts": { "type": "boolean", "default": false },
+            "beep": { "type": "boolean", "default": true },
+            "languages": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+          }
+        },
+        "haptic": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "channels": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "supports_patterns": { "type": "boolean", "default": true }
+          }
+        },
+        "led": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "count": { "type": "integer", "minimum": 0 },
+            "supports_blink": { "type": "boolean", "default": true }
+          }
+        },
+        "visual": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "supports_icons": { "type": "boolean", "default": true },
+            "supports_color": { "type": "boolean", "default": true }
+          }
+        }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["max_update_hz"],
+      "properties": {
+        "max_update_hz": { "type": "number", "minimum": 0.1 },
+        "min_latency_ms": { "type": "integer", "minimum": 0 },
+        "max_queue": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "driving_mode": { "type": "boolean" },
+        "mute_audio": { "type": "boolean" },
+        "privacy_mode": { "type": "boolean" }
+      }
+    }
+  }
+}

@@ -1,44 +1,268 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/spec/cues/cue.schema.json",
   "title": "MCP4H Cue",
-  "type": "object",
-  "required": [
-    "id",
-    "ts",
-    "channel",
-    "intent"
-  ],
-  "properties": {
-    "id": {
-      "type": "string"
+  "description": "A portable, behavior-complete cue that can be rendered consistently across modalities. Backward compatible with the legacy v0.1 cue shape.",
+  "oneOf": [
+    {
+      "title": "Legacy cue (v0.1)",
+      "type": "object",
+      "required": ["id", "ts", "channel", "intent"],
+      "properties": {
+        "id": { "type": "string" },
+        "ts": { "type": "string" },
+        "channel": {
+          "type": "string",
+          "enum": ["audio", "haptic", "visual", "multi"]
+        },
+        "intent": { "type": "string" },
+        "urgency": {
+          "type": "string",
+          "enum": ["low", "med", "high"],
+          "default": "low"
+        },
+        "payload": { "type": "object" }
+      },
+      "additionalProperties": true
     },
-    "ts": {
-      "type": "string"
-    },
-    "channel": {
-      "type": "string",
-      "enum": [
-        "audio",
-        "haptic",
-        "visual",
-        "multi"
-      ]
-    },
-    "intent": {
-      "type": "string"
-    },
-    "urgency": {
-      "type": "string",
-      "enum": [
-        "low",
-        "med",
-        "high"
+    {
+      "title": "Cue v1 (portable behavior)",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "ts",
+        "type",
+        "severity",
+        "priority",
+        "confidence",
+        "attention",
+        "modalities"
       ],
-      "default": "low"
-    },
-    "payload": {
-      "type": "object"
+      "properties": {
+        "id": {
+          "description": "Unique cue identifier (uuid recommended).",
+          "type": "string",
+          "minLength": 1
+        },
+        "ts": {
+          "description": "Event timestamp (RFC 3339).",
+          "type": "string",
+          "format": "date-time"
+        },
+        "type": {
+          "description": "Stable cue type identifier (namespaced). Example: telemetry.traction.loss_risk",
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_\\-]*(\\.[a-z0-9_\\-]+)+$"
+        },
+        "label": {
+          "description": "Optional short human label (renderer may ignore).",
+          "type": "string",
+          "maxLength": 120
+        },
+        "severity": {
+          "description": "Human-facing seriousness of the cue.",
+          "type": "string",
+          "enum": ["info", "notice", "warning", "critical"]
+        },
+        "priority": {
+          "description": "System arbitration priority (higher wins).",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "confidence": {
+          "description": "Confidence in this cue (0..1).",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "validity": {
+          "description": "Time bounds and staleness handling.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "valid_until": { "type": "string", "format": "date-time" },
+            "stale_after_ms": { "type": "integer", "minimum": 0, "default": 1500 }
+          }
+        },
+        "attention": {
+          "description": "Portable attention-control contract (rate-limiting, dedupe/merge, escalation).",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["cooldown_ms", "merge"],
+          "properties": {
+            "cooldown_ms": {
+              "description": "Minimum time between renderings of this cue type for the same merge.key.",
+              "type": "integer",
+              "minimum": 0,
+              "default": 800
+            },
+            "dedupe_window_ms": {
+              "description": "Treat identical cues within this window as duplicates.",
+              "type": "integer",
+              "minimum": 0,
+              "default": 300
+            },
+            "max_per_minute": {
+              "description": "Hard cap on emits per minute for this cue type (per merge.key).",
+              "type": "integer",
+              "minimum": 0
+            },
+            "merge": {
+              "description": "How to merge repeated cues (portable across renderers).",
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["key", "strategy"],
+              "properties": {
+                "key": {
+                  "description": "Key used for dedupe/merge (e.g., 'traction.LR', 'system.global').",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "strategy": {
+                  "type": "string",
+                  "enum": ["replace", "max", "sum", "avg", "latest"]
+                },
+                "window_ms": {
+                  "description": "Merge window for strategies that aggregate.",
+                  "type": "integer",
+                  "minimum": 0,
+                  "default": 500
+                }
+              }
+            },
+            "escalation": {
+              "description": "Optional escalation rules when a cue persists.",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "after_count": { "type": "integer", "minimum": 1 },
+                "within_ms": { "type": "integer", "minimum": 0 },
+                "promote_severity": { "type": "string", "enum": ["notice", "warning", "critical"] },
+                "priority_add": { "type": "integer", "minimum": 0, "maximum": 100 }
+              }
+            },
+            "quiet_hours": {
+              "description": "Optional time windows during which some modalities should not render.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["start", "end"],
+                "properties": {
+                  "start": { "type": "string", "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$" },
+                  "end": { "type": "string", "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$" },
+                  "mute": {
+                    "type": "array",
+                    "items": { "type": "string", "enum": ["audio", "haptic", "visual", "led", "text"] },
+                    "uniqueItems": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "modalities": {
+          "description": "Portable actuation intent: what modalities to use, with per-modality parameters.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["preferred", "allowed"],
+          "properties": {
+            "preferred": {
+              "type": "array",
+              "items": { "type": "string", "enum": ["audio", "haptic", "visual", "led", "text"] },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "allowed": {
+              "type": "array",
+              "items": { "type": "string", "enum": ["audio", "haptic", "visual", "led", "text"] },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "params": {
+              "description": "Renderer-agnostic parameters; renderers may downsample but must respect the attention contract.",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "text": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "short": { "type": "string", "maxLength": 180 },
+                    "long": { "type": "string", "maxLength": 1200 },
+                    "lang": { "type": "string", "maxLength": 16 },
+                    "style": { "type": "string", "enum": ["neutral", "calm", "urgent"] }
+                  }
+                },
+                "audio": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "mode": { "type": "string", "enum": ["beep", "tts"] },
+                    "tts_max_words": { "type": "integer", "minimum": 0, "maximum": 40 },
+                    "rate_limit_ms": { "type": "integer", "minimum": 0 }
+                  }
+                },
+                "haptic": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "pattern": { "type": "string", "maxLength": 64 },
+                    "intensity": { "type": "number", "minimum": 0, "maximum": 1 },
+                    "duration_ms": { "type": "integer", "minimum": 0 },
+                    "channel": { "type": "string", "maxLength": 32 }
+                  }
+                },
+                "visual": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "color": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6})$" },
+                    "icon": { "type": "string", "maxLength": 64 },
+                    "ttl_ms": { "type": "integer", "minimum": 0 }
+                  }
+                },
+                "led": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "color": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6})$" },
+                    "blink_hz": { "type": "number", "minimum": 0 },
+                    "ttl_ms": { "type": "integer", "minimum": 0 }
+                  }
+                }
+              }
+            },
+            "overrides": {
+              "description": "Declare which knobs are safe for manual control (portable).",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "allow_disable_modalities": { "type": "boolean", "default": true },
+                "allow_intensity_scale": { "type": "boolean", "default": true },
+                "allow_verbosity": { "type": "boolean", "default": true },
+                "allow_threshold_tuning": { "type": "boolean", "default": true }
+              }
+            }
+          }
+        },
+        "data": {
+          "description": "Domain payload (profile-specific).",
+          "type": "object"
+        },
+        "provenance": {
+          "description": "Where this cue came from (for audit/debug).",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "source": { "type": "string", "maxLength": 64 },
+            "model": { "type": "string", "maxLength": 64 },
+            "trace_id": { "type": "string", "maxLength": 128 }
+          }
+        }
+      }
     }
-  },
-  "additionalProperties": true
+  ]
 }

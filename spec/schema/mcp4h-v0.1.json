@@ -201,6 +201,18 @@
           }
         }
       }
+    },
+    "cues": {
+      "type": "array",
+      "items": {
+        "$ref": "../cues/cue.schema.json"
+      }
+    },
+    "behavior_policy": {
+      "$ref": "../behavior/policy.schema.json"
+    },
+    "renderer_capabilities": {
+      "$ref": "../behavior/capabilities.schema.json"
     }
   }
 }

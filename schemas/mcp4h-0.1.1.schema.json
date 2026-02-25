@@ -329,6 +329,18 @@
           }
         }
       }
+    },
+    "cues": {
+      "type": "array",
+      "items": {
+        "$ref": "../spec/cues/cue.schema.json"
+      }
+    },
+    "behavior_policy": {
+      "$ref": "../spec/behavior/policy.schema.json"
+    },
+    "renderer_capabilities": {
+      "$ref": "../spec/behavior/capabilities.schema.json"
     }
   }
 }
