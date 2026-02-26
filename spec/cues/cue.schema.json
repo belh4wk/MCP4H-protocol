@@ -1,9 +1,47 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.com/spec/cues/cue.schema.json",
+  "$id": "spec/cues/cue.schema.json",
   "title": "MCP4H Cue",
   "description": "A portable, behavior-complete cue that can be rendered consistently across modalities. Backward compatible with the legacy v0.1 cue shape.",
   "oneOf": [
+    {
+      "title": "Legacy cue (cues.v0.1)",
+      "description": "Legacy cue examples used by early MCP4H cue experiments (subject/signal/state/trend). Kept for compatibility.",
+      "type": "object",
+      "required": [
+        "subject",
+        "signal",
+        "state",
+        "trend",
+        "urgency",
+        "channels",
+        "ts",
+        "version"
+      ],
+      "properties": {
+        "version": { "type": "string", "const": "cues.v0.1" },
+        "ts": {
+          "description": "Unix timestamp (seconds).",
+          "type": "integer",
+          "minimum": 0
+        },
+        "subject": { "type": "string", "minLength": 1 },
+        "signal": { "type": "string", "minLength": 1 },
+        "state": { "type": "string", "minLength": 1 },
+        "trend": { "type": "string", "minLength": 1 },
+        "urgency": { "type": "string", "minLength": 1 },
+        "action_hint": { "type": "string" },
+        "channels": {
+          "description": "Channel payload tokens. Commonly 'text', but may include others.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      },
+      "additionalProperties": true
+    },
     {
       "title": "Legacy cue (v0.1)",
       "type": "object",

@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [v0.1.5] – 2026-02-26
+### Added
+- **Portable behaviour contract for cues** (Cue v1): priority, cooldown/rate-limits, merge/dedupe keys, optional escalation, and modality intent.
+- **Behavior Policy schema** for portable defaults + bounded manual overrides (disable modalities, intensity scaling, verbosity, threshold ranges).
+- **Renderer Capabilities schema** for deterministic fallback behaviour across platforms/devices.
+
+### Changed
+- **Cue schema** now supports three compatible shapes:
+  - legacy `cues.v0.1` examples (subject/signal/state/trend)
+  - legacy v0.1 cue envelope (id/ts/channel/intent)
+  - Cue v1 (portable behaviour)
+
+### Fixed
+- CI cue validation now validates examples **against the canonical cue schema** instead of hardcoded required keys.
+
 ## [v0.1.1] – 2025-10-05
 ### Added
 - **Dockerized microservice stack** including `cue-gateway`, `voice-coach`, `osc-bridge`, `udp-proxy`, and `simhub-adapter`.

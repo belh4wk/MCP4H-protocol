@@ -1,52 +1,53 @@
 name: Validate MCP4H
+
 on:
   push:
-    paths: ['spec/**','examples_cues/**','.github/workflows/**']
+    paths:
+      - 'spec/**'
+      - 'schemas/**'
+      - 'examples_cues/**'
+      - '.github/workflows/**'
+  pull_request:
+    paths:
+      - 'spec/**'
+      - 'schemas/**'
+      - 'examples_cues/**'
+      - '.github/workflows/**'
+
 jobs:
   schema:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate cue examples
-        run: |
-          python3 - <<'PY'
-          import json, glob, os, sys
 
-          # Validate examples against the canonical cue schema.
-          # This supports both legacy v0.1 cue examples and Cue v1 (portable behaviour)
-          # via `oneOf` in the schema.
-          try:
-              import jsonschema
-          except Exception:
-              # GitHub runners don't guarantee jsonschema is preinstalled.
-              import subprocess
-              subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--quiet', 'jsonschema>=4.21.0'])
-              import jsonschema
+      - name: Validate cue examples against schema
+        run: |
+          python3 -m pip install --upgrade pip >/dev/null
+          python3 -m pip install "jsonschema>=4.18" >/dev/null
+
+          python3 - <<'PY'
+          import json
+          import glob
+          import sys
+          from pathlib import Path
 
           from jsonschema import Draft202012Validator
 
-          schema_path = os.path.join('spec', 'cues', 'cue.schema.json')
-          with open(schema_path, encoding='utf-8') as f:
-              schema = json.load(f)
-
-          # Resolve relative refs from the schema file location.
-          base_uri = 'file://' + os.path.abspath(schema_path)
-          resolver = jsonschema.RefResolver(base_uri=base_uri, referrer=schema)
-          validator = Draft202012Validator(schema, resolver=resolver)
+          schema_path = Path('spec/cues/cue.schema.json')
+          schema = json.loads(schema_path.read_text(encoding='utf-8'))
+          validator = Draft202012Validator(schema)
 
           ok = True
-          for path in sorted(glob.glob('examples_cues/*.json')):
-              with open(path, encoding='utf-8') as f:
-                  data = json.load(f)
+          for f in sorted(glob.glob('examples_cues/*.json')):
+              data = json.loads(Path(f).read_text(encoding='utf-8'))
               errors = sorted(validator.iter_errors(data), key=lambda e: e.path)
               if errors:
                   ok = False
-                  print(f'INVALID: {path}')
-                  for e in errors[:5]:
-                      loc = '/'.join(map(str, e.path)) if e.path else '(root)'
-                      print(f'  - {loc}: {e.message}')
-                  if len(errors) > 5:
-                      print(f'  ... {len(errors)-5} more')
+                  print(f"INVALID: {f}")
+                  for e in errors[:3]:
+                      loc = ".".join(str(p) for p in e.path) if e.path else "(root)"
+                      print(f"  - {loc}: {e.message}")
+
           print('OK' if ok else 'FAIL')
           sys.exit(0 if ok else 1)
           PY
