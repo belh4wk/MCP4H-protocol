@@ -10,16 +10,43 @@ jobs:
       - name: Validate cue examples
         run: |
           python3 - <<'PY'
-          import json, glob, sys
+          import json, glob, os, sys
 
-          req = {'subject','signal','state','trend','urgency','channels','version','ts'}
+          # Validate examples against the canonical cue schema.
+          # This supports both legacy v0.1 cue examples and Cue v1 (portable behaviour)
+          # via `oneOf` in the schema.
+          try:
+              import jsonschema
+          except Exception:
+              # GitHub runners don't guarantee jsonschema is preinstalled.
+              import subprocess
+              subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--quiet', 'jsonschema>=4.21.0'])
+              import jsonschema
+
+          from jsonschema import Draft202012Validator
+
+          schema_path = os.path.join('spec', 'cues', 'cue.schema.json')
+          with open(schema_path, encoding='utf-8') as f:
+              schema = json.load(f)
+
+          # Resolve relative refs from the schema file location.
+          base_uri = 'file://' + os.path.abspath(schema_path)
+          resolver = jsonschema.RefResolver(base_uri=base_uri, referrer=schema)
+          validator = Draft202012Validator(schema, resolver=resolver)
+
           ok = True
-          for f in glob.glob('examples_cues/*.json'):
-              d = json.load(open(f, encoding='utf-8'))
-              miss = req - set(d.keys())
-              if miss:
-                  print('Missing', miss, 'in', f)
+          for path in sorted(glob.glob('examples_cues/*.json')):
+              with open(path, encoding='utf-8') as f:
+                  data = json.load(f)
+              errors = sorted(validator.iter_errors(data), key=lambda e: e.path)
+              if errors:
                   ok = False
+                  print(f'INVALID: {path}')
+                  for e in errors[:5]:
+                      loc = '/'.join(map(str, e.path)) if e.path else '(root)'
+                      print(f'  - {loc}: {e.message}')
+                  if len(errors) > 5:
+                      print(f'  ... {len(errors)-5} more')
           print('OK' if ok else 'FAIL')
           sys.exit(0 if ok else 1)
           PY
