@@ -1,7 +1,8 @@
 # MCP4H™ — Multimodal Communication Protocol for Humanity
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17164550.svg)](https://doi.org/10.5281/zenodo.17164550)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17727584.svg)](https://doi.org/10.5281/zenodo.17727584)
+
+> Latest tagged release DOI: see `CITATIONS.md`.
 
 > MCP4H™ is a transport-agnostic protocol spec and set of examples for human-first, low-latency multimodal comms.
 

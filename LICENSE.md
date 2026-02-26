@@ -26,7 +26,7 @@ Attribution and Citation
 Please cite MCP4H™ using the Zenodo DOIs:
 
 - Concept / protocol DOI: 10.5281/zenodo.17164550
-- Latest tagged protocol release (e.g. v0.1.1): 10.5281/zenodo.17225488
+- Latest tagged protocol release: see CITATIONS.md
 
 See `CITATION.cff` for formal citation metadata.
 

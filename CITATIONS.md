@@ -4,7 +4,8 @@
 
 ## Identifiers
 - Concept DOI (all versions): [10.5281/zenodo.17164550](https://doi.org/10.5281/zenodo.17164550)
-- Latest protocol release (v0.1.2): [10.5281/zenodo.17727584](https://doi.org/10.5281/zenodo.17727584)
+- Latest tagged protocol release: **v0.1.5 (pending publish)** — DOI will be added here after Zenodo sync
+- Previous tagged release (v0.1.2): [10.5281/zenodo.17727584](https://doi.org/10.5281/zenodo.17727584)
 - HAL: [hal-05270821v1 (pending moderation)](https://hal.science/hal-05270821v1)
 - OSF Preprint: [MetaArXiv, v1 (pending approval)](https://osf.io/preprints/metaarxiv/mhsgv_v1)
 - arXiv: (submission pending)
@@ -15,7 +16,9 @@
 # 📖 How to Cite MCP4H™
 
 If you reference or build upon this work, please cite it using one of the formats below.  
-The official DOI for this version is: **[10.5281/zenodo.17164550](https://doi.org/10.5281/zenodo.17164550)** 
+Concept DOI (all versions): **[10.5281/zenodo.17164550](https://doi.org/10.5281/zenodo.17164550)**
+
+For the latest tagged release DOI, see the **Identifiers** section above (this file is the single source of truth). 
 
 
 ---

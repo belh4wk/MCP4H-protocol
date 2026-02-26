@@ -1,7 +1,6 @@
 {
-  "title": "MCP4H™ v0.1.2 — Protocol & Documentation Alignment Release",
+  "title": "MCP4H™ — Multimodal Communications Protocol For Humanity",
   "upload_type": "software",
-  "publication_date": "2025-11-28",
   "creators": [
     {
       "name": "Van Echelpoel, Dirk",
@@ -11,7 +10,6 @@
   ],
   "license": "MIT",
   "language": "eng",
-  "version": "v0.1.2",
   "keywords": [
     "protocol",
     "telemetry",
@@ -29,13 +27,7 @@
       "resource_type": "software"
     },
     {
-      "identifier": "https://github.com/belh4wk/MCP4H-protocol/tree/v0.1.2-protocol",
-      "relation": "isSupplementTo",
-      "scheme": "url",
-      "resource_type": "software"
-    },
-    {
-      "identifier": "https://doi.org/10.5281/zenodo.17727584",
+      "identifier": "https://doi.org/10.5281/zenodo.17164550",
       "relation": "isAlternateIdentifier",
       "scheme": "doi",
       "resource_type": "software"
