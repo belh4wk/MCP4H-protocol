@@ -1,52 +1,32 @@
 import json
+import os
+from bridges.universal_webhook_bridge import universal_bridge_webhook_reference
+from arbiters.reference_arbiter import arbiter_logic_reference
 
-# --- THE BRIDGE (Normalization Layer) ---
-def universal_bridge(source, raw_input):
-    """
-    Translates any incoming raw data into an MCP4H-compatible packet.
-    """
-    is_emergency = raw_input.get('status') == 'CRITICAL'
-    
-    return {
-        "bridge_id": f"bridge-{source}",
-        "intensity_map": 1.0 if is_emergency else 0.3,
-        "payload": {
-            "summary": raw_input.get('msg', 'New Signal'),
-            "metadata": {"category": "emergency" if is_emergency else "info"}
-        }
-    }
-
-# --- THE ARBITER (Intelligence Layer) ---
-def arbiter_evaluate(candidate_packet):
-    """
-    The AI-governed gatekeeper: Deciding if/how the human should feel the data.
-    """
-    intensity = candidate_packet['intensity_map']
-    
-    # Logic: Only allow 'Haptic' feedback if intensity is high
-    if intensity >= 0.8:
-        return {
-            "action": "DELIVER_SENSORY",
-            "channels": ["haptic", "audio", "visual"],
-            "intensity": intensity
-        }
-    
-    return {"action": "LOG_ONLY", "channels": ["visual"]}
-
-# --- THE PROTOCOL EXECUTION (The Run) ---
+# --- HELPER ---
+def load_example_envelope(filename):
+    data_path = os.path.join("messages", "templates", filename)
+    with open(data_path, "r") as file:
+        return json.load(file)
+        
+# --- MAIN EXECUTION ---
 if __name__ == "__main__":
     print("--- MCP4H v0.1.5 Protocol Test ---")
     
-    # Simulate a raw Jira 'CRITICAL' alert
+    # 1. Test JSON Loading
+    example_data = load_example_envelope("mcp4h_minimal_example.json")
+    print(f"Loaded JSON Envelope: {example_data}")
+    
+    # 2. Simulate raw input
     raw_data = {"status": "CRITICAL", "msg": "Production Server Down!"}
     print(f"1. Raw Input: {raw_data}")
 
-    # Step 1: Bridge it
-    bridge_packet = universal_bridge("Jira", raw_data)
+    # 3. Use the IMPORTED functions
+    bridge_packet = universal_bridge_webhook_reference("Jira", raw_data)
     print(f"2. Bridge Result: {json.dumps(bridge_packet, indent=2)}")
 
-    # Step 2: Arbitrate it
-    final_sensory_output = arbiter_evaluate(bridge_packet)
+    # 4. Use the IMPORTED Arbiter
+    final_sensory_output = arbiter_logic_reference(bridge_packet)
     print(f"3. Final MCP4H Output: {json.dumps(final_sensory_output, indent=2)}")
     
     print("\n[Result: Sensory hardware would now trigger a High-Intensity Haptic pulse.]")
