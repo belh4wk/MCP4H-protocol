@@ -1,4 +1,17 @@
-# MCP4H — Multimodal Communications Protocol For Humanity
+# MCP4H: Multimodal Communications Protocol For Humanity 🦉
+
+MCP4H is an open-source standard for the "Sensory Era." It provides a unified nervous system for machines to communicate critical information directly to human senses—Haptic, Audio, Text, and Visual—bypassing the cognitive overload of the "Screen Era."
+
+## The Architecture
+The protocol operates on a three-tier modular system:
+
+1. **The Bridges (Connectors):** Translate existing data (Jira, Discord, Sim-Racing Telemetry) into the protocol.
+2. **The Arbiter (The Brain):** An AI or logic layer that evaluates data against "Stable Ideals" to decide what the human needs to perceive.
+3. **The Protocol (The Messenger):** Delivers the sensory packet to the hardware.
+
+## Current Implementations
+* **[MCP4SH](https://github.com/belh4wk/MCP4SH):** The high-performance pilot. A SimHub bridge that normalizes racing telemetry into a consistent haptic language.
+* **Accessibility:** Future bridges for visual-to-haptic translation for the blind and intent-to-speech for the non-verbal.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17727584.svg)](https://doi.org/10.5281/zenodo.17727584)
 
