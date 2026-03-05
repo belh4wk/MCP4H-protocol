@@ -1,4 +1,4 @@
-# MCP4H — The 4-Point Harness Protocol
+# MCP4H — Multimodal Communications Protocol For Humanity
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17727584.svg)](https://doi.org/10.5281/zenodo.17727584)
 
