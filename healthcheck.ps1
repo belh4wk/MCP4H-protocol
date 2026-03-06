@@ -10,6 +10,6 @@ try {
 Write-Host "Posting trail_brake_deep..." -ForegroundColor Yellow
 $res = Invoke-WebRequest -Uri "http://localhost:8080/cue" -Method Post `
   -ContentType "application/mcp4h+json" `
-  -InFile ".\examples_cues\trail_brake_deep.json" -UseBasicParsing
+  -InFile ".\examples\messages\cues\trail_brake_deep.json" -UseBasicParsing
 Write-Host $res.Content
 Write-Host "All green ✅" -ForegroundColor Green

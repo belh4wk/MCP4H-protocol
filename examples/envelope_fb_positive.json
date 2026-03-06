@@ -1,0 +1,18 @@
+{
+  "version": "mcp4h/0.1",
+  "id": "9b8c1142-294b-435a-bdb6-5fae4826952a",
+  "timestamp": "2025-09-22T02:12:19Z",
+  "origin": {
+    "platform": "facebook",
+    "relation": "dm"
+  },
+  "actor": {
+    "role": "sender",
+    "handle": "hash_888fe"
+  },
+  "text": "Loved your take. Want to try a pair and compare notes?",
+  "metadata": {
+    "heat": 1,
+    "valence": "positive"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "mirrors": [
+    {
+      "source": "examples/messages/envelope_fb_positive.json",
+      "targets": [
+        "examples/envelope_fb_positive.json"
+      ]
+    },
+    {
+      "source": "examples/messages/envelope_ig_negative.json",
+      "targets": [
+        "examples/envelope_ig_negative.json"
+      ]
+    },
+    {
+      "source": "examples/messages/mcp4h_minimal_example.json",
+      "targets": [
+        "examples/mcp4h_minimal_example.json"
+      ]
+    },
+    {
+      "source": "examples/messages/message-demo.json",
+      "targets": [
+        "examples/message-demo.json",
+        "examples/experimental/message-demo.json"
+      ]
+    },
+    {
+      "source": "examples/messages/cues/friend_withdrawing.json",
+      "targets": [
+        "examples_cues/friend_withdrawing.json"
+      ]
+    },
+    {
+      "source": "examples/messages/cues/rear_right_snap.json",
+      "targets": [
+        "examples_cues/rear_right_snap.json"
+      ]
+    },
+    {
+      "source": "examples/messages/cues/smoketest.json",
+      "targets": [
+        "examples_cues/smoketest.json"
+      ]
+    },
+    {
+      "source": "examples/messages/cues/trail_brake_deep.json",
+      "targets": [
+        "examples_cues/trail_brake_deep.json"
+      ]
+    }
+  ]
+}

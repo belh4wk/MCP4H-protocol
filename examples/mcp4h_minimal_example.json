@@ -1,0 +1,20 @@
+{
+  "header": {
+    "ts_monotonic_ns": 1234567890123,
+    "source": "simhub:ac",
+    "provenance": [
+      "simhub:demo"
+    ],
+    "confidence": 1.0
+  },
+  "signal": {
+    "type": "telemetry",
+    "id": "speed",
+    "value": {
+      "vehicle_speed_mps": 62.3
+    }
+  },
+  "context": {
+    "device_target": "arduino:uno:wind_led"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "subject": "conversation.A",
+  "signal": "EMOTION",
+  "state": "RISK",
+  "trend": "unstable",
+  "urgency": "notice",
+  "action_hint": "LISTEN",
+  "channels": {
+    "text": [
+      "A",
+      "TONE",
+      "\u21af",
+      "RISK",
+      "LISTEN"
+    ]
+  },
+  "ts": 1759436776,
+  "version": "cues.v0.1"
+}

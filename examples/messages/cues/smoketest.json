@@ -1,0 +1,19 @@
+{
+  "id": "smoke-001",
+  "ts": "2025-01-01T00:00:00Z",
+  "channel": "multi",
+  "intent": "hello_world",
+  "urgency": "low",
+  "payload": {
+    "text": "Hello world",
+    "audio": {
+      "pattern": "ding"
+    },
+    "haptic": {
+      "pattern": "pulse"
+    },
+    "visual": {
+      "icon": "check"
+    }
+  }
+}

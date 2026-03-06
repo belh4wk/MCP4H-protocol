@@ -24,6 +24,10 @@ jobs:
           else
             pip install jsonschema cbor2 pytest flake8 mypy
           fi
+          pip install requests paho-mqtt >/dev/null
+
+      - name: Check canonical example sync
+        run: python tools/sync_examples.py --check
 
       - name: Validate JSON vectors against schema (tests/validate_roundtrip.py)
         run: |
@@ -33,12 +37,20 @@ jobs:
             echo "tests/validate_roundtrip.py not found; skipping."
           fi
 
-      - name: Legacy validator (tests/validate_messages.py)
+      - name: Envelope validator (tests/validate_messages.py)
         run: |
           if [ -f tests/validate_messages.py ]; then
             python tests/validate_messages.py
           else
             echo "tests/validate_messages.py not found; skipping."
+          fi
+
+      - name: Cue compatibility validator
+        run: |
+          if [ -f tests/interop/test_schema.py ]; then
+            python tests/interop/test_schema.py
+          else
+            echo "tests/interop/test_schema.py not found; skipping."
           fi
 
       - name: Validate domain profile examples
@@ -48,6 +60,7 @@ jobs:
       - name: Validate reference bridges
         run: |
           python tests/validate_bridges.py
+
       - name: Generate CBOR vectors (optional)
         run: |
           if [ -f tests/generate_cbor_vectors.py ]; then

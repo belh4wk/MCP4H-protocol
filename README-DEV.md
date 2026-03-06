@@ -11,7 +11,8 @@ This guide helps you build, run, test, and troubleshoot the MCP4H stack locally.
 - `docker-compose.yml` – services
 - `services/*` – microservices (Python)
 - `spec/` – schemas & lexicon
-- `examples_cues/` – ready-to-send cues (JSON)
+- `examples/messages/` – canonical maintained examples
+- `examples_cues/` – legacy mirrored cue examples kept for compatibility
 
 ## Start the Stack
 
@@ -52,12 +53,12 @@ docker compose up
 ```powershell
 curl.exe -X POST http://localhost:8080/cue `
   -H "Content-Type: application/mcp4h+json" `
-  --data-binary "@examples_cues/smoketest.json"
+  --data-binary "@examples/messages/cues/smoketest.json"
 ```
 
 ### macOS/Linux
 ```bash
-curl -X POST http://localhost:8080/cue   -H "Content-Type: application/mcp4h+json"   --data-binary @examples_cues/smoketest.json
+curl -X POST http://localhost:8080/cue   -H "Content-Type: application/mcp4h+json"   --data-binary @examples/messages/cues/smoketest.json
 ```
 
 **Expected response (in the curl terminal):**

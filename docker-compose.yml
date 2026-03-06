@@ -21,6 +21,27 @@ services:
     ports:
       - "8080:8080"
 
+
+  cue-router:
+    build:
+      context: .
+      dockerfile: services/cue-router/Dockerfile
+    image: mcp4h-protocol-cue-router:latest
+    container_name: mcp4h-cue-router
+    environment:
+      - MQTT_HOST=mqtt
+      - MQTT_PORT=1883
+      - CUE_ROUTER_POLICY=/app/bridges/cue-router/policy.yaml
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL:-}
+      - TEAMS_WEBHOOK_URL=${TEAMS_WEBHOOK_URL:-}
+      - OTEL_EXPORTER_OTLP_ENDPOINT=${OTEL_EXPORTER_OTLP_ENDPOINT:-}
+    depends_on:
+      - mqtt
+    volumes:
+      - ./bridges/cue-router/policy.yaml:/app/bridges/cue-router/policy.yaml:ro
+    ports:
+      - "8090:8090"
+
   udp-proxy:
     build:
       context: .

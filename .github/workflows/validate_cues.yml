@@ -1,17 +1,23 @@
-name: Validate MCP4H
+name: Validate MCP4H Cues
 
 on:
   push:
     paths:
       - 'spec/**'
       - 'schemas/**'
+      - 'examples/messages/**'
       - 'examples_cues/**'
+      - 'tools/sync_examples.py'
+      - 'examples/_sync_map.json'
       - '.github/workflows/**'
   pull_request:
     paths:
       - 'spec/**'
       - 'schemas/**'
+      - 'examples/messages/**'
       - 'examples_cues/**'
+      - 'tools/sync_examples.py'
+      - 'examples/_sync_map.json'
       - '.github/workflows/**'
 
 jobs:
@@ -20,34 +26,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Validate cue examples against schema
+      - name: Install validators
         run: |
           python3 -m pip install --upgrade pip >/dev/null
           python3 -m pip install "jsonschema>=4.18" >/dev/null
 
-          python3 - <<'PY'
-          import json
-          import glob
-          import sys
-          from pathlib import Path
+      - name: Check example sync
+        run: python3 tools/sync_examples.py --check
 
-          from jsonschema import Draft202012Validator
-
-          schema_path = Path('spec/cues/cue.schema.json')
-          schema = json.loads(schema_path.read_text(encoding='utf-8'))
-          validator = Draft202012Validator(schema)
-
-          ok = True
-          for f in sorted(glob.glob('examples_cues/*.json')):
-              data = json.loads(Path(f).read_text(encoding='utf-8'))
-              errors = sorted(validator.iter_errors(data), key=lambda e: e.path)
-              if errors:
-                  ok = False
-                  print(f"INVALID: {f}")
-                  for e in errors[:3]:
-                      loc = ".".join(str(p) for p in e.path) if e.path else "(root)"
-                      print(f"  - {loc}: {e.message}")
-
-          print('OK' if ok else 'FAIL')
-          sys.exit(0 if ok else 1)
-          PY
+      - name: Validate cue examples against schema
+        run: python3 tests/interop/test_schema.py

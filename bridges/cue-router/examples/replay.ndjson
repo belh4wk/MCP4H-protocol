@@ -1,0 +1,2 @@
+{"version":"mcp4h/0.1","id":"1c2e8e84-d788-44ca-a4f8-b9d433e7d992","timestamp":"2025-09-22T02:12:19Z","origin":{"platform":"slack","relation":"system"},"actor":{"role":"system","handle":"demo:router"},"text":"Demo packet for cue-router replay.","metadata":{"heat":1,"valence":"neutral","urgency":"normal"}}
+{"id":"smoke-001","ts":"2025-01-01T00:00:00Z","channel":"multi","intent":"hello_world","urgency":"low","payload":{"text":"Hello world","audio":{"pattern":"ding"},"haptic":{"pattern":"pulse"},"visual":{"icon":"check"}}}

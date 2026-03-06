@@ -1,0 +1,28 @@
+defaults:
+  source_topics:
+    - mcp4h/cues
+  mqtt_fallback_topic: mcp4h/routed/default
+
+routes:
+  - name: mqtt-fanout
+    enabled: true
+    matcher: {}
+    targets:
+      - kind: mqtt
+        topic: mcp4h/routed/all
+
+  - name: slack-high-urgency
+    enabled: true
+    matcher:
+      urgency_in: [high, act, caution]
+    targets:
+      - kind: slack_webhook
+        url_env: SLACK_WEBHOOK_URL
+
+  - name: teams-high-urgency
+    enabled: true
+    matcher:
+      urgency_in: [high, act, caution]
+    targets:
+      - kind: teams_webhook
+        url_env: TEAMS_WEBHOOK_URL

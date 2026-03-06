@@ -1,5 +1,5 @@
 param(
-  [string]$FilePath = "examples_cues\smoketest.json"
+  [string]$FilePath = "examples\messages\cues\smoketest.json"
 )
 if (-not (Test-Path $FilePath)) {
   Write-Error "File not found: $FilePath"

@@ -1,0 +1,35 @@
+{
+  "mcp_version": "1.0",
+  "session_id": "sess_demo1",
+  "message_id": "msg_001",
+  "timestamp": "2025-09-20T14:30:00Z",
+  "sender_id": "user_demo",
+  "priority": "balanced",
+  "modalities": {
+    "text": {
+      "lang": "en",
+      "content": "Hello!",
+      "translation": [
+        {
+          "target": "fr",
+          "content": "Salut!",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "visual": {
+      "emoji": [
+        "\ud83d\udc4b"
+      ]
+    },
+    "haptic": {
+      "pattern": "PULSE_S",
+      "intensity": 0.8,
+      "duration_ms": 120
+    }
+  },
+  "signals": {
+    "conflict": false,
+    "sensitive": false
+  }
+}
