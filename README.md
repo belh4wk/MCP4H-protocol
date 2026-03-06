@@ -8,6 +8,22 @@ It is **not** the commercial implementation, game-specific haptics layer, or pro
 Works across **text • visual • audio • haptic**.
 Small cue grammar — big reach.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17164550.svg)](https://doi.org/10.5281/zenodo.17164550)
+
+---
+
+## Citation / DOI
+
+- **Concept DOI (all versions):** `10.5281/zenodo.17164550`
+- **Latest tagged release DOI:** see `CITATIONS.md` for the current release-specific identifier
+- **Citation files in this repo:** `CITATION.cff`, `CITATIONS.md`, `CITATIONS.bib`, `zenodo.json`
+
+## Prior-art disclosure
+
+MCP4H’s core architecture is intentionally published as prior art to keep the protocol backbone open and to make the public record easy to cite and verify.
+
+Use the concept DOI above as the stable reference point. Use `CITATIONS.md` as the source of truth for the latest tagged release DOI.
+
 ---
 
 ## What lives here
