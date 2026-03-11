@@ -7,6 +7,15 @@ Our goal is to create an **open, universal, human-first communication protocol**
 
 ## Project Status Roadmap
 
+### MCP interoperability
+
+MCP4H will ship a reference **MCP bridge** so MCP tool events/results can be mapped into MCP4H packets and routed to human channels (visual/audio/haptic) using existing bridges.
+
+- Add `bridges/mcp/` reference implementation
+- Add examples under `examples/messages/mcp/`
+- Keep all changes additive/backward-compatible
+
+
 MCP4H™ progresses through the following stages:
 
 - ![Draft](https://img.shields.io/badge/Status-Draft-lightgrey) → Early idea notes, scratch docs, exploratory drafts.  

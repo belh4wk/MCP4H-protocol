@@ -1,21 +1,11 @@
-# Canonical MCP4H Message Examples
+# Schema-Valid Messages
 
-This folder is the source of truth for maintained JSON examples.
+This folder contains JSON examples that validate against `spec/schema/mcp4h-v0.1.json`.
 
-## Structure
 
-- Top-level `*.json` files are MCP4H envelope examples validated in CI.
-- `cues/` contains cue-router and cue-gateway demo payloads kept for backward compatibility with older tooling.
+## Quickstart
 
-## Sync rules
+If you're new here, start with `docs/quickstart.md`.
 
-Do not hand-edit mirrored legacy files in:
 
-- `examples/*.json`
-- `examples_cues/*.json`
-
-Edit the canonical file here, then run:
-
-```bash
-python tools/sync_examples.py
-```
+Canonical MCP example: `examples/messages/mcp/mcp_event_projected_payload.json`.

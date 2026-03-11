@@ -1,0 +1,77 @@
+{
+  "version": "mcp4h/0.1.1",
+  "id": "mcp4h-mcp-toolresult-001",
+  "timestamp": "2026-03-07T12:00:01Z",
+  "origin": {
+    "platform": "mcp",
+    "relation": "telemetry"
+  },
+  "actor": {
+    "role": "system",
+    "handle": "agent:local"
+  },
+  "text": "Tool result received. Present a human cue.",
+  "metadata": {
+    "heat": 0,
+    "valence": "neutral",
+    "domain_profile": "comms.toolcall",
+    "mcp": {
+      "server": "mcp-server-local",
+      "tool": "filesystem.read",
+      "trace_id": "trace_abc",
+      "method": "tools/call"
+    }
+  },
+  "cues": [
+    {
+      "id": "cue-001",
+      "ts": "2026-03-07T12:00:01Z",
+      "channel": "visual",
+      "intent": "inform",
+      "payload": {
+        "title": "Tool completed",
+        "body": "filesystem.read returned text."
+      }
+    },
+    {
+      "id": "cue-002",
+      "ts": "2026-03-07T12:00:01Z",
+      "channel": "haptic",
+      "intent": "notify",
+      "payload": {
+        "pattern": "double_tap",
+        "strength": 0.4,
+        "duration_ms": 180
+      }
+    },
+    {
+      "id": "cue-003",
+      "ts": "2026-03-07T12:00:01Z",
+      "channel": "multi",
+      "intent": "inform",
+      "payload": {
+        "text": {
+          "short": "Tool completed",
+          "long": "filesystem.read returned text.",
+          "style": "neutral"
+        },
+        "visual": {
+          "led": {
+            "color": "#00FF66",
+            "blink_hz": 2,
+            "ttl_ms": 300
+          }
+        },
+        "audio": {
+          "mode": "beep",
+          "beep": "single"
+        },
+        "haptic": {
+          "pattern": "double_tap",
+          "intensity": 0.4,
+          "duration_ms": 180
+        }
+      }
+    }
+  ]
+}

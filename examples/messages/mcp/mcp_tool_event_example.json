@@ -1,0 +1,9 @@
+{
+  "server": "mcp-server-local",
+  "tool": "filesystem.read",
+  "trace_id": "trace_abc",
+  "method": "tools/call",
+  "status": "ok",
+  "summary": "Tool completed",
+  "details": "filesystem.read returned text."
+}

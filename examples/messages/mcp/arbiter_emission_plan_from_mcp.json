@@ -1,0 +1,34 @@
+{
+  "version": "0.1.1",
+  "id": "arbiter-emission-plan-001",
+  "timestamp": "2026-03-07T12:00:02Z",
+  "origin": {
+    "system": "arbiter",
+    "component": "default"
+  },
+  "actor": {
+    "type": "system",
+    "id": "arbiter"
+  },
+  "metadata": {
+    "policy": "rate_limit+dedupe",
+    "source": "mcp"
+  },
+  "text": {
+    "summary": "Arbiter decides what to emit and when."
+  },
+  "cues": [
+    {
+      "channel": "visual",
+      "intent": "inform",
+      "payload": {
+        "title": "1 new tool result",
+        "body": "Grouped 3 low-priority results into one cue."
+      }
+    }
+  ],
+  "behavior_policy": {
+    "rate_limit_ms": 1500,
+    "dedupe_window_ms": 3000
+  }
+}

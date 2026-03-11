@@ -1,0 +1,27 @@
+{
+  "mcp_version": "1.0",
+  "session_id": "sess_123",
+  "message_id": "msg_001",
+  "timestamp": "2026-03-07T12:00:00Z",
+  "sender_id": "agent:local",
+  "priority": "info",
+  "modalities": [
+    "text",
+    "visual"
+  ],
+  "signals": [
+    {
+      "type": "tool_result",
+      "tool": "filesystem.read",
+      "status": "ok",
+      "summary": "Read 1 file and returned 2KB of text."
+    }
+  ],
+  "_meta": {
+    "mcp": {
+      "trace_id": "trace_abc",
+      "server": "mcp-server-local",
+      "note": "Example MCP tool result that can be mapped into an MCP4H packet."
+    }
+  }
+}

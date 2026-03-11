@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import json, glob
 from pathlib import Path
-from jsonschema import validate, Draft202012Validator
+from jsonschema import validate, Draft202012Validator, RefResolver
 
 REPO = Path(__file__).resolve().parents[1]
 SCHEMA_V01  = REPO / "spec" / "schema" / "mcp4h-v0.1.json"
@@ -26,7 +26,9 @@ def validate_dir(dir_path, schema_path, label):
         if not is_mcp4h_like(data):
             print(f"  [SKIP] {Path(ex).name}: not an MCP4H envelope"); skip += 1; continue
         try:
-            validate(instance=data, schema=load(schema_path))
+            schema = load(schema_path)
+            resolver = RefResolver(base_uri=Path(schema_path).resolve().as_uri(), referrer=schema)
+            Draft202012Validator(schema, resolver=resolver).validate(data)
             print(f"  [OK]  {Path(ex).name}")
             ok += 1
         except Exception as e:

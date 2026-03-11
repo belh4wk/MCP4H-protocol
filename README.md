@@ -1,88 +1,59 @@
-# MCP4H — The 4-Point Harness Protocol
+# MCP4H: Multimodal Communications Protocol For Humanity 🦉
 
-MCP4H™ (*Multimodal Communications Protocol For Humanity*) is a **common language for communication** built to help people and machines share situational awareness.
+## Quickstart
 
-It is the packet grammar and translation backbone.
-It is **not** the commercial implementation, game-specific haptics layer, or product-specific UI.
+Start here: `docs/quickstart.md` (validate a canonical packet + run the projection demo + webhook test).
 
-Works across **text • visual • audio • haptic**.
+MCP4H is an open-source standard for the "Sensory Era." It provides a unified nervous system for machines to communicate critical information directly to human senses—Haptic, Audio, Text, and Visual—bypassing the cognitive overload of the "Screen Era."
+
+## The Architecture
+The protocol operates on a three-tier modular system:
+
+1. **The Bridges (Connectors):** Translate existing data (Jira, Discord, Sim-Racing Telemetry) into the protocol.
+2. **The Arbiter (The Brain):** An AI or logic layer that evaluates data against "Stable Ideals" to decide what the human needs to perceive.
+3. **The Protocol (The Messenger):** Delivers the sensory packet to the hardware.
+
+## Current Implementations
+* **[MCP4SH](https://github.com/belh4wk/MCP4SH):** The high-performance pilot. A SimHub bridge that normalizes racing telemetry into a consistent haptic language.
+* **Accessibility:** Future bridges for visual-to-haptic translation for the blind and intent-to-speech for the non-verbal.
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17727584.svg)](https://doi.org/10.5281/zenodo.17727584)
+
+## What this repo is (and is not)
+
+This repository contains the **MCP4H™ protocol**:
+
+- Schemas, examples, docs, and tooling for the **Multimodal Communications Protocol For Humanity**.
+- A neutral backbone for machine-to-machine and machine-to-human cue exchange.
+- Reference material for anyone building adapters, bridges, or UIs on top of MCP4H.
+
+This repo **does not** contain:
+
+- SimHub plugins
+- Game-specific haptics code
+- Commercial implementations
+
+Those live in **separate implementation repos** (for example MCP4SH™ for SimHub).
+
+MCP4H™ (Multimodal Communications Protocol for Humanity) is a **common language for communication**, built to help people and machines share situational awareness.
+
+Works across **text • visual • audio • haptic.**  
 Small cue grammar — big reach.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17164550.svg)](https://doi.org/10.5281/zenodo.17164550)
-
 ---
 
-## Citation / DOI
+## Prior-Art Disclosure
 
-- **Concept DOI (all versions):** `10.5281/zenodo.17164550`
-- **Latest tagged release DOI:** see `CITATIONS.md` for the current release-specific identifier
-- **Citation files in this repo:** `CITATION.cff`, `CITATIONS.md`, `CITATIONS.bib`, `zenodo.json`
+The architectural concepts and design principles underlying MCP4H are intentionally published as prior art.
+A public prior-art disclosure describing the system architecture, telemetry normalization approach, and multimodal design principles is available via Zenodo:
 
-## Prior-art disclosure
+**DOI:** https://doi.org/10.5281/zenodo.18223144
 
-MCP4H’s core architecture is intentionally published as prior art to keep the protocol backbone open and to make the public record easy to cite and verify.
-
-Use the concept DOI above as the stable reference point. Use `CITATIONS.md` as the source of truth for the latest tagged release DOI.
-
----
-
-## What lives here
-
-- schemas, bindings, and protocol docs
-- canonical examples and validation tooling
-- reference bridges and demo services
-- developer guidance for building adapters cleanly
-
-## What does not live here
-
-- SimHub plugin product code
-- proprietary arbiter logic
-- commercial dashboards or shipping apps
-
-Those belong in implementation repos such as MCP4SH™.
-
----
-
-## Repo map (where to start)
-
-### 1) Protocol
-The protocol is the language itself.
-
-Start here:
-
-- `spec/`
-- `schemas/`
-- `examples/messages/`
-- `tests/`
-- `sdk-js/`
-- `protocol/README.md`
-
-### 2) Bridges
-Bridges are connectors. They move packets between systems without inventing new meaning.
-
-Start here:
-
-- `bridges/README.md`
-- `bridges/cue-router/`
-- `bridges/simhub/`
-- `bridges/notify-led/`
-
-### 3) Arbiter
-The arbiter is the judgment-assist layer.
-
-It decides priority, suppression, escalation, and interruption budgets.
-That should stay separable from the neutral protocol.
-
-Start here:
-
-- `arbiter/README.md`
-
----
+This disclosure is intended to prevent exclusive patent claims on the core MCP4H architecture while enabling open and interoperable implementations.
 
 ## Quickstart
 
 ### 1. Build and start the services
-
 ```powershell
 docker compose down
 docker compose build --no-cache
@@ -90,88 +61,101 @@ docker compose up
 ```
 
 ### 2. Run the smoke test
-
-From a second terminal in the repo root:
+Run this from a separate PowerShell terminal in the repo root:
 
 ```powershell
 curl.exe -X POST http://localhost:8080/cue `
   -H "Content-Type: application/mcp4h+json" `
-  --data-binary "@examples/messages/cues/smoketest.json"
+  --data-binary "@examples_cues/smoketest.json"
 ```
 
-Expected output:
-
+✅ **Expected output** (in the curl terminal):
 ```json
 {"accepted": true, "topic": "mcp4h/cues"}
 ```
 
-Legacy path compatibility remains in place, so `examples_cues/smoketest.json` still works. The canonical source now lives under `examples/messages/cues/`.
-
----
-
-## Cue-router bridge
-
-The repo now includes a cue-router bridge for Slack / Teams / MQTT fanout with:
-
-- health and readiness endpoints
-- Prometheus metrics
-- policy hot-reload
-- replay CLI
-- OpenTelemetry hooks
-
-Useful local URLs:
-
-- `http://localhost:8090/healthz`
-- `http://localhost:8090/metrics`
-
-Policy file:
-
-- `bridges/cue-router/policy.yaml`
-
-Replay example:
-
-```bash
-python tools/replay_cues.py bridges/cue-router/examples/replay.ndjson --url http://localhost:8090/route
+📋 **Docker logs** will show:
+```
+POST /cue HTTP/1.1" 200 OK
 ```
 
----
-
-## Design rule: Bridge / Protocol / Arbiter
-
-Keep these three separate.
-
-- **Bridge**: connector / transport glue
-- **Protocol**: packet grammar and validation rules
-- **Arbiter**: judgment-assist and prioritization logic
-
-That distinction keeps MCP4H portable, auditable, and reusable across games, wearables, messaging, assistive tech, and future adapters.
+> Note: The response body only appears in the terminal where you ran `curl.exe`. Docker logs confirm requests were received and processed, but do not echo response JSON.
 
 ---
 
-## Canonical examples and sync guardrails
+## Contents
 
-`examples/messages/` is the maintained source of truth.
+- **Spec**: schema + lexicon + media type  
+- **Lingua**: deterministic audio/haptic/visual maps  
+- **Profiles**: assistive, safety, media  
+- **Microservices**: cue-gateway, voice-coach (+TTS script), osc-bridge, udp-proxy, simhub-adapter, fanatec-adapter  
+- **Tools**: CLI sender/validator, Postman collection  
+- **Docs**: Spine, Roadmap, RFCs, Deployment, Compliance, Governance, Patent covenant  
+- **CI + Tests**: schema + MQTT loopback  
+- **Diagram**: `/diagrams/stack.svg`  
+- **Assumptions**: design rationale and conceptual foundations (`/docs/ASSUMPTIONS.md`)
 
-Legacy paths are still preserved so older scripts and links do not break:
+---
 
-- `examples/*.json`
-- `examples_cues/*.json`
+## Design Rationale
 
-To resync legacy mirrors after editing canonical sources:
+📘 **Assumptions & Rationale**  
+See [`/docs/ASSUMPTIONS.md`](docs/ASSUMPTIONS.md) for the conceptual and ethical backbone of MCP4H —  
+why each design decision exists, the principles guiding signal translation, and how future versions validate or deprecate those assumptions.
 
-```bash
-python tools/sync_examples.py
+Each assumption is treated as a **commit of understanding** — dated, versioned, and never deleted.  
+Together, they form the *Principles of Human-Readable Signal Translation* — the living documentation of the protocol’s evolution.
+
+Example categories of assumptions include:
+
+- **Conceptual:** how humans interpret multimodal cues under cognitive load.  
+- **Design:** why every signal resolves to a text semantic layer before voice or haptics.  
+- **Ethical:** ensuring MCP4H augments awareness rather than automating judgment.  
+- **Validation:** measurable tests for clarity, latency, and adoption.
+
+---
+
+## Architectural Flow
+
+```
+[Game Telemetry] → [MCP4H Core Translator] → [Output Adapter]
 ```
 
-To verify mirrors in CI or before commit:
+For the trail-braking alpha demo:  
+- **Input:** Game telemetry (speed, brake pressure, slip ratio)  
+- **Core:** MCP4H translator applies rule logic → "LIFT" / "PUSH" cue  
+- **Output:** SimHub dashboard text label  
 
-```bash
-python tools/sync_examples.py --check
-```
+Future adapters (voice, haptic, AI coach) will follow this same interface pattern.  
+This minimal chain is the first real-world test of MCP4H’s founding claim:  
+> “Clarity is a deliverable.”
 
 ---
+
+## Tagline
+
+> “MCP4H is a common language for communication, built to help people and machines share situational awareness.”
+
+---
+
+## References
+
+- 📄 [Zenodo DOI](https://doi.org/10.5281/zenodo.17727584)  
+- 📄 [HAL Preprint](https://hal.science/)  
+- 📄 [OSF Preprint](https://osf.io/)  
+- 📄 [ORCID Profile](https://orcid.org/)  
+
+---
+
+© 2025 Dirk Van Echelpoel — MCP4H™ (Multimodal Communications Protocol for Humanity)
 
 ## Related projects
 
-- **MCP4SH™** – SimHub implementation of MCP4H for sim racing haptics
-- **MCP4H: Harmonizer** – conversational stack built on MCP4H principles
+- **MCP4SH™** – SimHub implementation of MCP4H for sim racing haptics  
+  *(separate repository, distributed under a more restrictive license)*
+
+- **MCP4H: Harmonizer** – conversational stack built on MCP4H principles (guardrails, voice profiles, and cue mappings).
+
+## Canonical cues
+
+For v0.1.x, new work should use the **Projected payload cue (v0.1.1)**. Legacy cue shapes are deprecated and kept only for compatibility.

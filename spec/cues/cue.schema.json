@@ -6,7 +6,7 @@
   "oneOf": [
     {
       "title": "Legacy cue (cues.v0.1)",
-      "description": "Legacy cue examples used by early MCP4H cue experiments (subject/signal/state/trend). Kept for compatibility.",
+      "description": "Legacy cue examples used by early MCP4H cue experiments (subject/signal/state/trend). Kept for compatibility. [DEPRECATED: use Projected cue (v0.1.1) or Cue v1.]",
       "type": "object",
       "required": [
         "subject",
@@ -19,24 +19,46 @@
         "version"
       ],
       "properties": {
-        "version": { "type": "string", "const": "cues.v0.1" },
+        "version": {
+          "type": "string",
+          "const": "cues.v0.1"
+        },
         "ts": {
           "description": "Unix timestamp (seconds).",
           "type": "integer",
           "minimum": 0
         },
-        "subject": { "type": "string", "minLength": 1 },
-        "signal": { "type": "string", "minLength": 1 },
-        "state": { "type": "string", "minLength": 1 },
-        "trend": { "type": "string", "minLength": 1 },
-        "urgency": { "type": "string", "minLength": 1 },
-        "action_hint": { "type": "string" },
+        "subject": {
+          "type": "string",
+          "minLength": 1
+        },
+        "signal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trend": {
+          "type": "string",
+          "minLength": 1
+        },
+        "urgency": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action_hint": {
+          "type": "string"
+        },
         "channels": {
           "description": "Channel payload tokens. Commonly 'text', but may include others.",
           "type": "object",
           "additionalProperties": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -45,23 +67,46 @@
     {
       "title": "Legacy cue (v0.1)",
       "type": "object",
-      "required": ["id", "ts", "channel", "intent"],
+      "required": [
+        "id",
+        "ts",
+        "channel",
+        "intent"
+      ],
       "properties": {
-        "id": { "type": "string" },
-        "ts": { "type": "string" },
+        "id": {
+          "type": "string"
+        },
+        "ts": {
+          "type": "string"
+        },
         "channel": {
           "type": "string",
-          "enum": ["audio", "haptic", "visual", "multi"]
+          "enum": [
+            "audio",
+            "haptic",
+            "visual",
+            "multi"
+          ]
         },
-        "intent": { "type": "string" },
+        "intent": {
+          "type": "string"
+        },
         "urgency": {
           "type": "string",
-          "enum": ["low", "med", "high"],
+          "enum": [
+            "low",
+            "med",
+            "high"
+          ],
           "default": "low"
         },
-        "payload": { "type": "object" }
+        "payload": {
+          "type": "object"
+        }
       },
-      "additionalProperties": true
+      "additionalProperties": true,
+      "description": "[DEPRECATED: use Projected cue (v0.1.1) or Cue v1.]"
     },
     {
       "title": "Cue v1 (portable behavior)",
@@ -101,7 +146,12 @@
         "severity": {
           "description": "Human-facing seriousness of the cue.",
           "type": "string",
-          "enum": ["info", "notice", "warning", "critical"]
+          "enum": [
+            "info",
+            "notice",
+            "warning",
+            "critical"
+          ]
         },
         "priority": {
           "description": "System arbitration priority (higher wins).",
@@ -120,15 +170,25 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "valid_until": { "type": "string", "format": "date-time" },
-            "stale_after_ms": { "type": "integer", "minimum": 0, "default": 1500 }
+            "valid_until": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "stale_after_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 1500
+            }
           }
         },
         "attention": {
           "description": "Portable attention-control contract (rate-limiting, dedupe/merge, escalation).",
           "type": "object",
           "additionalProperties": false,
-          "required": ["cooldown_ms", "merge"],
+          "required": [
+            "cooldown_ms",
+            "merge"
+          ],
           "properties": {
             "cooldown_ms": {
               "description": "Minimum time between renderings of this cue type for the same merge.key.",
@@ -151,7 +211,10 @@
               "description": "How to merge repeated cues (portable across renderers).",
               "type": "object",
               "additionalProperties": false,
-              "required": ["key", "strategy"],
+              "required": [
+                "key",
+                "strategy"
+              ],
               "properties": {
                 "key": {
                   "description": "Key used for dedupe/merge (e.g., 'traction.LR', 'system.global').",
@@ -160,7 +223,13 @@
                 },
                 "strategy": {
                   "type": "string",
-                  "enum": ["replace", "max", "sum", "avg", "latest"]
+                  "enum": [
+                    "replace",
+                    "max",
+                    "sum",
+                    "avg",
+                    "latest"
+                  ]
                 },
                 "window_ms": {
                   "description": "Merge window for strategies that aggregate.",
@@ -175,10 +244,27 @@
               "type": "object",
               "additionalProperties": false,
               "properties": {
-                "after_count": { "type": "integer", "minimum": 1 },
-                "within_ms": { "type": "integer", "minimum": 0 },
-                "promote_severity": { "type": "string", "enum": ["notice", "warning", "critical"] },
-                "priority_add": { "type": "integer", "minimum": 0, "maximum": 100 }
+                "after_count": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "within_ms": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "promote_severity": {
+                  "type": "string",
+                  "enum": [
+                    "notice",
+                    "warning",
+                    "critical"
+                  ]
+                },
+                "priority_add": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100
+                }
               }
             },
             "quiet_hours": {
@@ -187,13 +273,31 @@
               "items": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": ["start", "end"],
+                "required": [
+                  "start",
+                  "end"
+                ],
                 "properties": {
-                  "start": { "type": "string", "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$" },
-                  "end": { "type": "string", "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$" },
+                  "start": {
+                    "type": "string",
+                    "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+                  },
+                  "end": {
+                    "type": "string",
+                    "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+                  },
                   "mute": {
                     "type": "array",
-                    "items": { "type": "string", "enum": ["audio", "haptic", "visual", "led", "text"] },
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "audio",
+                        "haptic",
+                        "visual",
+                        "led",
+                        "text"
+                      ]
+                    },
                     "uniqueItems": true
                   }
                 }
@@ -205,17 +309,38 @@
           "description": "Portable actuation intent: what modalities to use, with per-modality parameters.",
           "type": "object",
           "additionalProperties": false,
-          "required": ["preferred", "allowed"],
+          "required": [
+            "preferred",
+            "allowed"
+          ],
           "properties": {
             "preferred": {
               "type": "array",
-              "items": { "type": "string", "enum": ["audio", "haptic", "visual", "led", "text"] },
+              "items": {
+                "type": "string",
+                "enum": [
+                  "audio",
+                  "haptic",
+                  "visual",
+                  "led",
+                  "text"
+                ]
+              },
               "minItems": 1,
               "uniqueItems": true
             },
             "allowed": {
               "type": "array",
-              "items": { "type": "string", "enum": ["audio", "haptic", "visual", "led", "text"] },
+              "items": {
+                "type": "string",
+                "enum": [
+                  "audio",
+                  "haptic",
+                  "visual",
+                  "led",
+                  "text"
+                ]
+              },
               "minItems": 1,
               "uniqueItems": true
             },
@@ -228,47 +353,107 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "short": { "type": "string", "maxLength": 180 },
-                    "long": { "type": "string", "maxLength": 1200 },
-                    "lang": { "type": "string", "maxLength": 16 },
-                    "style": { "type": "string", "enum": ["neutral", "calm", "urgent"] }
+                    "short": {
+                      "type": "string",
+                      "maxLength": 180
+                    },
+                    "long": {
+                      "type": "string",
+                      "maxLength": 1200
+                    },
+                    "lang": {
+                      "type": "string",
+                      "maxLength": 16
+                    },
+                    "style": {
+                      "type": "string",
+                      "enum": [
+                        "neutral",
+                        "calm",
+                        "urgent"
+                      ]
+                    }
                   }
                 },
                 "audio": {
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "mode": { "type": "string", "enum": ["beep", "tts"] },
-                    "tts_max_words": { "type": "integer", "minimum": 0, "maximum": 40 },
-                    "rate_limit_ms": { "type": "integer", "minimum": 0 }
+                    "mode": {
+                      "type": "string",
+                      "enum": [
+                        "beep",
+                        "tts"
+                      ]
+                    },
+                    "tts_max_words": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 40
+                    },
+                    "rate_limit_ms": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
                   }
                 },
                 "haptic": {
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "pattern": { "type": "string", "maxLength": 64 },
-                    "intensity": { "type": "number", "minimum": 0, "maximum": 1 },
-                    "duration_ms": { "type": "integer", "minimum": 0 },
-                    "channel": { "type": "string", "maxLength": 32 }
+                    "pattern": {
+                      "type": "string",
+                      "maxLength": 64
+                    },
+                    "intensity": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "duration_ms": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "channel": {
+                      "type": "string",
+                      "maxLength": 32
+                    }
                   }
                 },
                 "visual": {
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "color": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6})$" },
-                    "icon": { "type": "string", "maxLength": 64 },
-                    "ttl_ms": { "type": "integer", "minimum": 0 }
+                    "color": {
+                      "type": "string",
+                      "pattern": "^#([A-Fa-f0-9]{6})$"
+                    },
+                    "icon": {
+                      "type": "string",
+                      "maxLength": 64
+                    },
+                    "ttl_ms": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
                   }
                 },
                 "led": {
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "color": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6})$" },
-                    "blink_hz": { "type": "number", "minimum": 0 },
-                    "ttl_ms": { "type": "integer", "minimum": 0 }
+                    "color": {
+                      "type": "string",
+                      "pattern": "^#([A-Fa-f0-9]{6})$"
+                    },
+                    "blink_hz": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "ttl_ms": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
                   }
                 }
               }
@@ -278,10 +463,22 @@
               "type": "object",
               "additionalProperties": false,
               "properties": {
-                "allow_disable_modalities": { "type": "boolean", "default": true },
-                "allow_intensity_scale": { "type": "boolean", "default": true },
-                "allow_verbosity": { "type": "boolean", "default": true },
-                "allow_threshold_tuning": { "type": "boolean", "default": true }
+                "allow_disable_modalities": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "allow_intensity_scale": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "allow_verbosity": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "allow_threshold_tuning": {
+                  "type": "boolean",
+                  "default": true
+                }
               }
             }
           }
@@ -295,9 +492,18 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "source": { "type": "string", "maxLength": 64 },
-            "model": { "type": "string", "maxLength": 64 },
-            "trace_id": { "type": "string", "maxLength": 128 }
+            "source": {
+              "type": "string",
+              "maxLength": 64
+            },
+            "model": {
+              "type": "string",
+              "maxLength": 64
+            },
+            "trace_id": {
+              "type": "string",
+              "maxLength": 128
+            }
           }
         }
       }
