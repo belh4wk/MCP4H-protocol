@@ -4,7 +4,9 @@
 
 Start here: `docs/quickstart.md` (validate a canonical packet + run the projection demo + webhook test).
 
-MCP4H is an open-source standard for the "Sensory Era." It provides a unified nervous system for machines to communicate critical information directly to human senses—Haptic, Audio, Text, and Visual—bypassing the cognitive overload of the "Screen Era."
+MCP4H is an open-source standard for the "Sensory Era." It provides a shared structure for machines to communicate useful information through human-readable cues: haptic, audio, text, and visual.
+
+The point is not more data. The point is clearer translation.
 
 ## The Architecture
 The protocol operates on a three-tier modular system:
@@ -14,7 +16,8 @@ The protocol operates on a three-tier modular system:
 3. **The Protocol (The Messenger):** Delivers the sensory packet to the hardware.
 
 ## Current Implementations
-* **[MCP4SH](https://github.com/belh4wk/MCP4SH):** The high-performance pilot. A SimHub bridge that normalizes racing telemetry into a consistent haptic language.
+
+* **[MCP4SH](https://github.com/belh4wk/MCP4SH):** The current practical proving ground. MCP4SH turns sim-racing telemetry into clearer haptic cues for SimHub, with a Setup Assistant that helps users map real hardware without needing to understand every routing detail first.
 * **Accessibility:** Future bridges for visual-to-haptic translation for the blind and intent-to-speech for the non-verbal.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17727584.svg)](https://doi.org/10.5281/zenodo.17727584)
@@ -33,7 +36,7 @@ This repo **does not** contain:
 - Game-specific haptics code
 - Commercial implementations
 
-Those live in **separate implementation repos** (for example MCP4SH™ for SimHub).
+Those live in **separate implementation repos** (for example MCP4SH® for SimHub).
 
 MCP4H™ (Multimodal Communications Protocol for Humanity) is a **common language for communication**, built to help people and machines share situational awareness.
 
@@ -41,6 +44,21 @@ Works across **text • visual • audio • haptic.**
 Small cue grammar — big reach.
 
 ---
+
+
+## Implementation note ::: MCP4SH
+
+MCP4SH is not part of this protocol repo, but it is currently the clearest public implementation of the MCP4H direction.
+
+It demonstrates the same basic pattern:
+
+```text
+noisy source data -> normalized interpretation -> human-facing cue
+```
+
+In MCP4SH, the source data is sim telemetry and the human-facing output is tactile feedback. The v1.1 Setup Assistant extends the same idea into onboarding: the user selects what they physically have, feels test pulses, and receives a matching SimHub sound-output profile.
+
+That is MCP4H thinking applied to a real problem: less decoding, less guesswork, clearer action.
 
 ## Prior-Art Disclosure
 

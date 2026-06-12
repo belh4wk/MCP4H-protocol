@@ -1,5 +1,11 @@
 # Changelog
 
+## Documentation update ::: MCP4SH v1.1 implementation note
+
+- Updated README language to describe MCP4SH v1.1 as the current practical proving ground for MCP4H-style haptic translation.
+- Added Setup Assistant context as an example of MCP4H thinking applied to user onboarding and hardware mapping.
+
+
 All notable changes to this project will be documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),  
