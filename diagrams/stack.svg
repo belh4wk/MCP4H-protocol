@@ -1,13 +1,10 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='840' height='420'>
-<rect x='0' y='0' width='840' height='420' fill='#ffffff' stroke='#ddd'/>
-<text x='420' y='36' text-anchor='middle' font-family='Inter,Arial' font-size='20'>MCP4H Stack</text>
-<rect x='100' y='70' width='640' height='60' fill='#eef7ff' stroke='#88a' rx='10'/>
-<text x='420' y='105' text-anchor='middle' font-family='Inter,Arial' font-size='14'>Human/Machine Actions</text>
-<rect x='100' y='150' width='640' height='90' fill='#f5fff2' stroke='#7a7' rx='10'/>
-<text x='420' y='185' text-anchor='middle' font-family='Inter,Arial' font-size='14'>MCP4H Meaning Layer (state • trend • urgency • action_hint)</text>
-<text x='420' y='205' text-anchor='middle' font-family='Inter,Arial' font-size='12'>channels: text • visual • audio • haptic</text>
-<rect x='100' y='260' width='640' height='90' fill='#fff7f0' stroke='#a87' rx='10'/>
-<text x='420' y='295' text-anchor='middle' font-family='Inter,Arial' font-size='14'>Transports/Carriers: MQTT • HTTP/WS • OSC • CAN • MIDI • BLE • Vibration • CAP • Braille • Morse</text>
-<polygon points='420,240 430,250 410,250' fill='#555'/>
-<polygon points='420,140 430,150 410,150' fill='#555'/>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="500" viewBox="0 0 920 500">
+<style>text{font-family:Inter,Arial,sans-serif;fill:#202124}.title{font-size:22px;font-weight:700}.box{stroke:#6b7280;stroke-width:1.4;rx:12}.label{font-size:15px;font-weight:600}.small{font-size:12px;fill:#5f6368}</style>
+<rect x="0" y="0" width="920" height="500" fill="#ffffff" stroke="#ddd"/>
+<text x="460" y="38" text-anchor="middle" class="title">MCP4H Stack</text>
+<rect x="110" y="70" width="700" height="65" fill="#eef5ff" class="box"/><text x="460" y="98" text-anchor="middle" class="label">Sources + Observation records</text><text x="460" y="119" text-anchor="middle" class="small">telemetry / software events / sensors / input systems</text>
+<rect x="110" y="155" width="700" height="78" fill="#f3f8f1" class="box"/><text x="460" y="184" text-anchor="middle" class="label">Interpretation records + domain profiles</text><text x="460" y="206" text-anchor="middle" class="small">meaning, state, layer-scoped confidence, provenance, temporal/spatial/relational structure</text>
+<rect x="110" y="253" width="700" height="78" fill="#f8f2ff" class="box"/><text x="460" y="282" text-anchor="middle" class="label">Optional Policy + Projection</text><text x="460" y="304" text-anchor="middle" class="small">attention behavior + mapping toward declared receiver capabilities</text>
+<rect x="110" y="351" width="700" height="78" fill="#fff7ed" class="box"/><text x="460" y="380" text-anchor="middle" class="label">Transport / Renderer / Receiver</text><text x="460" y="402" text-anchor="middle" class="small">open-ended carriers, devices, people, software and future extensions</text>
+<text x="460" y="464" text-anchor="middle" class="small">Preserve meaning. Adapt the carrier.</text>
 </svg>

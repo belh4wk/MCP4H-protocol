@@ -1,0 +1,53 @@
+{
+  "_status": "non-normative v0.2 design example",
+  "mcp4h": "0.2-draft",
+  "kind": "capability_profile",
+  "id": "cap-simrig-reference",
+  "created_at": "2026-09-11T16:00:00Z",
+  "capability_profile": {
+    "receiver": {
+      "kind": "composite"
+    },
+    "carriers": [
+      {
+        "id": "haptic.vibration",
+        "targets": [
+          {
+            "id": "pedal.front",
+            "location": "rig.front"
+          },
+          {
+            "id": "seat.rear",
+            "location": "rig.rear"
+          }
+        ],
+        "temporal": {
+          "max_update_hz": 200
+        },
+        "spectral": {
+          "frequency_hz": {
+            "min": 20,
+            "max": 80
+          }
+        }
+      },
+      {
+        "id": "visual.display",
+        "targets": [
+          {
+            "id": "primary.overlay"
+          }
+        ]
+      }
+    ],
+    "constraints": {
+      "preferred_carriers": [
+        "haptic.vibration"
+      ]
+    },
+    "calibration": {
+      "profile_id": "rig-fingerprint-reference",
+      "version": "1"
+    }
+  }
+}

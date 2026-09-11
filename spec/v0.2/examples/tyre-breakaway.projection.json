@@ -1,0 +1,47 @@
+{
+  "_status": "non-normative v0.2 design example",
+  "mcp4h": "0.2-draft",
+  "kind": "projection",
+  "id": "proj-tyre-001",
+  "created_at": "2026-09-11T16:00:00Z",
+  "relations": [
+    {
+      "type": "projects",
+      "ref": "int-tyre-breakaway-001"
+    },
+    {
+      "type": "governed_by",
+      "ref": "policy-tyre-001"
+    },
+    {
+      "type": "uses_capability",
+      "ref": "cap-simrig-reference"
+    }
+  ],
+  "projection": {
+    "outputs": [
+      {
+        "carrier": "haptic.vibration",
+        "target": "pedal.front",
+        "parameters": {
+          "pattern": "breakaway-ramp",
+          "frequency_hz": 46,
+          "amplitude": {
+            "value": 0.58,
+            "scale": "renderer.normalized-output/1"
+          }
+        }
+      }
+    ],
+    "preservation": {
+      "preserved": [
+        "event_identity",
+        "spatial.location",
+        "state"
+      ],
+      "degraded": [
+        "magnitude_resolution"
+      ]
+    }
+  }
+}

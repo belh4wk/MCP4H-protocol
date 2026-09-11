@@ -1,0 +1,40 @@
+{
+  "_status": "non-normative v0.2 design example",
+  "mcp4h": "0.2-draft",
+  "kind": "interpretation",
+  "id": "int-airframe-load-001",
+  "created_at": "2026-09-11T16:02:00Z",
+  "profile": {
+    "id": "machine.dynamics.airframe",
+    "version": "0.1-draft"
+  },
+  "relations": [
+    {
+      "type": "interprets",
+      "ref": "obs-airframe-load-001"
+    }
+  ],
+  "interpretation": {
+    "type": "aircraft.airframe.load",
+    "state": "high_positive_g",
+    "confidence": 0.98,
+    "magnitude": {
+      "value": 0.64,
+      "scale": "machine.dynamics.airframe.load/0.1"
+    },
+    "attributes": {
+      "sign": "positive",
+      "sustained": true
+    }
+  },
+  "provenance": {
+    "trace_id": "flight-20260911-004",
+    "transformations": [
+      {
+        "component": "mcp4sh.semantic.airframe",
+        "version": "1.2-dev",
+        "operation": "interpret"
+      }
+    ]
+  }
+}

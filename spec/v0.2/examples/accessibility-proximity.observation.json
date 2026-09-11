@@ -1,0 +1,47 @@
+{
+  "_status": "non-normative v0.2 design example",
+  "mcp4h": "0.2-draft",
+  "kind": "observation",
+  "id": "obs-navigation-hazard-001",
+  "created_at": "2026-09-11T16:04:00Z",
+  "profile": {
+    "id": "accessibility.navigation",
+    "version": "0.1-draft"
+  },
+  "source": {
+    "system": "environment-sensing.example",
+    "component": "proximity-fusion"
+  },
+  "subject": {
+    "type": "environment.obstacle",
+    "id": "track-42"
+  },
+  "observation": {
+    "observed_at": "2026-09-11T16:03:59.940Z",
+    "confidence": 0.98,
+    "measurements": [
+      {
+        "name": "environment.obstacle.distance",
+        "value": 1.8,
+        "unit": "m"
+      },
+      {
+        "name": "environment.obstacle.bearing",
+        "value": -32,
+        "unit": "deg"
+      }
+    ],
+    "structure": {
+      "spatial": {
+        "frame": "receiver_forward",
+        "region": "front_left"
+      },
+      "temporal": {
+        "trend": "closing"
+      }
+    }
+  },
+  "provenance": {
+    "trace_id": "nav-20260911-012"
+  }
+}

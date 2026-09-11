@@ -1,0 +1,46 @@
+{
+  "_status": "non-normative v0.2 design example",
+  "mcp4h": "0.2-draft",
+  "kind": "interpretation",
+  "id": "int-tyre-breakaway-001",
+  "created_at": "2026-09-11T16:00:00Z",
+  "profile": {
+    "id": "machine.dynamics.land_chassis",
+    "version": "0.1-draft"
+  },
+  "relations": [
+    {
+      "type": "interprets",
+      "ref": "obs-tyre-breakaway-001"
+    }
+  ],
+  "interpretation": {
+    "type": "vehicle.tyre.breakaway_margin",
+    "state": "approaching",
+    "confidence": 0.93,
+    "magnitude": {
+      "value": 0.72,
+      "scale": "machine.dynamics.tyre.breakaway_margin/0.1"
+    },
+    "attributes": {
+      "axis": "lateral"
+    },
+    "projection_requirements": {
+      "preserve": [
+        "event_identity",
+        "spatial.location",
+        "state"
+      ]
+    }
+  },
+  "provenance": {
+    "trace_id": "run-20260911-001",
+    "transformations": [
+      {
+        "component": "mcp4sh.semantic.land_chassis",
+        "version": "1.2-dev",
+        "operation": "interpret"
+      }
+    ]
+  }
+}

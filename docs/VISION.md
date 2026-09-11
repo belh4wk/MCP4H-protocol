@@ -1,56 +1,129 @@
-# MCP4H™ Vision
+# MCP4H Vision
 
-Humans miss signals. A lot.  
-Sometimes we misinterpret them too.
+> **Preserve meaning. Adapt the carrier.**
 
-The usual “fix” tools offer? More dashboards. More assistants. More noise.  
-We don’t need more. We need clearer.
+We miss signals. We misread them. Sometimes the systems around us are already expressing useful state, but the interface gives us the wrong thing at the wrong time or in the wrong form.
 
----
+The usual answer is often more:
 
-## The Grammar of Attention
+- more dashboards;
+- more alerts;
+- more raw data;
+- more text;
+- more separate assistants.
 
-Every MCP4H™ cue has four parts:
+MCP4H is interested in a different layer:
 
-1. **Type** (Coach, Risk, Plan, State, Confirm)  
-2. **Priority** (now, soon, later)  
-3. **Channel** (light, haptic, text, audio, all)  
-4. **Rules** (expiry + acknowledgement)
+**clearer translation.**
 
-That’s it — a simple grammar.  
-MCP4H™ acts as the **referee, not another player**: choosing what matters, how to say it, and making sure it lands.
+## The problem
 
----
+A source and a receiver do not necessarily communicate well just because information can technically move between them.
 
-## Why these proving grounds?
+A machine may expose telemetry.
 
-- **Conversations**: everyone knows messy comms. The Harmonizer GPT applies MCP4H™ live, distilling tangents into cues and nudging better habits.  
-- **(Sim)Racing**: if a cue is missed, the cost is immediate. MCP4H™ translates telemetry into intuitive states anyone can act on — *tyre hot, tyre cold, brake fade risk*.
+A person may need touch.
 
-If MCP4H™ works here, it can work anywhere.
+An AI system may infer a useful state that should become a quiet visual cue rather than another paragraph.
 
----
+A remote operator may need force, vibration or spatial feedback that is missing because they are physically separated from the machine.
+
+The carrier should be allowed to change without casually changing the meaning.
+
+## The architectural idea
+
+MCP4H separates:
+
+```text
+Observation
+  -> Interpretation
+  -> optional Policy
+  -> Projection
+  -> Transport
+  -> Rendering
+  -> Response
+```
+
+Not every implementation needs a separate service for every step.
+
+The important part is that the responsibilities remain distinguishable.
+
+## Patterns carry information
+
+Useful state can appear in:
+
+- magnitude;
+- timing;
+- rate of change;
+- rhythm;
+- oscillation;
+- frequency;
+- phase;
+- modulation;
+- direction;
+- recurrence;
+- relationships between signals.
+
+A static scalar or sentence may therefore be too lossy for some domains.
+
+MCP4H should preserve the structures that matter to the task.
+
+## The receiver matters
+
+The same semantic event may need different projections depending on:
+
+- available senses or output modalities;
+- hardware topology;
+- timing/frequency range;
+- latency;
+- dynamic range;
+- accessibility constraints;
+- calibration;
+- context and preference.
+
+Receiver capability is therefore part of the communication problem, not an afterthought.
+
+## Why MCP4SH matters
+
+MCP4SH is currently the strongest practical proving ground.
+
+It starts with noisy, title-specific simulation telemetry and turns it into coherent tactile machine-state cues.
+
+That has forced real decisions about:
+
+- normalization;
+- event/state interpretation;
+- timing;
+- cross-title consistency;
+- hardware mapping;
+- calibration;
+- output constraints.
+
+The next proof extends from land vehicles into aircraft dynamics without forcing one domain to pretend to be the other.
 
 ## Where this can go
 
-- **Wearables**: nudge before stress derails focus.  
-- **AR overlays**: strip cockpit clutter down to a few timely cues.  
-- **Enterprise comms**: unify assistants into one loop instead of 15 silos.
+The current reference path begins with simulation, but the architectural questions are broader.
 
-The common thread: **fewer missed signals**.
+Potential test domains include:
 
----
+- remote machinery and robotics;
+- accessibility and sensory substitution;
+- operator support;
+- people + AI communication;
+- environmental state;
+- longer-horizon living-system research.
 
-## Folded insights (Manifesto + Whitepaper)
+These are directions to test, not solved claims.
 
-- **Manifesto theme**: signals are shared responsibilities; MCP4H™ offers common ground across teams, tools, and machines.  
-- **Whitepaper theme**: technical framing of MCP4H™ as a publish/subscribe schema with normative rules, but always human-facing at the edge.  
-- Both condensed here: clarity over volume, grammar over noise, shared language over fragmented silos.
+## What MCP4H should become
 
----
+A small enough protocol/framework that outside developers can implement it.
 
-## Tone
+A rich enough semantic layer that useful information is not destroyed merely to fit one output device.
 
-This isn’t world peace.  
-It’s a **grammar**: a small, durable layer that makes signals clearer.  
-If it helps in meetings and in racing, it can scale anywhere humans and machines need to align.
+A neutral enough architecture that the source, transport, policy system, renderer and AI model can change independently where practical.
+
+The target is not more channels.
+
+The target is better communication across boundaries.

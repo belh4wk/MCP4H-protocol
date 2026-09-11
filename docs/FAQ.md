@@ -1,37 +1,154 @@
-# FAQ
+# MCP4H FAQ
 
-### Is this just another assistant or dashboard?
-No. MCP4H™ is not an app. It’s a **protocol**: a way of structuring cues so they’re clearer and more consistent across contexts.
+### What is MCP4H?
 
----
+MCP4H is an open, receiver-aware communication framework.
 
-### How is this different from Otter, Rewind, or CrewChief?
-- **Otter / Rewind**: capture everything, let you dig later.  
-- **CrewChief / AI racing coaches**: provide analysis for experts.  
-- **MCP4H™**: applies a grammar in real time, translating into *human-friendly cues* anyone can immediately act on.
+It helps separate useful meaning from the form in which that meaning was first observed, so the information can be expressed through a carrier appropriate to the receiver.
 
----
+The shortest version is:
 
-### Why conversations and racing?
-They’re proving grounds:  
-- Conversations = universal, everyone misses signals.  
-- Racing = high-stakes + high-speed, missed cues have obvious cost.
-
-If it works in both, it can work anywhere.
+> **Preserve meaning. Adapt the carrier.**
 
 ---
 
-### What happened to the Manifesto and Whitepaper?
-They’ve been folded into `VISION.md` and `overview.md`.  
-This keeps one set of living docs, not competing versions.
+### Is MCP4H an app?
+
+No.
+
+It is a protocol/framework, plus reference schemas, tools, bridges and examples.
+
+Products can implement MCP4H without the protocol becoming dependent on one product.
 
 ---
 
-### Is this production-ready?
-No — still early days. Schemas and examples are live, a SimHub bridge is in progress, and the Harmonizer GPT is available for conversations.
+### Does MCP4H mean text + audio + visual + haptics?
+
+No.
+
+Those were important early reference carriers, but they are not a closed list.
+
+The `4` in MCP4H means **For**:
+
+**Multimodal Communications Protocol For Humanity.**
+
+The framework should remain open to any carrier or renderer that can be described and used meaningfully.
 
 ---
 
-### Is this trying to solve world peace?
-No. MCP4H™ isn’t utopian. It’s pragmatic:  
-**fewer missed signals → clearer decisions → better outcomes.**
+### Does everything have to become text first?
+
+No.
+
+That was an early MCP4H assumption and is now explicitly superseded.
+
+Text is one useful carrier, but some information is naturally temporal, spatial, relational, spectral, continuous or force-related.
+
+See `ASSUMPTIONS.md`.
+
+---
+
+### Is the Arbiter required?
+
+No.
+
+An Arbiter is one useful optional policy/judgment-assist layer.
+
+It can decide things such as:
+
+- which cue has priority;
+- whether cues should be merged;
+- whether something should be suppressed;
+- when escalation is warranted;
+- which available output path is appropriate.
+
+The base protocol must also support deterministic paths with no Arbiter or AI service.
+
+---
+
+### Is MCP4H an AI protocol?
+
+No.
+
+AI can participate in interpretation, classification, summarization or policy.
+
+MCP4H is intended to remain useful with or without AI.
+
+---
+
+### How is this different from Model Context Protocol?
+
+They address different layers.
+
+Model Context Protocol helps software and AI systems expose tools, resources and results.
+
+MCP4H focuses on how meaningful interpreted information can be structured and projected toward a receiver.
+
+The repository includes an MCP bridge because the two can work together.
+
+---
+
+### Why is MCP4SH important to MCP4H?
+
+MCP4SH is the clearest current real-world reference implementation.
+
+It takes heterogeneous simulation telemetry, normalizes and interprets it, then renders useful state through tactile feedback.
+
+That makes it a valuable pressure test for semantic boundaries, timing, calibration, receiver capability and output independence.
+
+---
+
+### Why racing and flight?
+
+They provide dense real-time machine state and immediate feedback.
+
+Racing gives an established land-chassis reference.
+
+Flight forces the architecture to represent different dynamics without pretending an aircraft is a car.
+
+If the same base works naturally for both, that is a stronger architectural proof.
+
+---
+
+### Is MCP4H only about simulation?
+
+No.
+
+Simulation is the first practical proving ground.
+
+Future reference work may include accessibility or remote operation specifically because those domains are different enough to expose hidden assumptions in the protocol.
+
+---
+
+### What happened to the original Manifesto and Whitepaper?
+
+They remain part of the published historical record.
+
+They describe an important earlier stage of MCP4H and retain their original citation titles.
+
+The current working architecture is documented in:
+
+- `FOUNDATIONS.md`;
+- `README.md`;
+- `ASSUMPTIONS.md`;
+- `ROADMAP.md`.
+
+---
+
+### Is MCP4H production-ready?
+
+The current v0.1.x line is implementable and has working schemas, validation, bridge examples and transport/rendering demos.
+
+The broader receiver-aware v0.2 architecture is still being designed.
+
+MCP4H should therefore be treated as an active v0.x framework, not a finished universal standard.
+
+---
+
+### Is MCP4H trying to solve everything?
+
+No.
+
+A protocol that claims universality before proving it across unrelated domains is not very useful.
+
+The plan is to test the architecture incrementally, keep the base small, and let domain profiles carry domain-specific meaning.

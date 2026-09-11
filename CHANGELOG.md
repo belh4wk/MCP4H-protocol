@@ -1,69 +1,103 @@
 # Changelog
 
-## Documentation update ::: MCP4SH v1.1 implementation note
+All notable changes to this project are documented here.
 
-- Updated README language to describe MCP4SH v1.1 as the current practical proving ground for MCP4H-style haptic translation.
+The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses semantic versioning for tagged protocol releases.
+
+## [Unreleased]
+
+### v0.2 semantic model design - 2026-09-11
+
+#### Added
+- `spec/README.md` to document the current v0.1.x compatibility layout and planned versioned migration.
+- `spec/v0.2/` design documents and cross-domain examples.
+- `.gitignore` for local environments, caches, build output and editor/OS noise.
+
+#### Decided
+- v0.2 uses one shared envelope grammar with multiple independently addressable record kinds rather than one monolithic Semantic Envelope.
+- Observation confidence/quality and Interpretation confidence are separate; measurements may also carry uncertainty.
+- Severity/criticality is domain-profile specific; Policy owns attention priority, interruption and escalation.
+- Carrier identifiers are open-ended, with recommended common identifiers rather than a closed universal enum.
+- Projection remains separate from semantics by default and links through record relations/capability references.
+- Low-latency implementations may bundle records without collapsing their logical roles.
+
+#### Preserved
+- Existing v0.1.x specification paths remain in place so current `$ref` links, tests and validators keep working.
+- Historical published titles and citation records remain unchanged.
+
+#### Fixed
+- v0.1.1 example envelope version strings now match the v0.1.1 schema expected by the blocking validator.
+- Legacy Harmonizer pytest discovery now resolves its local mapper reliably from repo-root test runs.
+- Harmonizer timestamps now use timezone-aware UTC generation while preserving the existing `Z` output format.
+
+### Foundations alignment - 2026-09-11
+
+#### Added
+- `FOUNDATIONS.md` as the current architectural/philosophical anchor.
+- Explicit receiver-aware design principles.
+- Explicit provenance, temporal/spectral structure and domain-profile direction.
+- Clear v0.1.x compatibility vs v0.2 design distinction.
+
+#### Changed
+- README reframed around **Preserve meaning. Adapt the carrier.**
+- Text is no longer described as the mandatory universal semantic intermediate.
+- Arbiter/AI is described as an optional policy/judgment-assist layer.
+- Roadmap updated around v0.2 semantic core, receiver capability, cross-domain references and external interoperability.
+- Project status updated to reflect v0.1.5 plus subsequent MCP/webhook bridge work.
+- Bridge guidance updated to preserve source truth and avoid destructive universal normalization.
+
+#### Preserved
+- v0.1.x schemas and compatibility behavior are not changed by this documentation pass.
+- Historical published titles and citations remain verbatim for archival/citation integrity.
+
+#### Next
+- Finalize the v0.2 shared envelope grammar and record contracts.
+- Consolidate overlapping schema/profile directory structure only after the canonical model is agreed.
+- Build land-chassis and airframe references.
+- Add one focused non-simulation reference.
+
+## Documentation update - MCP4SH v1.1 implementation note
+
+- Updated README language to describe MCP4SH v1.1 as a practical proving ground for MCP4H-style haptic translation.
 - Added Setup Assistant context as an example of MCP4H thinking applied to user onboarding and hardware mapping.
 
+## [v0.1.5] - 2026-02-26
 
-All notable changes to this project will be documented in this file.
-
-The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),  
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
----
-
-## [v0.1.5] – 2026-02-26
 ### Added
-- **Portable behaviour contract for cues** (Cue v1): priority, cooldown/rate-limits, merge/dedupe keys, optional escalation, and modality intent.
-- **Behavior Policy schema** for portable defaults + bounded manual overrides (disable modalities, intensity scaling, verbosity, threshold ranges).
-- **Renderer Capabilities schema** for deterministic fallback behaviour across platforms/devices.
+- Portable behavior contract for cues.
+- Behavior Policy schema.
+- Renderer Capabilities schema.
 
 ### Changed
-- **Cue schema** now supports three compatible shapes:
-  - legacy `cues.v0.1` examples (subject/signal/state/trend)
-  - legacy v0.1 cue envelope (id/ts/channel/intent)
-  - Cue v1 (portable behaviour)
+- Cue schema supports the v0.1 compatibility shapes plus portable Cue v1 behavior.
 
 ### Fixed
-- CI cue validation now validates examples **against the canonical cue schema** instead of hardcoded required keys.
+- CI cue validation validates examples against the canonical cue schema rather than hardcoded required keys.
 
-## [v0.1.1] – 2025-10-05
+## [v0.1.2-protocol] - 2025-11-26
+
+Protocol and documentation alignment release.
+
+See the GitHub release and `CITATIONS.md` for archival/version citation information.
+
+## [v0.1.1] - 2025-10-05
+
 ### Added
-- **Dockerized microservice stack** including `cue-gateway`, `voice-coach`, `osc-bridge`, `udp-proxy`, and `simhub-adapter`.
-- **Unified Docker Compose orchestration** for quick local setup and isolated testing.
-- **Schema validation CI** extended to include message loopback and MQTT transport tests.
-- **Expanded example set** under `/examples_cues` and `/examples_harmonizer`.
-- **Documentation updates** across `/docs/` with references to CI, governance, and developer contribution rules.
-- **Initial rationale framework** introduced; `ASSUMPTIONS.md` planned for next release.
+- Dockerized microservice stack.
+- Unified Docker Compose orchestration.
+- Expanded examples.
+- Extended validation.
 
 ### Changed
-- Updated `README.md` for Quickstart commands and smoke test example.
-- Revised folder structure to clarify `/spec/`, `/examples/`, `/bridges/`, and `/docs/` boundaries.
-- Refined naming and metadata alignment across Zenodo/HAL/OSF/ORCID links.
+- Quickstart and repository structure documentation.
 
 ### Fixed
-- Minor schema consistency issues in `mcp4h-v0.1.json`.
-- CI paths now correctly skip non-envelope JSONs.
+- Schema consistency and CI path handling.
 
----
+## [v0.1] - 2025-09-01
 
-## [v0.1] – 2025-09-01
 ### Added
-- **Initial MCP4H schema** and lexicon definitions.
-- **Baseline examples** validating schema conformance.
-- **Continuous Integration pipeline** for JSON validation.
-- **Core documentation** including README, Overview, and CONTRIBUTING guidelines.
-- **Placeholder Zenodo release** linked for DOI and archival.
-
----
-
-## [Unreleased] – Upcoming
-### Planned
-- **v0.1.2 – Trail-Braking Alpha (SimHub Chain)**
-  - First end-to-end demonstration of MCP4H signal translation:  
-    *Game telemetry → MCP4H core → SimHub text cue (“LIFT” / “PUSH”)*  
-  - Adds `ASSUMPTIONS.md` (design rationale), live output validation logs, and recorded demo artifact.
-  - Prepares repo for Zenodo/ORCID update with new release metadata.
-
----
+- Initial MCP4H schema and lexicon definitions.
+- Baseline examples and JSON validation.
+- Initial public documentation and governance structure.
+- Archival/DOI groundwork.

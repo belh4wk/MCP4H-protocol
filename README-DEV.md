@@ -1,4 +1,6 @@
-# MCP4H – Developer Guide (README-DEV)
+# MCP4H - Developer Guide (README-DEV)
+
+> **Scope:** this guide documents the working v0.1.x reference stack. The v0.2 receiver-aware semantic model is being designed under `spec/v0.2/` and does not replace these runtime paths yet.
 
 This guide helps you build, run, test, and troubleshoot the MCP4H stack locally.
 

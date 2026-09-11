@@ -1,5 +1,7 @@
 # Cues and Projection
 
+> **v0.1.x compatibility documentation.** This page describes the current Cue v1 / projected-payload line. The v0.2 design separates Observation, Interpretation, Policy and Projection records. See `spec/v0.2/`.
+
 MCP4H cues are designed to be **portable**: the same high-level intent should render consistently across different devices and modalities.
 
 ## Modality vs content

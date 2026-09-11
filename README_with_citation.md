@@ -1,4 +1,6 @@
-# MCP4H™ — Multimodal Communication Protocol for Humanity
+# MCP4H™ - Multimodal Communication Protocol for Humanity
+
+> **Historical v0.1.1 release-oriented README.** For the current MCP4H architecture and v0.2 direction, use the root `README.md`, `FOUNDATIONS.md` and `spec/v0.2/`.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17164550.svg)](https://doi.org/10.5281/zenodo.17164550)
 
@@ -47,13 +49,13 @@ Emit `version: "0.1.1"` (bare semver). During v0.1.x, receivers MAY accept legac
 - **Version DOI (this release):** https://doi.org/10.5281/zenodo.17727584
 
 **APA**  
-Van Echelpoel, D. (2025). *MCP4H™ v0.1.1 — Additive update (envelope + profiles + examples + CI)*. Zenodo. https://doi.org/10.5281/zenodo.17727584
+Van Echelpoel, D. (2025). *MCP4H™ v0.1.1 - Additive update (envelope + profiles + examples + CI)*. Zenodo. https://doi.org/10.5281/zenodo.17727584
 
 **BibTeX**
 ```bibtex
 @software{van_echelpoel_mcp4h_v0_1_1_2025,
   author    = {Dirk Van Echelpoel},
-  title     = {MCP4H™ v0.1.1 — Additive update (envelope + profiles + examples + CI)},
+  title     = {MCP4H™ v0.1.1 - Additive update (envelope + profiles + examples + CI)},
   year      = {2025},
   publisher = {Zenodo},
   version   = {v0.1.1},

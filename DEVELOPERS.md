@@ -1,4 +1,11 @@
-# DEVELOPERS.md — MCP4H™ repo notes
+# DEVELOPERS.md - MCP4H repo notes
+
+## Current architecture status
+
+- v0.1.x remains the runtime/compatibility line.
+- v0.2 design work lives under `spec/v0.2/` and is currently non-normative.
+- Do not move `spec/behavior`, `spec/cues`, `spec/schema`, `spec/schemas`, `spec/profiles` or `spec/domain_profiles` until the dedicated path/reference migration is ready.
+- New v0.2 work uses a shared envelope grammar with separate Observation, Interpretation, Policy, Projection and Response records plus referenced Capability Profiles.
 
 ## Schemas & Examples
 - Baseline schema (v0.1): `spec/schema/mcp4h-v0.1.json`
@@ -22,9 +29,9 @@ CI workflow: `.github/workflows/validate.yml`
 - No PII; `actor.handle` should be opaque/hashed.
 
 ## Bridges
-- `bridges/simhub/` — per-wheel **Traction LEDs** mapping (colors + blink) for Dash Studio.
-- `bridges/simhub-plugin/` — C# plugin skeleton reading `SimHubVars.json` and publishing properties.
-- `bridges/notify-led/` — Notif-LED mapping for wearables (heat/valence → color/pattern).
+- `bridges/simhub/` - per-wheel **Traction LEDs** mapping (colors + blink) for Dash Studio.
+- `bridges/simhub-plugin/` - C# plugin skeleton reading `SimHubVars.json` and publishing properties.
+- `bridges/notify-led/` - Notif-LED mapping for wearables (heat/valence → color/pattern).
 
 ## Harmonizer Integration
 

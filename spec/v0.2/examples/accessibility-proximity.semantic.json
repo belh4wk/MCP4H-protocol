@@ -1,0 +1,43 @@
+{
+  "_status": "non-normative v0.2 design example",
+  "mcp4h": "0.2-draft",
+  "kind": "interpretation",
+  "id": "int-navigation-hazard-001",
+  "created_at": "2026-09-11T16:04:00Z",
+  "profile": {
+    "id": "accessibility.navigation",
+    "version": "0.1-draft"
+  },
+  "relations": [
+    {
+      "type": "interprets",
+      "ref": "obs-navigation-hazard-001"
+    }
+  ],
+  "interpretation": {
+    "type": "navigation.hazard.proximity",
+    "state": "proximal",
+    "confidence": 0.96,
+    "attributes": {
+      "side": "left",
+      "motion": "closing"
+    },
+    "projection_requirements": {
+      "preserve": [
+        "event_identity",
+        "spatial.side",
+        "state"
+      ]
+    }
+  },
+  "provenance": {
+    "trace_id": "nav-20260911-012",
+    "transformations": [
+      {
+        "component": "environment.proximity-fusion",
+        "version": "0.4",
+        "operation": "classify"
+      }
+    ]
+  }
+}

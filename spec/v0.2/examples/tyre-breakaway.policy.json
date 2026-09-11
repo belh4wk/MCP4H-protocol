@@ -1,0 +1,23 @@
+{
+  "_status": "non-normative v0.2 design example",
+  "mcp4h": "0.2-draft",
+  "kind": "policy",
+  "id": "policy-tyre-001",
+  "created_at": "2026-09-11T16:00:00Z",
+  "relations": [
+    {
+      "type": "governs",
+      "ref": "int-tyre-breakaway-001"
+    }
+  ],
+  "policy": {
+    "action": "surface",
+    "priority": 62,
+    "attention": {
+      "cooldown_ms": 80,
+      "merge_key": "vehicle.tyre.front_left.breakaway",
+      "merge_strategy": "latest"
+    },
+    "reason": "land-chassis-profile-default"
+  }
+}

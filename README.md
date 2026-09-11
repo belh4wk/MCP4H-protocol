@@ -1,179 +1,224 @@
 # MCP4H: Multimodal Communications Protocol For Humanity 🦉
 
-## Quickstart
+> **Preserve meaning. Adapt the carrier.**
 
-Start here: `docs/quickstart.md` (validate a canonical packet + run the projection demo + webhook test).
+MCP4H is an open, receiver-aware communication framework for translating meaningful information across machines, software, people and sensory interfaces.
 
-MCP4H is an open-source standard for the "Sensory Era." It provides a shared structure for machines to communicate useful information through human-readable cues: haptic, audio, text, and visual.
+The problem is simple:
 
-The point is not more data. The point is clearer translation.
+**Useful information often exists in a form the receiver cannot use directly.**
 
-## The Architecture
-The protocol operates on a three-tier modular system:
+A source may expose telemetry, events, sensor data, logs or model output. One receiver may need touch. Another may need sound, force, light, text, spatial cues or machine-readable state.
 
-1. **The Bridges (Connectors):** Translate existing data (Jira, Discord, Sim-Racing Telemetry) into the protocol.
-2. **The Arbiter (The Brain):** An AI or logic layer that evaluates data against "Stable Ideals" to decide what the human needs to perceive.
-3. **The Protocol (The Messenger):** Delivers the sensory packet to the hardware.
+MCP4H aims to keep the useful meaning separate enough from the original carrier that it can be expressed appropriately at the other end.
 
-## Current Implementations
+The point is not more data.
 
-* **[MCP4SH](https://github.com/belh4wk/MCP4SH):** The current practical proving ground. MCP4SH turns sim-racing telemetry into clearer haptic cues for SimHub, with a Setup Assistant that helps users map real hardware without needing to understand every routing detail first.
-* **Accessibility:** Future bridges for visual-to-haptic translation for the blind and intent-to-speech for the non-verbal.
+The point is clearer translation.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17727584.svg)](https://doi.org/10.5281/zenodo.17727584)
+## Start here
 
-## What this repo is (and is not)
+- **Foundations:** [`FOUNDATIONS.md`](FOUNDATIONS.md)
+- **Quickstart:** [`docs/quickstart.md`](docs/quickstart.md)
+- **Assumptions and design rationale:** [`ASSUMPTIONS.md`](ASSUMPTIONS.md)
+- **Roadmap:** [`ROADMAP.md`](ROADMAP.md)
+- **Current project status:** [`PROJECT_STATUS.md`](PROJECT_STATUS.md)
+- **Citation information:** [`CITATIONS.md`](CITATIONS.md)
 
-This repository contains the **MCP4H™ protocol**:
+## In plain English
 
-- Schemas, examples, docs, and tooling for the **Multimodal Communications Protocol For Humanity**.
-- A neutral backbone for machine-to-machine and machine-to-human cue exchange.
-- Reference material for anyone building adapters, bridges, or UIs on top of MCP4H.
+A source should not dictate how its meaning must be received.
 
-This repo **does not** contain:
+For example, a simulator may expose tyre, suspension and chassis state as numbers. MCP4SH can interpret those values as useful driving events and render them through tactile hardware.
 
-- SimHub plugins
-- Game-specific haptics code
-- Commercial implementations
+The useful event is the important part.
 
-Those live in **separate implementation repos** (for example MCP4SH® for SimHub).
+A different renderer could express the same event through another supported carrier without requiring the source semantics to be reinvented.
 
-MCP4H™ (Multimodal Communications Protocol for Humanity) is a **common language for communication**, built to help people and machines share situational awareness.
+## Architectural direction
 
-Works across **text • visual • audio • haptic.**  
-Small cue grammar — big reach.
-
----
-
-
-## Implementation note ::: MCP4SH
-
-MCP4SH is not part of this protocol repo, but it is currently the clearest public implementation of the MCP4H direction.
-
-It demonstrates the same basic pattern:
+v0.2 uses a shared envelope grammar with separately addressable records:
 
 ```text
-noisy source data -> normalized interpretation -> human-facing cue
+Observation record(s)
+  -> Interpretation record(s)
+  -> optional Policy record(s)
+  -> Projection record(s)
+  -> Transport / Renderer
+  -> optional Response record(s)
 ```
 
-In MCP4SH, the source data is sim telemetry and the human-facing output is tactile feedback. The v1.1 Setup Assistant extends the same idea into onboarding: the user selects what they physically have, feels test pulses, and receives a matching SimHub sound-output profile.
+Records are linked by IDs/relations. One Observation can support multiple Interpretations, and one Interpretation can support multiple Projections. Low-latency implementations may bundle multiple records into one transport message, so logical separation does not require extra network hops.
 
-That is MCP4H thinking applied to a real problem: less decoding, less guesswork, clearer action.
+The current v0.1.x implementation remains the compatibility/runtime line while these v0.2 contracts are designed under `spec/v0.2/`.
 
-## Prior-Art Disclosure
+Current v0.2 design choices keep confidence scoped to Observation vs Interpretation, leave severity/criticality to domain profiles, keep carrier identifiers open-ended, and keep Projection separate from semantics unless linked through record relations/capability references.
+
+## Text is one carrier
+
+Earlier MCP4H work treated text as the canonical intermediate representation.
+
+That was useful for the initial conversational and dashboard-oriented experiments, but it is too narrow for the wider problem.
+
+Some information is naturally temporal, spatial, relational, spectral, force-related or probabilistic.
+
+MCP4H therefore no longer treats text as a mandatory intermediate for all meaning.
+
+The historical assumption remains recorded in [`ASSUMPTIONS.md`](ASSUMPTIONS.md), where it is marked as superseded rather than deleted.
+
+## Receiver capability
+
+v0.1.5 introduced renderer capabilities, behavior policy and portable cue behavior.
+
+That work is an important bridge toward the next architecture.
+
+A receiver or renderer may need to describe supported carriers, topology, timing/frequency range, latency, dynamic range, accessibility constraints, calibration/fingerprint information, context and preferences.
+
+The same semantic event can then be projected differently while preserving the information that matters.
+
+## AI and the Arbiter
+
+An Arbiter remains a useful optional judgment-assist layer for prioritization, suppression, deduplication, escalation, interruption budgets and context-aware channel substitution.
+
+It is not required for the base protocol.
+
+AI may participate in interpretation or policy, but deterministic systems remain first-class.
+
+See [`arbiter/README.md`](arbiter/README.md).
+
+## Current implementation line: v0.1.x
+
+The latest tagged protocol release is **v0.1.5**.
+
+v0.1.5 includes:
+
+- portable cue behavior;
+- priority, confidence and severity;
+- cooldown, merge, dedupe and escalation concepts;
+- modality intent;
+- Behavior Policy;
+- Renderer Capabilities;
+- schema-driven validation;
+- compatible envelope extensions.
+
+The repository also includes practical bridge work added after the tagged release, including:
+
+- Model Context Protocol interoperability;
+- projected cue examples;
+- webhook delivery;
+- local web rendering;
+- mapping and validation tools.
+
+The v0.1.x line remains the compatibility baseline while v0.2 foundations are designed.
+
+## MCP interoperability
+
+MCP4H includes a reference bridge for mapping Model Context Protocol tool events/results into MCP4H packets.
+
+- Implementation: [`bridges/mcp/`](bridges/mcp/)
+- Examples: [`examples/messages/mcp/`](examples/messages/mcp/)
+- Quickstart: [`docs/quickstart.md`](docs/quickstart.md)
+
+MCP and MCP4H solve different layers of the problem.
+
+MCP can help software and agents expose tools, resources and results.
+
+MCP4H focuses on how meaningful interpreted information can be structured and projected toward a receiver.
+
+## Current practical reference: MCP4SH
+
+[MCP4SH](https://github.com/belh4wk/MCP4SH) is Tyto Sensory Labs' first commercial reference implementation and the clearest current proving ground for the wider MCP4H direction.
+
+MCP4SH turns heterogeneous simulation telemetry into coherent tactile cues through normalization, event/state interpretation and effect orchestration.
+
+Its strategic role is larger than one output device or one simulation title:
+
+```text
+source-specific data
+  -> canonical interpretation
+  -> receiver-specific projection
+```
+
+The next MCP4SH cycle extends that proof from land vehicles into aircraft dynamics, while preserving domain-specific meaning rather than forcing one domain to imitate the other.
+
+MCP4SH remains a separate product and repository under its own licensing terms.
+
+## Reference domains
+
+MCP4H is being tested against deliberately different classes of problem:
+
+- **Simulation:** vehicle and aircraft state translated into useful sensory cues.
+- **Remote operation:** future work around restoring useful machine/environment awareness when the operator is physically separated from the equipment.
+- **Accessibility:** future work around translating information away from an unavailable or overloaded sensory channel.
+- **People + AI:** making machine interpretation perceivable and inspectable without turning every conclusion into more text.
+- **Living-system research:** longer-horizon work where our language or senses should not be assumed to be the only useful representation.
+
+These are trajectories and test domains, not claims that each problem is already solved.
+
+## What this repo is
+
+This repository contains the open MCP4H protocol/framework:
+
+- schemas;
+- cues and behavior contracts;
+- domain/profile experiments;
+- bridge references;
+- examples;
+- validation tooling;
+- documentation;
+- governance and prior-art material.
+
+It does not contain the commercial MCP4SH SimHub plugin.
+
+## Repository areas
+
+- `spec/` - protocol/specification work and domain/profile structures
+- `schemas/` - current schema assets used by tooling and examples
+- `bridges/` - source, transport and delivery bridge references
+- `arbiter/` - optional policy/judgment-assist layer
+- `examples/` - packets, examples and runnable demonstrations
+- `tools/` - validation and demo utilities
+- `docs/` - quickstart, explanatory material and historical publications
+
+The v0.2 design cycle will review overlapping historical directories and naming so the specification surface becomes easier for outside implementers to navigate.
+
+## Prior-art disclosure
 
 The architectural concepts and design principles underlying MCP4H are intentionally published as prior art.
-A public prior-art disclosure describing the system architecture, telemetry normalization approach, and multimodal design principles is available via Zenodo:
 
-**DOI:** https://doi.org/10.5281/zenodo.18223144
-
-This disclosure is intended to prevent exclusive patent claims on the core MCP4H architecture while enabling open and interoperable implementations.
+- Concept DOI: [10.5281/zenodo.17164550](https://doi.org/10.5281/zenodo.17164550)
+- Prior-art disclosure DOI: [10.5281/zenodo.18223144](https://doi.org/10.5281/zenodo.18223144)
+- Release-specific citation information: [`CITATIONS.md`](CITATIONS.md)
 
 ## Quickstart
 
-### 1. Build and start the services
-```powershell
-docker compose down
-docker compose build --no-cache
-docker compose up
-```
+Follow [`docs/quickstart.md`](docs/quickstart.md).
 
-### 2. Run the smoke test
-Run this from a separate PowerShell terminal in the repo root:
+The current quickstart exercises the working v0.1.x packet/projection model and the MCP/webhook reference path.
 
-```powershell
-curl.exe -X POST http://localhost:8080/cue `
-  -H "Content-Type: application/mcp4h+json" `
-  --data-binary "@examples_cues/smoketest.json"
-```
+## Design rationale
 
-✅ **Expected output** (in the curl terminal):
-```json
-{"accepted": true, "topic": "mcp4h/cues"}
-```
+Important assumptions are superseded when the work provides a better model; they are not silently erased.
 
-📋 **Docker logs** will show:
-```
-POST /cue HTTP/1.1" 200 OK
-```
+See [`ASSUMPTIONS.md`](ASSUMPTIONS.md).
 
-> Note: The response body only appears in the terminal where you ran `curl.exe`. Docker logs confirm requests were received and processed, but do not echo response JSON.
+## Status
 
----
+MCP4H is an active v0.x protocol/framework.
 
-## Contents
+It is not yet a universal standard.
 
-- **Spec**: schema + lexicon + media type  
-- **Lingua**: deterministic audio/haptic/visual maps  
-- **Profiles**: assistive, safety, media  
-- **Microservices**: cue-gateway, voice-coach (+TTS script), osc-bridge, udp-proxy, simhub-adapter, fanatec-adapter  
-- **Tools**: CLI sender/validator, Postman collection  
-- **Docs**: Spine, Roadmap, RFCs, Deployment, Compliance, Governance, Patent covenant  
-- **CI + Tests**: schema + MQTT loopback  
-- **Diagram**: `/diagrams/stack.svg`  
-- **Assumptions**: design rationale and conceptual foundations (`/docs/ASSUMPTIONS.md`)
+The current foundations pass aligns the project's public architecture before the v0.2 schema cycle begins.
 
----
-
-## Design Rationale
-
-📘 **Assumptions & Rationale**  
-See [`/docs/ASSUMPTIONS.md`](docs/ASSUMPTIONS.md) for the conceptual and ethical backbone of MCP4H —  
-why each design decision exists, the principles guiding signal translation, and how future versions validate or deprecate those assumptions.
-
-Each assumption is treated as a **commit of understanding** — dated, versioned, and never deleted.  
-Together, they form the *Principles of Human-Readable Signal Translation* — the living documentation of the protocol’s evolution.
-
-Example categories of assumptions include:
-
-- **Conceptual:** how humans interpret multimodal cues under cognitive load.  
-- **Design:** why every signal resolves to a text semantic layer before voice or haptics.  
-- **Ethical:** ensuring MCP4H augments awareness rather than automating judgment.  
-- **Validation:** measurable tests for clarity, latency, and adoption.
-
----
-
-## Architectural Flow
-
-```
-[Game Telemetry] → [MCP4H Core Translator] → [Output Adapter]
-```
-
-For the trail-braking alpha demo:  
-- **Input:** Game telemetry (speed, brake pressure, slip ratio)  
-- **Core:** MCP4H translator applies rule logic → "LIFT" / "PUSH" cue  
-- **Output:** SimHub dashboard text label  
-
-Future adapters (voice, haptic, AI coach) will follow this same interface pattern.  
-This minimal chain is the first real-world test of MCP4H’s founding claim:  
-> “Clarity is a deliverable.”
-
----
-
-## Tagline
-
-> “MCP4H is a common language for communication, built to help people and machines share situational awareness.”
-
----
-
-## References
-
-- 📄 [Zenodo DOI](https://doi.org/10.5281/zenodo.17727584)  
-- 📄 [HAL Preprint](https://hal.science/)  
-- 📄 [OSF Preprint](https://osf.io/)  
-- 📄 [ORCID Profile](https://orcid.org/)  
-
----
-
-© 2025 Dirk Van Echelpoel — MCP4H™ (Multimodal Communications Protocol for Humanity)
+See [`ROADMAP.md`](ROADMAP.md) and [`PROJECT_STATUS.md`](PROJECT_STATUS.md).
 
 ## Related projects
 
-- **MCP4SH™** – SimHub implementation of MCP4H for sim racing haptics  
-  *(separate repository, distributed under a more restrictive license)*
+- **MCP4SH™** - simulation haptics and machine-state interpretation reference implementation
+- **MCP4H Harmonizer** - earlier conversational work built from MCP4H principles; retained as an important domain-specific branch of the project's history
 
-- **MCP4H: Harmonizer** – conversational stack built on MCP4H principles (guardrails, voice profiles, and cue mappings).
+---
 
-## Canonical cues
+© 2025-2026 Dirk Van Echelpoel / Tyto Sensory Labs
 
-For v0.1.x, new work should use the **Projected payload cue (v0.1.1)**. Legacy cue shapes are deprecated and kept only for compatibility.
+MCP4H™ means **Multimodal Communications Protocol For Humanity**. The `4` means **For**; it does not limit the framework to four carriers or modalities.

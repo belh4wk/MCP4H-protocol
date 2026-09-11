@@ -1,42 +1,84 @@
-MCP4H™ Repo – Document Purposes
+MCP4H Repo - Document and Directory Purposes
+
+CURRENT FOUNDATION
 
 README.md
-  - Top-level overview
-  - What MCP4H™ is, why it matters, repo structure, links
+  - Current top-level project overview
+  - Plain-language architecture, status and links
 
-VISION.md
-  - Plain-language explainer of the “why”
-  - Folded Manifesto + Whitepaper insights
-  - Metaphors + proving grounds + future directions
+FOUNDATIONS.md
+  - Current architectural/philosophical anchor
+  - "Preserve meaning. Adapt the carrier."
 
-overview.md
-  - Technical overview of grammar and examples
-  - Folded technical framing from Whitepaper
-
-FAQ.md
-  - Practical Q&A
-  - Differentiates MCP4H™ from existing tools
-  - Clarifies folded docs approach
-
-Harmonizer.md
-  - Quick reference for Harmonizer GPT
-  - Ops-focused, not full spec
-
-MCP4H_Harmonizer_Handbook_v1.7.md
-  - Current detailed handbook
-  - Includes configuration, Appendix F (packet emission), Appendix G (GPT mapping)
-
-DEVELOPERS.md
-  - Engineering and contribution rules
-
-SECURITY.md
-  - Security and privacy guidance
-
-CHANGELOG.md
-  - Version history
+ASSUMPTIONS.md
+  - Dated design assumptions and explicit supersessions
 
 ROADMAP.md
-  - Future milestones
+  - Current v0.1.x -> v0.2 development path
 
-Other folders (spec/, examples/, bridges/, tests/, .github/workflows/)
-  - Schemas, examples, adapters, CI validation
+PROJECT_STATUS.md
+  - Current implementation/status checkpoint
+
+SPECIFICATION
+
+spec/README.md
+  - Explains current historical v0.1.x paths and the v0.2 design layout
+
+spec/v0.2/
+  - Non-normative receiver-aware v0.2 design work
+  - Shared envelope grammar, semantic records, capability, policy and projection design
+
+spec/behavior/, spec/cues/, spec/schema/, spec/schemas/, spec/profiles/, spec/domain_profiles/
+  - Current/historical v0.1.x compatibility material
+  - Paths remain in place until a dedicated migration updates references and validators
+
+docs/README.md
+  - Documentation index and historical-publication context
+
+docs/VISION.md
+  - Current plain-language vision
+
+docs/overview.md
+  - Current technical overview
+
+docs/FAQ.md
+  - Current practical Q&A
+
+docs/quickstart.md
+  - Working v0.1.x/MCP bridge quickstart
+
+docs/cues.md
+  - v0.1.x Cue v1/projected-payload compatibility documentation
+
+DEVELOPER / RUNTIME
+
+README-DEV.md
+  - v0.1.x reference-stack developer guide
+
+DEVELOPERS.md
+  - Engineering/contribution notes and current architecture status
+
+bridges/
+  - Source/delivery adapters and MCP/webhook reference work
+
+arbiter/
+  - Optional policy/judgment-assist implementation area
+
+examples/, examples_cues/, examples_v0.1.1/, examples_harmonizer/
+  - Runtime, compatibility and historical example material
+
+tests/, tools/, .github/workflows/
+  - Validation, tooling and CI
+
+HISTORICAL / CITATION
+
+CITATIONS.md, CITATION.cff, CITATIONS.bib
+  - Citation and identifier records
+
+README_with_citation.md
+  - Historical v0.1.1 release-oriented README
+
+MCP4H_Harmonizer_Handbook_v1.6.md
+  - Existing Harmonizer handbook retained as domain-specific/historical material
+
+Published citation titles and archived PDFs should remain verbatim for archival integrity.

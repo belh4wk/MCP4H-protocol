@@ -1,28 +1,71 @@
-# MCP Bridge (Model Context Protocol)
+# MCP Bridge - Model Context Protocol
 
-This bridge makes **MCP4H™** interoperable with the **Model Context Protocol (MCP)** ecosystem.
+This bridge makes MCP4H interoperable with the Model Context Protocol ecosystem.
 
-**Goal:** convert MCP tool-call events/results into MCP4H packets (and optionally publish MCP4H cues back out to human channels).
+The two protocols address different layers:
 
-## Responsibilities (hard boundaries)
+- **MCP** helps software and agents expose tools, resources and results.
+- **MCP4H** focuses on how useful interpreted information can be structured and projected toward a receiver.
 
-- **Bridge = connector / plumbing**
-  - Connects to MCP servers/hosts (JSON-RPC) or consumes MCP logs/events.
-  - Maps MCP tool results / resources into **MCP4H packets** (no “meaning logic” beyond mapping).
-- **Protocol = meaning + validation**
-  - The MCP4H schema and canonical examples define packet meaning.
-- **Arbiter = judgement assist**
-  - Prioritization, suppression, rate limiting, escalation, and multi-channel emission decisions.
+## Current goal
 
-If you find yourself adding “priority rules” or “should we notify?” logic here, it belongs in `arbiter/`.
+Map MCP tool events/results into valid MCP4H v0.1.x packets, validate them, and optionally deliver projected payloads to supported endpoints.
 
-## Reference implementation (skeleton)
+## Current implementation
 
-This folder intentionally starts as a **minimal reference**. A full MCP server/client implementation is planned.
+This folder now includes working reference pieces rather than only a skeleton.
 
-Suggested next steps:
-1) Add an MCP **server** exposing MCP4H tools/resources (validate, normalize, publish).
-2) Add an MCP **client** adapter that consumes tool-call outputs and emits MCP4H packets.
-3) Wire into `bridges/cue-router/` for multi-channel delivery.
+The wider repo also includes:
 
-See: `examples/messages/mcp/` for MCP-related message examples.
+- a minimal MCP server;
+- validation/mapping tools;
+- example MCP messages;
+- projected payload examples;
+- webhook publication paths;
+- local rendering examples.
+
+See `docs/quickstart.md` and `examples/messages/mcp/`.
+
+## Responsibilities
+
+### Bridge = connector / mapping boundary
+
+The MCP bridge:
+
+- receives MCP-compatible events/results;
+- preserves useful origin/trace information;
+- maps them into MCP4H-compatible structures;
+- avoids inventing unrelated domain meaning;
+- can hand packets to validation, policy or delivery components.
+
+### Protocol = shared contract
+
+The MCP4H schema, profiles and canonical examples define the packet contract.
+
+### Policy / Arbiter = optional judgment assist
+
+Prioritization, suppression, rate limiting, escalation, interruption decisions and channel substitution may belong in an optional policy/Arbiter layer.
+
+The MCP bridge must not require that layer to exist.
+
+## Design rule
+
+If mapping a tool result requires domain interpretation, make that boundary explicit.
+
+If a component is deciding whether something deserves attention, that is policy rather than transport mapping.
+
+## v0.2 direction
+
+The current bridge remains a v0.1.x compatibility/reference path.
+
+As v0.2 develops, MCP mapping should target the clearer sequence:
+
+```text
+MCP result
+  -> Observation
+  -> optional Interpretation
+  -> optional Policy
+  -> Projection
+```
+
+This should remain additive until a migration path is explicitly defined.

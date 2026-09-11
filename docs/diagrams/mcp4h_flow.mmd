@@ -1,27 +1,51 @@
 flowchart LR
-  subgraph Inputs
-    A[Game/Sim Telemetry] -->|speed,rpm,gear| B
-    C[Human Controls] --> B
-    D[Voice/Gaze] --> B
-    E[Biometrics] --> B
+  subgraph Sources[Sources]
+    A[Simulation / machine telemetry]
+    B[Software / MCP events]
+    C[Voice / gaze / controls]
+    D[Sensors / environment]
   end
 
-  subgraph MCP4H_Core[Ingest & MCP4H Core]
-    B[Ingest Adapters (SimHub/SDKs)]
-    F[Normalization (units/frames/ts)]
-    G[MCP4H Schema (header/signal/context + confidence)]
-    H[Message Bus / API]
-    B --> F --> G --> H
+  subgraph Semantics[MCP4H semantic records]
+    E[Observation record(s)]
+    F[Interpretation record(s)]
   end
 
-  subgraph Outputs
-    I[Arduino/DIY]
-    J[OEM Peripherals]
-    K[Analytics/Recorder]
-    L[AI/Assistant]
+  subgraph Decision[Optional decision + projection]
+    G[Policy record(s)]
+    H[Projection record(s)]
+    CP[Capability Profile]
   end
 
+  subgraph Delivery[Delivery]
+    I[Transport / bridge]
+    J[Renderer]
+  end
+
+  subgraph Receivers[Receivers]
+    K[Person / operator]
+    L[Software / AI]
+    M[Device / system]
+  end
+
+  A --> E
+  B --> E
+  C --> E
+  D --> E
+
+  E --> F
+  F --> G
+  F --> H
+  G --> H
+  CP --> H
   H --> I
-  H --> J
-  H --> K
-  H --> L
+  I --> J
+
+  J --> K
+  J --> L
+  J --> M
+
+  K -. response .-> R[Response record]
+  L -. response .-> R
+  M -. response .-> R
+  R -. may become new observation .-> E

@@ -8,7 +8,7 @@ DEFAULT_SOURCE = {"agent": "bridges/harmonizer", "version": "0.0.1"}
 
 def _now_iso() -> str:
     import datetime as _dt
-    return _dt.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+    return _dt.datetime.now(_dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 def mcp4h_to_prompt(packet: Dict[str, Any]) -> Tuple[str, Dict[str, Any]]:
     version = packet.get("mcp4h_version", DEFAULT_VERSION)

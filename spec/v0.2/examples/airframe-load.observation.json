@@ -1,0 +1,50 @@
+{
+  "_status": "non-normative v0.2 design example",
+  "mcp4h": "0.2-draft",
+  "kind": "observation",
+  "id": "obs-airframe-load-001",
+  "created_at": "2026-09-11T16:02:00Z",
+  "profile": {
+    "id": "machine.dynamics.airframe",
+    "version": "0.1-draft"
+  },
+  "source": {
+    "system": "flight-simulator.example",
+    "component": "aircraft.telemetry"
+  },
+  "subject": {
+    "type": "aircraft.airframe",
+    "id": "primary"
+  },
+  "observation": {
+    "observed_at": "2026-09-11T16:01:59.990Z",
+    "confidence": 0.995,
+    "measurements": [
+      {
+        "name": "aircraft.normal_acceleration",
+        "value": 4.7,
+        "unit": "g",
+        "uncertainty": 0.03
+      },
+      {
+        "name": "aircraft.pitch_rate",
+        "value": 18.2,
+        "unit": "deg/s"
+      },
+      {
+        "name": "aircraft.airspeed",
+        "value": 161.0,
+        "unit": "m/s"
+      }
+    ],
+    "structure": {
+      "temporal": {
+        "state_duration_ms": 640,
+        "trend": "increasing"
+      }
+    }
+  },
+  "provenance": {
+    "trace_id": "flight-20260911-004"
+  }
+}

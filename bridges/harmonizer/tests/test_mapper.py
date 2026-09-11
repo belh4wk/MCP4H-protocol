@@ -1,4 +1,12 @@
+from pathlib import Path
+import sys
+
+# Keep this legacy bridge test runnable from repo-root pytest without turning the
+# historical bridge directories into Python packages solely for test discovery.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from mapper import mcp4h_to_prompt, prompt_to_mcp4h_response
+
 
 def test_roundtrip_minimal():
     pkt = {

@@ -1,35 +1,92 @@
-# Overview
+# MCP4H Overview
 
-MCP4H™ is a **multimodal communications protocol**.  
-It defines a grammar for expressing cues consistently:
+MCP4H is an open, receiver-aware communication framework.
 
-- **Type** (Coach, Risk, Plan, State, Confirm)  
-- **Priority** (now, soon, later)  
-- **Channel** (light, haptic, text, audio, all)  
-- **Rules** (expiry + acknowledgement)
+Its core idea is simple:
 
-CI now validates lint/type checks in addition to schema/tests.
+> **Preserve meaning. Adapt the carrier.**
 
----
+A source may expose telemetry, events, sensor data, logs or model output.
 
-## Example outputs
+A receiver may need touch, force, audio, light, text, spatial cues or another supported form.
 
-- `tyre hot` → more grip, but risk of overheating  
-- `tyre cold` → less grip, unstable  
-- `brake fade risk` → adjust before failure  
+MCP4H aims to keep those ends from becoming unnecessarily coupled.
 
----
+## Conceptual flow
 
-## Architecture (from Whitepaper)
+```text
+Observation record(s)
+  -> Interpretation record(s)
+  -> optional Policy record(s)
+  -> Projection record(s)
+  -> Transport / Renderer
+  -> optional Response record(s)
+```
 
-- **Envelope**: each cue conforms to schema in `spec/`.  
-- **Transport**: protocol-agnostic; publish/subscribe ready.  
-- **Adapters (bridges/)**: translate MCP4H™ envelopes into domain-specific outputs (SimHub, LEDs, chatbots).  
-- **Validation**: CI ensures conformance to schema.
+The records share a small envelope grammar and link by IDs/relations. A low-latency transport may bundle several records in one message.
 
----
+## Current v0.1.x implementation
 
-## Metaphor
+The v0.1.x line already contains useful building blocks:
 
-MCP4H™ is the **referee, not another player**.  
-It reduces clutter, delivers clarity, and ensures important signals aren’t missed.
+- cue identity and metadata;
+- confidence, severity and priority;
+- cooldown, merge, dedupe and escalation behavior;
+- Behavior Policy;
+- Renderer Capabilities;
+- schema validation;
+- projected payloads;
+- transport/bridge examples.
+
+These remain the compatibility baseline while v0.2 is designed.
+
+## v0.2 direction
+
+The next architecture separates source observations from interpreted meaning more explicitly and broadens renderer capability into receiver capability.
+
+The intended base will support:
+
+- provenance;
+- uncertainty;
+- temporal structure;
+- spatial/relational structure;
+- spectral structure where relevant;
+- domain-specific profiles;
+- replaceable transports and renderers.
+
+## Reference example
+
+In MCP4SH:
+
+```text
+title-specific simulation telemetry
+  -> normalization / conditioning
+  -> meaningful vehicle state
+  -> tactile projection
+  -> physical rig
+```
+
+The same semantic event may later support another valid renderer without changing the source-domain meaning.
+
+## Protocol boundaries
+
+- **Bridge** - adapts a source, transport or external endpoint.
+- **Semantic layer** - describes observations and interpreted meaning.
+- **Policy / Arbiter** - optional prioritization, suppression, merge or escalation logic.
+- **Projection** - maps meaning toward receiver capabilities.
+- **Renderer** - produces the final output.
+
+Small implementations may combine these responsibilities in one process.
+
+The contract should still keep them conceptually distinguishable.
+
+## Status
+
+MCP4H is an active v0.x framework.
+
+For the current foundation, see:
+
+- `FOUNDATIONS.md`
+- `ASSUMPTIONS.md`
+- `ROADMAP.md`
+- `PROJECT_STATUS.md`
